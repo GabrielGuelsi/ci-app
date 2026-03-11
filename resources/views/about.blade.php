@@ -1175,7 +1175,7 @@
 </head>
 <body>
     <div class="top-banner">
-        International student ? Get free advice from our experts to find the perfect course and university in Ireland.
+        From Dublin to the World — CI Ireland is your European Education Mobility Hub.
         <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
     </div>
 
@@ -1201,8 +1201,8 @@
             <div class="about-hero-content">
                 <div class="about-hero-text">
                     <div class="about-hero-kicker"><i class="fas fa-star"></i> About CI Ireland</div>
-                    <h1 class="about-hero-title">We have become <span> EXPERTS IN HIGHER EDUCATION </span></h1>
-                    <p class="about-hero-subtitle">Born in Brazil in 1988, CI became one of Latin America's largest exchange companies. In 2016, we brought that expertise to Dublin — and have been building success stories on the Emerald Isle ever since.</p>
+                    <h1 class="about-hero-title">An <span>European Education Mobility Hub</span></h1>
+                    <p class="about-hero-subtitle">From Dublin, CI Ireland connects students, educators, universities, schools and institutions through academic programs, professional mobility and international educational experiences that promote professional development, educational innovation and global cooperation.</p>
 
                     <!-- Journey strip: Brazil → Ireland -->
                     <div class="hero-journey">
@@ -1219,7 +1219,7 @@
                             <div class="journey-flag"><span class="flag-badge flag-ie">IE</span></div>
                             <div class="journey-year">2016</div>
                             <div class="journey-label">Arrived in Dublin</div>
-                            <div class="journey-desc">5,000+ students in Ireland</div>
+                            <div class="journey-desc">11,000+ students in Ireland</div>
                         </div>
                     </div>
 
@@ -1229,7 +1229,7 @@
                         <div class="mini-stat-dot"></div>
                         <div class="mini-stat"><span>1M+</span> Students worldwide</div>
                         <div class="mini-stat-dot"></div>
-                        <div class="mini-stat"><span>5,000+</span> in Ireland</div>
+                        <div class="mini-stat"><span>11,000+</span> in Ireland</div>
                     </div>
                 </div>
                 <div class="about-hero-media">

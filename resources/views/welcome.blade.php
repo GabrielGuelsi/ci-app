@@ -1986,11 +1986,10 @@
 
                 <ul class="nav-links">
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="#">Higher Education</a></li>
-                    <li><a href="#" data-coming-soon="true">Erasmus</a></li>
+                    <li><a href="/higher-education">Higher Education</a></li>
+                    <li><a href="#" data-coming-soon="true">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens</a></li>
-                    <li><a href="#" data-coming-soon="true">Ecommerce</a></li>
-                    <li><a href="#">Corporate Programs</a></li>
+                    <li><a href="#">Corporate</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
 
@@ -2025,10 +2024,10 @@
         <ul class="mobile-nav-links">
             <li><a href="#">About Us <i class="fas fa-chevron-right"></i></a></li>
             <li><a href="#">Higher Education <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="#" data-coming-soon="true">Erasmus <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="#" data-coming-soon="true">Teens <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="#" data-coming-soon="true">Erasmus+ Professional Mobility <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
             <li><a href="#" data-coming-soon="true">Ecommerce <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="#">Corporate Programs <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="#">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
             <li><a href="#">Contact <i class="fas fa-chevron-right"></i></a></li>
         </ul>
         <div class="mobile-drawer-footer">
@@ -2059,15 +2058,15 @@
                 </div>
                 <div class="slide-item" onclick="changeSlide(1)">
                     <div class="slide-number">02</div>
-                    <div class="slide-name">Erasmus</div>
+                    <div class="slide-name">Erasmus+ Professional Mobility</div>
                 </div>
                 <div class="slide-item" onclick="changeSlide(2)">
                     <div class="slide-number">03</div>
-                    <div class="slide-name">Teens</div>
+                    <div class="slide-name">Teens Programmes</div>
                 </div>
                 <div class="slide-item" onclick="changeSlide(3)">
                     <div class="slide-number">04</div>
-                    <div class="slide-name">Corporate Programs</div>
+                    <div class="slide-name">Corporate Learning</div>
                 </div>
             </div>
 
@@ -2186,16 +2185,16 @@
             <!-- Persona Tabs -->
             <div class="persona-tabs" role="tablist" aria-label="Program categories">
                 <button class="persona-tab active" role="tab" aria-selected="true" aria-controls="panel-higher-ed" data-panel="higher-ed">
-                    Degree Programs
+                    Higher Education
                 </button>
                 <button class="persona-tab" role="tab" aria-selected="false" aria-controls="panel-erasmus" data-panel="erasmus">
-                    Erasmus
+                    Erasmus+ Professional Mobility
                 </button>
                 <button class="persona-tab" role="tab" aria-selected="false" aria-controls="panel-teens" data-panel="teens">
-                    Teens
+                    Teens Programmes
                 </button>
                 <button class="persona-tab" role="tab" aria-selected="false" aria-controls="panel-corporate" data-panel="corporate">
-                    Corporate
+                    Corporate Learning
                 </button>
             </div>
 
@@ -2209,13 +2208,13 @@
                             <img src="{{ asset('images/hero-higher-education.jpg') }}" alt="Higher Education in Ireland" loading="lazy">
                         </div>
                         <div class="program-panel-content">
-                            <div class="program-panel-tag">Degree Programs</div>
+                            <div class="program-panel-tag">Higher Education</div>
                             <h3 class="program-panel-title">Study at a Top Irish University</h3>
-                            <p class="program-panel-desc">Full-degree and semester programs at Ireland's most respected universities — guided from application to arrival.</p>
+                            <p class="program-panel-desc">Complete support for international students looking to study at universities and colleges in Ireland — from Pathway programmes through Undergraduate, Postgraduate and Masters degrees.</p>
                             <ul class="program-bullets">
-                                <li>Free personalized counseling to find the right course and college for you</li>
-                                <li>End-to-end support with visas, enrollment &amp; academic progression</li>
-                                <li>Entrance exam preparation included at no extra cost</li>
+                                <li>Pathway, Undergraduate, Postgraduate and Masters programmes available</li>
+                                <li>Free personalised counselling to find the right course and institution for you</li>
+                                <li>End-to-end support with visas, enrolment &amp; academic progression</li>
                             </ul>
                             <div class="program-panel-ctas">
                                 <a href="#" class="program-cta-primary">Get Free Advice <i class="fas fa-arrow-right"></i></a>
@@ -2232,13 +2231,13 @@
                             <img src="{{ asset('images/hero-erasmus.jpg') }}" alt="Erasmus Programs in Ireland" loading="lazy">
                         </div>
                         <div class="program-panel-content">
-                            <div class="program-panel-tag">Erasmus</div>
-                            <h3 class="program-panel-title">Experience Erasmus in Ireland</h3>
-                            <p class="program-panel-desc">Semester and year-abroad placements at vetted Irish institutions — a seamless academic and cultural exchange.</p>
+                            <div class="program-panel-tag">Erasmus+ Professional Mobility</div>
+                            <h3 class="program-panel-title">Professional Mobility for Educators</h3>
+                            <p class="program-panel-desc">International professional mobility programmes for educators and education professionals — designed to drive professional development and educational innovation.</p>
                             <ul class="program-bullets">
-                                <li>Curated network of accredited partner colleges across Ireland</li>
-                                <li>End-to-end logistics: placement, housing, orientation &amp; ongoing support</li>
-                                <li>A CV-transforming experience that opens global doors</li>
+                                <li>Tailored mobility programmes for teachers, trainers and education staff</li>
+                                <li>Funded opportunities through the Erasmus+ programme</li>
+                                <li>Hands-on professional development in an international environment</li>
                             </ul>
                             <div class="program-panel-ctas">
                                 <a href="#" class="program-cta-primary">Talk to an Advisor <i class="fas fa-arrow-right"></i></a>
@@ -2255,7 +2254,7 @@
                             <img src="{{ asset('images/hero-teens.jpg') }}" alt="Teens Programs in Ireland" loading="lazy">
                         </div>
                         <div class="program-panel-content">
-                            <div class="program-panel-tag">Teens</div>
+                            <div class="program-panel-tag">Teens Programmes</div>
                             <h3 class="program-panel-title">A Summer That Changes Everything</h3>
                             <p class="program-panel-desc">Short and long-term study experiences designed for teenagers who want to grow in confidence, language, and independence.</p>
                             <ul class="program-bullets">
@@ -2278,7 +2277,7 @@
                             <img src="{{ asset('images/hero-corporate-programs.jpg') }}" alt="Corporate Programs" loading="lazy">
                         </div>
                         <div class="program-panel-content">
-                            <div class="program-panel-tag">Corporate</div>
+                            <div class="program-panel-tag">Corporate Learning</div>
                             <h3 class="program-panel-title">Upskill Your Team Abroad</h3>
                             <p class="program-panel-desc">Tailored language and professional development programs for companies investing in their people.</p>
                             <ul class="program-bullets">
@@ -2577,27 +2576,27 @@
             },
             {
                 number: '02',
-                name: 'Erasmus',
-                titleWhite: 'Erasmus',
-                titleOrange: 'Programmes',
-                subtitle: 'For undergraduate and postgraduate students',
+                name: 'Erasmus+ Professional Mobility',
+                titleWhite: 'Erasmus+',
+                titleOrange: 'Professional Mobility',
+                subtitle: 'Professional mobility for educators & education professionals',
                 bg: "{{ asset('images/hero-erasmus.jpg') }}",
                 position: 'center center'
             },
             {
                 number: '03',
-                name: 'Teens',
+                name: 'Teens Programmes',
                 titleWhite: 'Teens',
-                titleOrange: 'Programs',
+                titleOrange: 'Programmes',
                 subtitle: 'Short and long-term study experiences in Ireland',
                 bg: "{{ asset('images/hero-teens.jpg') }}",
                 position: 'center 35%'
             },
             {
                 number: '04',
-                name: 'Corporate Programs',
+                name: 'Corporate Learning',
                 titleWhite: 'Corporate',
-                titleOrange: 'Programs',
+                titleOrange: 'Learning',
                 subtitle: 'Tailored language and training solutions for companies',
                 bg: "{{ asset('images/hero-corporate-programs.jpg') }}",
                 position: 'center center'
