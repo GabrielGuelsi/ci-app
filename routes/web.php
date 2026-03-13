@@ -13,3 +13,7 @@ Route::get('/about', function () {
 Route::get('/higher-education', function () {
     return view('higher-education');
 });
+
+Route::get('/erasmus', function () {
+    return view('erasmus');
+});

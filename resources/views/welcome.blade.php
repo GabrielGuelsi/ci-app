@@ -1987,7 +1987,7 @@
                 <ul class="nav-links">
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
-                    <li><a href="#" data-coming-soon="true">Erasmus+</a></li>
+                    <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens</a></li>
                     <li><a href="#">Corporate</a></li>
                     <li><a href="#">Contact</a></li>

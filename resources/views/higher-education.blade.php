@@ -934,9 +934,10 @@
 
             /* ── Mobile scroll stack: auto-height sticky, section bg fills below ── */
             .scroll-stack-sticky {
-                height: auto;
+                height: 100vh;   /* fallback for older browsers */
+                height: 100dvh;  /* dynamically tracks address bar on mobile */
                 padding: 44px 0 52px;
-                justify-content: flex-start;
+                justify-content: center;
             }
             .stack-inner-header { padding: 0 20px 28px; }
             .stack-cards-wrap   { height: 360px; }
