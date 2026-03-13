@@ -11,7 +11,7 @@
 
 @section('banner')
     <div class="top-banner">
-        From Dublin to the World â€” CI Ireland is your European Education Mobility Hub.
+        From Dublin to the World &mdash; CI Ireland is your European Education Mobility Hub.
         <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
     </div>
 @endsection
@@ -49,7 +49,7 @@
                             <div class="journey-flag"><span class="flag-badge flag-br">BR</span></div>
                             <div class="journey-year">1988</div>
                             <div class="journey-label">Born in Brazil</div>
-                            <div class="journey-desc">100+ units Â· 1M+ students</div>
+                            <div class="journey-desc">100+ units &middot; 1M+ students</div>
                         </div>
                         <div class="journey-connector">
                             <div class="journey-arrow-line"></div>
@@ -155,7 +155,7 @@
             </div>
 
             <div class="team-grid">
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/marilu.avif') }}');">
+                <article class="consultant-card" style="--photo: url('{{ asset('consultant/malu.webp') }}');">
                     <div class="consultant-photo"></div>
                     <div class="consultant-body">
                         <div class="consultant-name">Marilu Rosado</div>
@@ -215,7 +215,7 @@
                     </div>
                 </article>
 
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/karine.avif') }}');">
+                <article class="consultant-card" style="--photo: url('{{ asset('consultant/karine.webp') }}');">
                     <div class="consultant-photo"></div>
                     <div class="consultant-body">
                         <div class="consultant-name">Karine</div>
@@ -263,7 +263,7 @@
                     </div>
                 </article>
 
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/amandaz.avif') }}');">
+                <article class="consultant-card" style="--photo: url('{{ asset('consultant/amandazanga.webp') }}');">
                     <div class="consultant-photo"></div>
                     <div class="consultant-body">
                         <div class="consultant-name">Amanda Zangarini</div>

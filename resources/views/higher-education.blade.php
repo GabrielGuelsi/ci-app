@@ -13,7 +13,7 @@
 @section('banner')
     <!-- TOP BANNER -->
     <div class="top-banner">
-        Free one-to-one consultation for international students â€” find your perfect Irish university.
+        Free one-to-one consultation for international students &mdash; find your perfect Irish university.
         <a href="#consultation">Book Now <i class="fas fa-arrow-right"></i></a>
     </div>
 @endsection
@@ -29,7 +29,7 @@
                 <ul class="nav-links">
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education" class="active">Higher Education</a></li>
-                    <li><a href="#" data-coming-soon="true">Erasmus+ Professional Mobility</a></li>
+                    <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
                     <li><a href="#">Corporate Learning</a></li>
                     <li><a href="#consultation"><button onclick="openModal()" class="he-cta-primary" style="border:none;cursor:pointer;">Free Consultation</button></a></li>
@@ -55,7 +55,7 @@
             </h1>
 
             <p class="he-hero-sub">
-                Complete support for international students looking to study at universities and colleges in Ireland â€” with free, one-to-one consultancy at every stage.
+                Complete support for international students looking to study at universities and colleges in Ireland &mdash; with free, one-to-one consultancy at every stage.
             </p>
 
             <!-- Academic ladder -->
@@ -165,7 +165,7 @@
                     <div class="pathway-card">
                         <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> Entry point if you are ready for university-level study</div>
                         <h3 class="pathway-name">Undergraduate Programs</h3>
-                        <p class="pathway-desc">Full degree programmes offered by internationally recognised universities and colleges across Ireland â€” from 3 to 4-year bachelor degrees across a wide range of disciplines.</p>
+                        <p class="pathway-desc">Full degree programmes offered by internationally recognised universities and colleges across Ireland &mdash; from 3 to 4-year bachelor degrees across a wide range of disciplines.</p>
                     </div>
                 </div>
 
@@ -177,7 +177,7 @@
                     <div class="pathway-card">
                         <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> Entry point if you already hold an undergraduate degree</div>
                         <h3 class="pathway-name">Postgraduate & Masters</h3>
-                        <p class="pathway-desc">Specialisation programmes (Postgraduate Diploma) and Masters degrees offered by internationally recognised higher education institutions â€” the natural next step for graduates looking to advance their careers.</p>
+                        <p class="pathway-desc">Specialisation programmes (Postgraduate Diploma) and Masters degrees offered by internationally recognised higher education institutions &mdash; the natural next step for graduates looking to advance their careers.</p>
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
                 <div class="pathway-cta-icon"><i class="fas fa-compass"></i></div>
                 <div class="pathway-cta-text">
                     <h4>Not sure where you fit?</h4>
-                    <p>Our advisors will assess your profile and guide you to the right starting point â€” at no cost.</p>
+                    <p>Our advisors will assess your profile and guide you to the right starting point &mdash; at no cost.</p>
                 </div>
                 <button onclick="openModal()" class="he-cta-primary" style="border:none;cursor:pointer;white-space:nowrap;">
                     Talk to an Advisor <i class="fas fa-arrow-right"></i>
@@ -207,7 +207,7 @@
                 <div class="stack-inner-header">
                     <div class="he-section-kicker">How It Works</div>
                     <h2 class="he-section-title">Your Journey to an <span>Irish College</span></h2>
-                    <p class="he-section-sub">A simple, guided process â€” we handle the complexity so you can focus on your future.</p>
+                    <p class="he-section-sub">A simple, guided process &mdash; we handle the complexity so you can focus on your future.</p>
                 </div>
 
                 <div class="stack-cards-wrap">
@@ -238,7 +238,7 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">Understanding Your Profile</h3>
-                            <p class="step-desc">Our team asks the right questions to understand your background and goals â€” so we can place you in the perfect programme.</p>
+                            <p class="step-desc">Our team asks the right questions to understand your background and goals &mdash; so we can place you in the perfect programme.</p>
                             <ul class="step-bullets">
                                 <li>Academic background review</li>
                                 <li>Goals, budget and visa requirements</li>
@@ -255,7 +255,7 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">We Handle Everything</h3>
-                            <p class="step-desc">We submit the full application on your behalf and keep you updated at every stage â€” no stress, no confusion.</p>
+                            <p class="step-desc">We submit the full application on your behalf and keep you updated at every stage &mdash; no stress, no confusion.</p>
                             <ul class="step-bullets">
                                 <li>Full application submitted by our team</li>
                                 <li>Real-time updates throughout</li>

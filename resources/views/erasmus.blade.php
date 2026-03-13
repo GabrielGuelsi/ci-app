@@ -10,7 +10,7 @@
 @section('styles')
 @endsection
 
-@section('footer-tagline')CI Ireland â€” Your European Education Mobility Hub in Dublin.@endsection
+@section('footer-tagline')CI Ireland &mdash; Your European Education Mobility Hub in Dublin.@endsection
 @section('footer-bottom-right')Connecting European Educators Through Ireland.@endsection
 
 @section('banner')
@@ -102,7 +102,7 @@
     </svg>
     <!-- TOP BANNER -->
     <div class="top-banner">
-        Erasmus+ Professional Mobility Programmes â€” Dublin, Ireland.
+        Erasmus+ Professional Mobility Programmes &mdash; Dublin, Ireland.
         <a href="#contact">Get in Touch <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
     </div>
 @endsection
@@ -159,7 +159,7 @@
                 <div class="er-hero-content">
                     <div class="er-hero-kicker">
                         <svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
-                        Erasmus+ Â· Professional Mobility
+                        Erasmus+ &middot; Professional Mobility
                     </div>
                     <h1 class="er-hero-title">
                         Connecting European<br><span>Educators</span><br>and <span>Institutions</span>
@@ -198,28 +198,28 @@
                         <circle class="radar-ring" cx="120" cy="205" r="0"/>
                         <circle class="radar-ring" cx="120" cy="205" r="0"/>
 
-                        <!-- â”€â”€ Flight paths (bezier curves â†’ Dublin) â”€â”€ -->
-                        <!-- Amsterdam â†’ Dublin -->
+                        <!-- â”€â”€ Flight paths (bezier curves &rarr; Dublin) â”€â”€ -->
+                        <!-- Amsterdam &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 275 148 Q 198 118 120 205"
                               style="animation-delay:0.3s"/>
-                        <!-- Berlin â†’ Dublin -->
+                        <!-- Berlin &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 390 140 Q 256 100 120 205"
                               style="animation-delay:0.7s"/>
-                        <!-- Paris â†’ Dublin -->
+                        <!-- Paris &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 255 248 Q 188 182 120 205"
                               style="animation-delay:1.1s"/>
-                        <!-- Lisbon â†’ Dublin -->
+                        <!-- Lisbon &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 135 360 Q 72 282 120 205"
                               style="animation-delay:1.5s"/>
-                        <!-- Madrid â†’ Dublin -->
+                        <!-- Madrid &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 200 338 Q 120 268 120 205"
                               style="animation-delay:1.9s"/>
-                        <!-- Rome â†’ Dublin -->
+                        <!-- Rome &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 388 318 Q 248 228 120 205"
                               style="animation-delay:2.3s"/>
@@ -273,12 +273,12 @@
                             <text x="398" y="322" class="city-label" fill="rgba(255,255,255,0.75)" font-size="12" font-family="Montserrat,sans-serif" font-weight="600">Italy</text>
                         </g>
 
-                        <!-- Connecting arc decoration â€” subtle EU semicircle -->
+                        <!-- Connecting arc decoration &mdash; subtle EU semicircle -->
                         <path d="M 80 130 Q 350 60 510 200" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 6"/>
                     </svg>
                 </div>
 
-                <!-- Country chips â€” mobile only, appears below SVG map -->
+                <!-- Country chips &mdash; mobile only, appears below SVG map -->
                 <div class="er-hero-countries">
                     <span class="er-hero-country"><svg class="icon" aria-hidden="true"><use href="#icon-map-marker"></use></svg> Netherlands</span>
                     <span class="er-hero-country"><svg class="icon" aria-hidden="true"><use href="#icon-map-marker"></use></svg> Germany</span>
@@ -600,7 +600,7 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">STEM Education</h3>
-                            <p class="step-desc">Innovative methodologies for teaching science, technology, engineering, and mathematics â€” making STEM more relevant and engaging for students.</p>
+                            <p class="step-desc">Innovative methodologies for teaching science, technology, engineering, and mathematics &mdash; making STEM more relevant and engaging for students.</p>
                             <ul class="step-bullets">
                                 <li>Project-based learning</li>
                                 <li>Real-world problem solving</li>

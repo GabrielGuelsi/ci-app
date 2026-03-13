@@ -267,7 +267,7 @@
         }
 
         .journey-arrow-line::after {
-            content: 'â–¶';
+            content: '>';
             font-size: 9px;
             color: var(--ci-orange);
         }

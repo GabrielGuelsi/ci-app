@@ -176,7 +176,7 @@
         </div>
     </section>
 
-    <!-- Trusted By â€” Logo Loop -->
+    <!-- Trusted By &mdash; Logo Loop -->
     <section class="trusted-by" aria-label="Trusted By">
         <div class="container">
             <div class="trusted-by-header">
@@ -204,7 +204,7 @@
                     <li class="marquee-item"><img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School"></li>
                 </ul>
 
-                <!-- List B â€” duplicate for seamless loop -->
+                <!-- List B &mdash; duplicate for seamless loop -->
                 <ul class="marquee-list" aria-hidden="true">
                     <li class="marquee-item"><img src="{{ asset('images/partners/nci.webp') }}" alt="NCI"></li>
                     <li class="marquee-item"><img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges"></li>
@@ -262,7 +262,7 @@
                         <div class="program-panel-content">
                             <div class="program-panel-tag">Higher Education</div>
                             <h3 class="program-panel-title">Study at a Top Irish University</h3>
-                            <p class="program-panel-desc">Complete support for international students looking to study at universities and colleges in Ireland â€” from Pathway programmes through Undergraduate, Postgraduate and Masters degrees.</p>
+                            <p class="program-panel-desc">Complete support for international students looking to study at universities and colleges in Ireland from Pathway programmes through Undergraduate, Postgraduate and Masters degrees.</p>
                             <ul class="program-bullets">
                                 <li>Pathway, Undergraduate, Postgraduate and Masters programmes available</li>
                                 <li>Free personalised counselling to find the right course and institution for you</li>
@@ -285,7 +285,7 @@
                         <div class="program-panel-content">
                             <div class="program-panel-tag">Erasmus+ Professional Mobility</div>
                             <h3 class="program-panel-title">Professional Mobility for Educators</h3>
-                            <p class="program-panel-desc">International professional mobility programmes for educators and education professionals â€” designed to drive professional development and educational innovation.</p>
+                            <p class="program-panel-desc">International professional mobility programmes for educators and education professionals designed to drive professional development and educational innovation.</p>
                             <ul class="program-bullets">
                                 <li>Tailored mobility programmes for teachers, trainers and education staff</li>
                                 <li>Funded opportunities through the Erasmus+ programme</li>
@@ -367,11 +367,11 @@
                         <img src="{{ asset('students/alinystudent.webp') }}" alt="Yago & Tiago Gontijo with Aliny" style="object-position: center 60%;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">So much gratitude for clearing up all our doubts and for all the support throughout our entire process! Highly recommended!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Yago &amp; Tiago Gontijo</div>
-                            <div class="student-course">BA in Business â€” Independent College</div>
+                            <div class="student-course">BA in Business &mdash; Independent College</div>
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
@@ -393,8 +393,8 @@
                         <img src="{{ asset('students/albertstudent.webp') }}" alt="Albert's student" style="object-position: center center;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
-                        <p class="testimonial-quote">Incredible support and dedication throughout every step of my application process. Moving to Ireland was a dream â€” Albert made it real!</p>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">Incredible support and dedication throughout every step of my application process. Moving to Ireland was a dream &mdash; Albert made it real!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Juan Fernando</div>
                             <div class="student-course">Higher Diploma in Science in Data Analytics - City colleges</div>
@@ -419,11 +419,11 @@
                         <img src="{{ asset('students/gabrielstudent.webp') }}" alt="Gabriel's student" style="object-position: center center;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">Professional, caring and always available. My dream of studying in Ireland became a reality thanks to Gabriel's guidance!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Bruno Silva</div>
-                            <div class="student-course">Cybersecurity â€” City Colleges</div>
+                            <div class="student-course">Cybersecurity &mdash; City Colleges</div>
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
@@ -445,8 +445,8 @@
                         <img src="{{ asset('students/romariostudent.webp') }}" alt="Romario's student" style="object-position: center center;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
-                        <p class="testimonial-quote">Every detail of my application was handled with precision and warmth. Outstanding service â€” I could not have done it without Romario!</p>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">Every detail of my application was handled with precision and warmth. Outstanding service &mdash; I could not have done it without Romario!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Elis</div>
                             <div class="student-course">Higher Certificate in Sound Engineering and Music Prodution - DBS</div>
@@ -471,7 +471,7 @@
                         <img src="{{ asset('students/talitastudent.webp') }}" alt="Talita's student" style="object-position: center center;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">From my very first question to my arrival in Dublin, I felt fully supported every step of the way. Talita is simply the best!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Yari Yolibet</div>
@@ -497,11 +497,11 @@
                         <img src="{{ asset('students/wagnerstudent.webp') }}" alt="Wagner's student" style="object-position: center center;">
                     </div>
                     <div class="testimonial-body">
-                        <div class="testimonial-stars">â˜…â˜…â˜…â˜…â˜…</div>
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">Wagner's knowledge of Irish education is truly unmatched. He made the whole process smooth and stress-free. Best decision I ever made!</p>
                         <div class="testimonial-student">
                             <div class="student-name">Pedro Costa</div>
-                            <div class="student-course">BSc in Computing â€” TU Dublin</div>
+                            <div class="student-course">BSc in Computing &mdash; TU Dublin</div>
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
@@ -549,7 +549,7 @@
             name: 'Erasmus+ Professional Mobility',
             titleWhite: 'Erasmus+',
             titleOrange: 'Professional Mobility',
-            subtitle: 'Professional mobility for educators & education professionals',
+            subtitle: 'for educators & education professionals',
             bg: "{{ asset('images/hero-erasmus.webp') }}",
             position: 'center center'
         },
