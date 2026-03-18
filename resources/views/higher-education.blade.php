@@ -14,7 +14,7 @@
     <!-- TOP BANNER -->
     <div class="top-banner">
         Free one-to-one consultation for international students &mdash; find your perfect Irish university.
-        <a href="#consultation">Book Now <i class="fas fa-arrow-right"></i></a>
+        <button type="button" class="top-banner-cta" onclick="openModal()">Book Now <i class="fas fa-arrow-right"></i></button>
     </div>
 @endsection
 
@@ -590,6 +590,37 @@
 
 @push('scripts')
 <script>
+        function openModal() {
+            const modal = document.getElementById('consultModal');
+            if (!modal) return;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('consultModal');
+            if (!modal) return;
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function initModal() {
+            const modal = document.getElementById('consultModal');
+            if (!modal) return;
+
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
         // Scroll Stack
         function initScrollStack() {
             const outer  = document.querySelector('.scroll-stack-outer');
@@ -741,6 +772,9 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', initScrollStack);
+        document.addEventListener('DOMContentLoaded', () => {
+            initModal();
+            initScrollStack();
+        });
     </script>
 @endpush

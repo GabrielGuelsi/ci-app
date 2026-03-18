@@ -9,7 +9,8 @@
             position: relative;
             z-index: 1000;
         }
-        .top-banner a {
+        .top-banner a,
+        .top-banner .top-banner-cta {
             color: white;
             text-decoration: none;
             margin-left: 8px;
@@ -18,8 +19,15 @@
             align-items: center;
             gap: 5px;
             transition: gap 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: inherit;
         }
-        .top-banner a:hover { gap: 10px; }
+        .top-banner a:hover,
+        .top-banner .top-banner-cta:hover { gap: 10px; }
 
         /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         .main-nav {
