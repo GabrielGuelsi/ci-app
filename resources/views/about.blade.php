@@ -3,7 +3,11 @@
 @section('title', 'About Us - CI Exchange Ireland')
 
 @section('head')
-    <link rel="stylesheet" href="/css/about.css">
+    @if (file_exists(public_path('build/manifest.json')))
+        @vite('resources/css/about.css')
+    @else
+        <link rel="stylesheet" href="/css/about.css">
+    @endif
 @endsection
 
 @section('styles')
@@ -28,7 +32,7 @@
                     <li><a href="/about" class="active">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
-                    <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
+                    <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
@@ -50,7 +54,7 @@
         <li><a href="/about" class="active">About Us <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
@@ -319,25 +323,6 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.querySelectorAll('.consultant-card').forEach(card => {
-        const reset = () => {
-            card.style.setProperty('--rx', '0deg');
-            card.style.setProperty('--ry', '0deg');
-        };
-
-        card.addEventListener('pointermove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            const rx = (-y * 8).toFixed(2);
-            const ry = (x * 10).toFixed(2);
-            card.style.setProperty('--rx', `${rx}deg`);
-            card.style.setProperty('--ry', `${ry}deg`);
-        });
-
-        card.addEventListener('pointerleave', reset);
-    });
-</script>
+<script src="/js/about.js" defer></script>
 @endpush
 

@@ -17,3 +17,7 @@ Route::get('/higher-education', function () {
 Route::get('/erasmus', function () {
     return view('erasmus');
 });
+
+Route::get('/teens', function () {
+    return view('teens');
+})->name('teens');

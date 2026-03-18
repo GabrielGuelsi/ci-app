@@ -4,7 +4,11 @@
 @section('no-fontawesome', true)
 
 @section('head')
-    <link rel="stylesheet" href="/css/erasmus.css">
+    @if (file_exists(public_path('build/manifest.json')))
+        @vite('resources/css/erasmus.css')
+    @else
+        <link rel="stylesheet" href="/css/erasmus.css">
+    @endif
 @endsection
 
 @section('styles')
@@ -119,7 +123,7 @@
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus" class="active">Erasmus+</a></li>
-                    <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
+                    <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
@@ -141,7 +145,7 @@
         <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus" class="active">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
@@ -462,7 +466,7 @@
         <div class="container">
             <div class="er-partnerships-grid">
                 <article class="er-partnership-card er-partnership-card--light">
-                    <div class="er-partnership-image er-partnership-image--schools" aria-hidden="true"></div>
+                    <div class="er-partnership-image er-partnership-image--schools" style="background-image: url('{{ asset('images/erasmus/strategic.webp') }}');" aria-hidden="true"></div>
                     <div class="er-partnership-content">
                         <div class="er-partnership-header">
                             <div class="er-section-kicker">School Partnerships &amp; Erasmus Collaboration</div>
@@ -500,7 +504,7 @@
                 </article>
 
                 <article class="er-partnership-card er-partnership-card--white">
-                    <div class="er-partnership-image er-partnership-image--innovation" aria-hidden="true"></div>
+                    <div class="er-partnership-image er-partnership-image--innovation" style="background-image: url('{{ asset('images/erasmus/pedago.webp') }}');" aria-hidden="true"></div>
                     <div class="er-partnership-content">
                         <div class="er-partnership-header">
                             <div class="er-section-kicker">International Education Programmes in Ireland</div>

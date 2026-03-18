@@ -12,20 +12,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    {{-- Font Awesome CDN --}}
+    {{-- Font Awesome CDN (async — non-blocking) --}}
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     @if (!View::hasSection('no-fontawesome'))
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     @endif
 
     {{-- Page-specific head items (preload hints, etc.) --}}
     @yield('head')
 
     @if (file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/base.css', 'resources/js/app.js'])
+    @else
+        <link rel="stylesheet" href="/css/base.css">
     @endif
-
-    <link rel="stylesheet" href="/css/base.css">
     <style>
         @yield('styles')
     </style>

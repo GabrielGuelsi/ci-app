@@ -4,7 +4,11 @@
 
 @section('head')
     <link rel="preload" as="image" href="{{ asset('images/hero-higher-education.webp') }}">
-    <link rel="stylesheet" href="/css/welcome.css">
+    @if (file_exists(public_path('build/manifest.json')))
+        @vite('resources/css/welcome.css')
+    @else
+        <link rel="stylesheet" href="/css/welcome.css">
+    @endif
 @endsection
 
 @section('styles')
@@ -45,9 +49,9 @@
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
-                    <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
+                    <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
-                    
+
                 </ul>
 
                 <div class="nav-actions">
@@ -67,7 +71,7 @@
         <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
@@ -184,34 +188,34 @@
 
                 <!-- List A -->
                 <ul class="marquee-list" aria-label="Partner logos">
-                    <li class="marquee-item"><img src="{{ asset('images/partners/nci.webp') }}" alt="NCI"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/DBS.png') }}" alt="DBS"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes Institute Dublin"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/DCU.webp') }}" alt="DCU"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/independent.png') }}" alt="Independent College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/ICD.png') }}" alt="ICD"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/nci.webp') }}" alt="NCI" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/DBS.png') }}" alt="DBS" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes Institute Dublin" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/DCU.webp') }}" alt="DCU" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/independent.png') }}" alt="Independent College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/ICD.png') }}" alt="ICD" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School" loading="lazy"></li>
                 </ul>
 
                 <!-- List B &mdash; duplicate for seamless loop -->
                 <ul class="marquee-list" aria-hidden="true">
-                    <li class="marquee-item"><img src="{{ asset('images/partners/nci.webp') }}" alt="NCI"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/DBS.png') }}" alt="DBS"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes Institute Dublin"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/DCU.webp') }}" alt="DCU"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/independent.png') }}" alt="Independent College"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/ICD.png') }}" alt="ICD"></li>
-                    <li class="marquee-item"><img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/nci.webp') }}" alt="NCI" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/DBS.png') }}" alt="DBS" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes Institute Dublin" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/DCU.webp') }}" alt="DCU" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/independent.png') }}" alt="Independent College" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/ICD.png') }}" alt="ICD" loading="lazy"></li>
+                    <li class="marquee-item"><img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School" loading="lazy"></li>
                 </ul>
 
             </div>
@@ -358,7 +362,7 @@
                 <!-- Card 1 - Aliny -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/alinystudent.webp') }}" alt="Yago & Tiago Gontijo with Aliny" style="object-position: center 60%;">
+                        <img src="{{ asset('students/alinystudent.webp') }}" alt="Yago & Tiago Gontijo with Aliny" style="object-position: center 60%;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -369,7 +373,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/aliny.webp') }}" alt="Aliny" class="consultant-photo">
+                            <img src="{{ asset('consultant/aliny.webp') }}" alt="Aliny" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Aliny</div>
                                 <div class="consultant-badge">
@@ -384,7 +388,7 @@
                 <!-- Card 2 - Albert -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/albertstudent.webp') }}" alt="Albert's student" style="object-position: center center;">
+                        <img src="{{ asset('students/albertstudent.webp') }}" alt="Albert's student" style="object-position: center center;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -395,7 +399,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/albert.webp') }}" alt="Albert" class="consultant-photo">
+                            <img src="{{ asset('consultant/albert.webp') }}" alt="Albert" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Albert</div>
                                 <div class="consultant-badge">
@@ -410,7 +414,7 @@
                 <!-- Card 3 - Gabriel -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/gabrielstudent.webp') }}" alt="Gabriel's student" style="object-position: center center;">
+                        <img src="{{ asset('students/gabrielstudent.webp') }}" alt="Gabriel's student" style="object-position: center center;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -421,7 +425,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/gabriel.webp') }}" alt="Gabriel" class="consultant-photo">
+                            <img src="{{ asset('consultant/gabriel.webp') }}" alt="Gabriel" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Gabriel</div>
                                 <div class="consultant-badge">
@@ -436,7 +440,7 @@
                 <!-- Card 4 - Romario -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/romariostudent.webp') }}" alt="Romario's student" style="object-position: center center;">
+                        <img src="{{ asset('students/romariostudent.webp') }}" alt="Romario's student" style="object-position: center center;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -447,7 +451,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/romario.webp') }}" alt="Romario" class="consultant-photo">
+                            <img src="{{ asset('consultant/romario.webp') }}" alt="Romario" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Romario</div>
                                 <div class="consultant-badge">
@@ -462,7 +466,7 @@
                 <!-- Card 5 - Talita -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/talitastudent.webp') }}" alt="Talita's student" style="object-position: center center;">
+                        <img src="{{ asset('students/talitastudent.webp') }}" alt="Talita's student" style="object-position: center center;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -473,7 +477,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/talita.webp') }}" alt="Talita" class="consultant-photo">
+                            <img src="{{ asset('consultant/talita.webp') }}" alt="Talita" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Talita</div>
                                 <div class="consultant-badge">
@@ -488,7 +492,7 @@
                 <!-- Card 6 - Wagner -->
                 <div class="testimonial-card">
                     <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/wagnerstudent.webp') }}" alt="Wagner's student" style="object-position: center center;">
+                        <img src="{{ asset('students/wagnerstudent.webp') }}" alt="Wagner's student" style="object-position: center center;" loading="lazy">
                     </div>
                     <div class="testimonial-body">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -499,7 +503,7 @@
                         </div>
                         <div class="testimonial-divider"></div>
                         <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/wagner.webp') }}" alt="Wagner" class="consultant-photo">
+                            <img src="{{ asset('consultant/wagner.webp') }}" alt="Wagner" class="consultant-photo" loading="lazy">
                             <div class="consultant-info">
                                 <div class="consultant-name">Wagner</div>
                                 <div class="consultant-badge">
@@ -518,17 +522,7 @@
 
 @push('scripts')
 <script>
-    // Hero Slider
-    const AUTOPLAY_MS = 6000;
-    const mobileQuery = window.matchMedia('(max-width: 768px)');
-
-    const heroSection = document.querySelector('.hero');
-    const heroBg = document.querySelector('.hero-bg');
-    const heroTitleWhite = document.querySelector('.hero-title-white');
-    const heroTitleOrange = document.querySelector('.hero-title-orange');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-
-    const slides = [
+    window.HERO_SLIDES = [
         {
             number: '01',
             name: 'Higher Education',
@@ -566,202 +560,7 @@
             position: 'center center'
         }
     ];
-
-    let currentSlide = 0;
-    let autoplayTimer;
-    let isHeroInView = true;
-    let parallaxTicking = false;
-    let slideToken = 0;
-
-    const fallbackBg = slides[0].bg;
-    const brokenImages = new Set();
-
-    function preloadImage(url) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.decoding = 'async';
-            img.onload = () => resolve(url);
-            img.onerror = reject;
-            img.src = url;
-        });
-    }
-
-    function preloadNonInitialSlides() {
-        slides.slice(1).forEach((slide) => {
-            preloadImage(slide.bg).catch(() => {
-                brokenImages.add(slide.bg);
-            });
-        });
-    }
-
-    function getSlideBg(slide) {
-        return brokenImages.has(slide.bg) ? fallbackBg : slide.bg;
-    }
-
-    function shouldAutoplay() {
-        return !mobileQuery.matches && document.visibilityState === 'visible' && isHeroInView;
-    }
-
-    function scheduleAutoplay() {
-        clearTimeout(autoplayTimer);
-        if (!shouldAutoplay()) return;
-        autoplayTimer = setTimeout(() => {
-            nextSlide();
-            scheduleAutoplay();
-        }, AUTOPLAY_MS);
-    }
-
-    function updateIndicators() {
-        document.querySelectorAll('.slide-item').forEach((item, index) => {
-            item.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function updateSlide() {
-        const slide = slides[currentSlide];
-        const token = ++slideToken;
-        const bgToUse = getSlideBg(slide);
-
-        if (heroBg) heroBg.style.opacity = '0';
-
-        setTimeout(() => {
-            if (token !== slideToken) return;
-            if (heroBg) {
-                heroBg.style.backgroundImage = `url('${bgToUse}')`;
-                heroBg.style.backgroundPosition = slide.position || 'center center';
-                heroBg.style.opacity = mobileQuery.matches ? '0.28' : '0.9';
-            }
-        }, 220);
-
-        if (heroTitleWhite) heroTitleWhite.style.animation = 'none';
-        if (heroTitleOrange) heroTitleOrange.style.animation = 'none';
-        if (heroSubtitle) heroSubtitle.style.animation = 'none';
-
-        setTimeout(() => {
-            if (token !== slideToken) return;
-            if (heroTitleWhite) {
-                heroTitleWhite.textContent = slide.titleWhite;
-                heroTitleWhite.style.animation = 'fadeInUp 0.6s ease-out forwards';
-            }
-            if (heroTitleOrange) {
-                heroTitleOrange.textContent = slide.titleOrange;
-                heroTitleOrange.style.animation = 'fadeInUp 0.6s ease-out 0.1s forwards';
-            }
-            if (heroSubtitle) {
-                heroSubtitle.textContent = slide.subtitle;
-                heroSubtitle.style.animation = 'fadeInUp 0.6s ease-out 0.2s forwards';
-            }
-        }, 50);
-
-        updateIndicators();
-    }
-
-    function changeSlide(index) {
-        currentSlide = index;
-        updateSlide();
-        scheduleAutoplay();
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlide();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlide();
-        scheduleAutoplay();
-    }
-
-    function handleParallax() {
-        if (!heroBg || !heroSection || mobileQuery.matches || !isHeroInView) return;
-        if (parallaxTicking) return;
-        parallaxTicking = true;
-        requestAnimationFrame(() => {
-            const heroTop = heroSection.offsetTop;
-            const localScroll = Math.max(0, window.pageYOffset - heroTop);
-            heroBg.style.transform = `translateY(calc(-50% + ${localScroll * 0.35}px))`;
-            parallaxTicking = false;
-        });
-    }
-
-    function resetHeroTransform() {
-        if (!heroBg) return;
-        heroBg.style.transform = mobileQuery.matches ? 'none' : 'translateY(-50%)';
-    }
-
-    function setupHeroIntersectionObserver() {
-        if (!heroSection || typeof IntersectionObserver === 'undefined') return;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                isHeroInView = entry.isIntersecting;
-                if (!isHeroInView) resetHeroTransform();
-                scheduleAutoplay();
-            });
-        }, { threshold: 0.15 });
-        observer.observe(heroSection);
-    }
-
-    function bootHeroSlider() {
-        updateSlide();
-        resetHeroTransform();
-        scheduleAutoplay();
-        setupHeroIntersectionObserver();
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(preloadNonInitialSlides, { timeout: 1200 });
-        } else {
-            setTimeout(preloadNonInitialSlides, 700);
-        }
-    }
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    // Runtime events
-    window.addEventListener('scroll', handleParallax, { passive: true });
-    window.addEventListener('resize', () => {
-        resetHeroTransform();
-        scheduleAutoplay();
-    }, { passive: true });
-    document.addEventListener('visibilitychange', scheduleAutoplay);
-
-    if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', () => {
-            resetHeroTransform();
-            scheduleAutoplay();
-        });
-    } else if (typeof mobileQuery.addListener === 'function') {
-        mobileQuery.addListener(() => {
-            resetHeroTransform();
-            scheduleAutoplay();
-        });
-    }
-
-    bootHeroSlider();
-
-    // Persona tab switcher
-    const personaTabs = document.querySelectorAll('.persona-tab');
-    const programPanels = document.querySelectorAll('.program-panel');
-
-    personaTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.dataset.panel;
-            personaTabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-            programPanels.forEach(panel => panel.classList.remove('active'));
-            document.getElementById('panel-' + target).classList.add('active');
-        });
-    });
 </script>
+<script src="/js/welcome.js" defer></script>
 @endpush
 

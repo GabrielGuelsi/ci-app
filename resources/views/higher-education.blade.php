@@ -4,7 +4,11 @@
 
 @section('head')
     <link rel="preload" as="image" href="{{ asset('images/herodcu.webp') }}">
-    <link rel="stylesheet" href="/css/higher-education.css">
+    @if (file_exists(public_path('build/manifest.json')))
+        @vite('resources/css/higher-education.css')
+    @else
+        <link rel="stylesheet" href="/css/higher-education.css">
+    @endif
 @endsection
 
 @section('styles')
@@ -30,7 +34,7 @@
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education" class="active">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
-                    <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
+                    <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
                     <li><button onclick="openModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Free Consultation</button></li>
                 </ul>
@@ -52,7 +56,7 @@
         <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/higher-education" class="active">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
@@ -331,10 +335,10 @@
                 <!-- TU Dublin -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #3a1060, #5a2090);">
-                        <img class="campus-photo" src="{{ asset('images/campus/tud.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/tud.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin">
+                            <img src="{{ asset('images/partners/Tudublin.jpg') }}" alt="TU Dublin" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -347,10 +351,10 @@
                 <!-- DCU -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #0a2a6a, #1a4a9a);">
-                        <img class="campus-photo" src="{{ asset('images/campus/dcu.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/dcu.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/DCU.webp') }}" alt="Dublin City University">
+                            <img src="{{ asset('images/partners/DCU.webp') }}" alt="Dublin City University" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -363,10 +367,10 @@
                 <!-- NCI -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #0a4a3a, #1a6a54);">
-                        <img class="campus-photo" src="{{ asset('images/campus/nci.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/nci.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/nci.webp') }}" alt="National College of Ireland">
+                            <img src="{{ asset('images/partners/nci.webp') }}" alt="National College of Ireland" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -379,10 +383,10 @@
                 <!-- Griffith -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #6a1a0a, #9a2a10);">
-                        <img class="campus-photo" src="{{ asset('images/campus/griffith.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/griffith.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College">
+                            <img src="{{ asset('images/partners/Griffith.jpg') }}" alt="Griffith College" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -395,10 +399,10 @@
                 <!-- DBS -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #0a1a5a, #1a2a8a);">
-                        <img class="campus-photo" src="{{ asset('images/campus/dbs.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/dbs.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/DBS.png') }}" alt="Dublin Business School">
+                            <img src="{{ asset('images/partners/DBS.png') }}" alt="Dublin Business School" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -411,10 +415,10 @@
                 <!-- City Colleges -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #3a0a5a, #5a1a7a);">
-                        <img class="campus-photo" src="{{ asset('images/campus/citycolleges.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/citycolleges.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges">
+                            <img src="{{ asset('images/partners/citycolleges.png') }}" alt="City Colleges" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -427,10 +431,10 @@
                 <!-- Dorset -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #0a3a4a, #1a5a6a);">
-                        <img class="campus-photo" src="{{ asset('images/campus/dorset.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/dorset.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College">
+                            <img src="{{ asset('images/partners/dorset.png') }}" alt="Dorset College" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -443,10 +447,10 @@
                 <!-- ICD -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #4a2a0a, #6a4010);">
-                        <img class="campus-photo" src="{{ asset('images/campus/icd.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/icd.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/ICD.png') }}" alt="ICD">
+                            <img src="{{ asset('images/partners/ICD.png') }}" alt="ICD" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -459,10 +463,10 @@
                 <!-- Independent College -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #1a3a0a, #2a5a15);">
-                        <img class="campus-photo" src="{{ asset('images/campus/independent.webp') }}" alt="">
+                        <img class="campus-photo" src="{{ asset('images/campus/independent.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/independent.png') }}" alt="Independent College">
+                            <img src="{{ asset('images/partners/independent.png') }}" alt="Independent College" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -475,10 +479,10 @@
                 <!-- Holmes -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #3a0a1a, #5a1a30);">
-                         <img class="campus-photo" src="{{ asset('images/campus/holmes.webp') }}" alt="">
+                         <img class="campus-photo" src="{{ asset('images/campus/holmes.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes College">
+                            <img src="{{ asset('images/partners/holmes.png') }}" alt="Holmes College" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -491,10 +495,10 @@
                 <!-- Galway Business School -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #0a1a4a, #1a2a6a);">
-                         <img class="campus-photo" src="{{ asset('images/campus/galway.webp') }}" alt="">
+                         <img class="campus-photo" src="{{ asset('images/campus/galway.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School">
+                            <img src="{{ asset('images/partners/galwaybss.jpg') }}" alt="Galway Business School" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -507,10 +511,10 @@
                 <!-- IBAT -->
                 <div class="college-card">
                     <div class="college-card-image" style="background: linear-gradient(135deg, #2a0a4a, #420a6a);">
-                         <img class="campus-photo" src="{{ asset('images/campus/ibat.webp') }}" alt="">
+                         <img class="campus-photo" src="{{ asset('images/campus/ibat.webp') }}" alt="" loading="lazy">
                         <div class="college-partner-badge"><span class="partner-dot"></span> Partner</div>
                         <div class="college-logo-wrap">
-                            <img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College Dublin">
+                            <img src="{{ asset('images/partners/ibat.png') }}" alt="IBAT College Dublin" loading="lazy">
                         </div>
                     </div>
                     <div class="college-card-body">
@@ -589,192 +593,5 @@
 @endsection
 
 @push('scripts')
-<script>
-        function openModal() {
-            const modal = document.getElementById('consultModal');
-            if (!modal) return;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('consultModal');
-            if (!modal) return;
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        function initModal() {
-            const modal = document.getElementById('consultModal');
-            if (!modal) return;
-
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    closeModal();
-                }
-            });
-        }
-
-        // Scroll Stack
-        function initScrollStack() {
-            const outer  = document.querySelector('.scroll-stack-outer');
-            if (!outer) return;
-            const cards  = Array.from(document.querySelectorAll('.step-card'));
-            const dots   = Array.from(document.querySelectorAll('.stack-dot'));
-            const wrap   = outer.querySelector('.stack-cards-wrap');
-            const n    = cards.length;
-            const PEEK = 38;
-
-            // Mobile: carousel via dots/swipe, no scroll-driven animation
-            if (window.innerWidth <= 768) {
-                let current = 0;
-                function showCard(idx) {
-                    current = idx;
-                    cards.forEach((card, i) => {
-                        if (i === idx) {
-                            card.style.transform = 'translateY(0) scale(1)';
-                            card.style.opacity = '1';
-                            card.style.zIndex = '20';
-                        } else {
-                            card.style.transform = 'translateY(0) scale(1)';
-                            card.style.opacity = '0';
-                            card.style.zIndex = '5';
-                        }
-                    });
-                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                }
-                dots.forEach((d, i) => d.addEventListener('click', () => showCard(i)));
-                let tx = 0;
-                const touchTarget = wrap || outer;
-                touchTarget.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
-                touchTarget.addEventListener('touchend', e => {
-                    const dx = e.changedTouches[0].clientX - tx;
-                    if (Math.abs(dx) > 40) showCard(dx < 0 ? Math.min(current + 1, n - 1) : Math.max(current - 1, 0));
-                }, { passive: true });
-                showCard(0);
-                return;
-            }
-
-            let rafId = null;
-            let inView = false;
-            let cardH = 350;
-            let wrapH = 0;
-            let headerH = 0;
-
-            function setOuterHeight() {
-                const steps = Math.max(1, n - 1);
-                const baseH = wrapH > 0 ? wrapH : window.innerHeight;
-                const perCard = Math.round(cardH * 0.45);
-                const target = Math.round(baseH + perCard * steps);
-                outer.style.height = `${Math.max(baseH + 1, target)}px`;
-            }
-
-            function measure() {
-                cardH = cards[0] ? cards[0].offsetHeight : 350;
-                headerH = outer.querySelector('.stack-inner-header')?.offsetHeight ?? 0;
-                if (headerH) {
-                    outer.style.setProperty('--stack-header-h', `${headerH + 32}px`);
-                }
-                wrapH = wrap ? wrap.offsetHeight : 0;
-                setOuterHeight();
-            }
-
-            function update() {
-                if (!inView) return;
-                const rect        = outer.getBoundingClientRect();
-                const scrollableH = outer.offsetHeight - window.innerHeight;
-                const scrolled    = Math.max(0, -rect.top);
-                const total       = Math.min(1, scrolled / scrollableH);
-                const scaled      = total * n;
-                const idx         = Math.min(n - 1, Math.floor(scaled));
-                const prog        = idx === n - 1 ? 0 : scaled - Math.floor(scaled);
-
-                // Center cards inside the wrap (works at any screen height)
-                const base   = Math.round(Math.max(0, (wrapH - cardH) / 2));
-                const exitD  = base + cardH + 30;          // distance to clear top
-                const enterD = wrapH - base - PEEK;         // distance to peek from bottom
-
-                cards.forEach((card, i) => {
-                    let ty, scale, opacity, z;
-
-                    if (i === idx) {
-                        // Active: centered (base), then flies up as next arrives
-                        ty      = base - prog * exitD;
-                        scale   = 1 - prog * 0.02;
-                        opacity = prog > 0.6 ? 1 - (prog - 0.6) / 0.4 : 1;
-                        z       = 20;
-                    } else if (i === idx + 1) {
-                        // Next: peeks from bottom (base + enterD), rises to center (base)
-                        ty      = base + (1 - prog) * enterD;
-                        scale   = 0.97 + prog * 0.03;
-                        opacity = 0.55 + prog * 0.45;
-                        z       = 10;
-                    } else if (i > idx + 1) {
-                        // Future: hidden below
-                        ty = wrapH; scale = 0.95; opacity = 0; z = 5;
-                    } else {
-                        // Past: gone above
-                        ty = -exitD; scale = 0.98; opacity = 0; z = 0;
-                    }
-
-                    card.style.transform = `translateY(${ty}px) scale(${scale})`;
-                    card.style.opacity   = String(opacity);
-                    card.style.zIndex    = String(z);
-                });
-
-                dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-            }
-
-            function onScroll() {
-                if (!rafId) {
-                    rafId = requestAnimationFrame(() => {
-                        update();
-                        rafId = null;
-                    });
-                }
-            }
-
-            function start() {
-                if (inView) return;
-                inView = true;
-                measure();
-                window.addEventListener('scroll', onScroll, { passive: true });
-                update();
-            }
-
-            function stop() {
-                if (!inView) return;
-                inView = false;
-                window.removeEventListener('scroll', onScroll);
-            }
-
-            window.addEventListener('resize', () => {
-                measure();
-                if (inView) update();
-            });
-
-            if ('IntersectionObserver' in window) {
-                new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        start();
-                    } else {
-                        stop();
-                    }
-                }, { threshold: 0.1 }).observe(outer);
-            } else {
-                start();
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initModal();
-            initScrollStack();
-        });
-    </script>
+<script src="/js/higher-education.js" defer></script>
 @endpush
