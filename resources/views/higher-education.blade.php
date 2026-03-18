@@ -65,7 +65,7 @@
 
 @section('content')
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== HERO ===== -->
     <section class="he-hero">
         <div class="he-hero-left">
             <div class="he-kicker">
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ FIND YOUR STARTING POINT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== FIND YOUR STARTING POINT ===== -->
     <section class="he-pathways" id="pathways">
         <div class="container">
             <div class="he-section-header">
@@ -222,7 +222,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ HOW IT WORKS (SCROLL STACK) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== HOW IT WORKS (SCROLL STACK) ===== -->
     <section class="he-process" id="process">
         <div class="scroll-stack-outer">
             <div class="scroll-stack-sticky">
@@ -317,7 +317,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ PARTNER INSTITUTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== PARTNER INSTITUTIONS ===== -->
     <section class="he-partners" id="partners">
         <div class="container">
             <div class="he-section-header">
@@ -524,7 +524,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ BOTTOM CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== BOTTOM CTA ===== -->
     <section class="he-bottom-cta" id="consultation">
         <div class="container">
             <div class="he-bottom-cta-inner">
@@ -537,7 +537,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€ Consultation Modal â”€â”€â”€ -->
+    <!-- ===== Consultation Modal ===== -->
     <div class="modal-overlay" id="consultModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
@@ -634,10 +634,24 @@
             let inView = false;
             let cardH = 350;
             let wrapH = 0;
+            let headerH = 0;
+
+            function setOuterHeight() {
+                const steps = Math.max(1, n - 1);
+                const baseH = wrapH > 0 ? wrapH : window.innerHeight;
+                const perCard = Math.round(cardH * 0.45);
+                const target = Math.round(baseH + perCard * steps);
+                outer.style.height = `${Math.max(baseH + 1, target)}px`;
+            }
 
             function measure() {
                 cardH = cards[0] ? cards[0].offsetHeight : 350;
+                headerH = outer.querySelector('.stack-inner-header')?.offsetHeight ?? 0;
+                if (headerH) {
+                    outer.style.setProperty('--stack-header-h', `${headerH + 32}px`);
+                }
                 wrapH = wrap ? wrap.offsetHeight : 0;
+                setOuterHeight();
             }
 
             function update() {
@@ -730,5 +744,3 @@
         document.addEventListener('DOMContentLoaded', initScrollStack);
     </script>
 @endpush
-
-

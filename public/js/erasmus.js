@@ -52,10 +52,24 @@
         let inView  = false;
         let cardH   = 350;
         let wrapH   = 0;
+        let headerH = 0;
+
+        function setOuterHeight() {
+            const steps = Math.max(1, n - 1);
+            const baseH = wrapH > 0 ? wrapH : window.innerHeight;
+            const perCard = Math.min(Math.round(cardH * 0.28), 200);
+            const target = Math.round(baseH + perCard * steps);
+            outer.style.height = `${Math.max(baseH + 1, target)}px`;
+        }
 
         function measure() {
             cardH = cards[0] ? cards[0].offsetHeight : 350;
+            headerH = outer.querySelector('.stack-inner-header')?.offsetHeight ?? 0;
+            if (headerH) {
+                outer.style.setProperty('--stack-header-h', `${headerH + 32}px`);
+            }
             wrapH = wrap ? wrap.offsetHeight : 0;
+            setOuterHeight();
         }
 
         function update() {

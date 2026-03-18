@@ -155,7 +155,7 @@
 
 @section('content')
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== HERO ===== -->
     <section class="er-hero">
         <div class="container">
             <div class="er-hero-split">
@@ -203,7 +203,7 @@
                         <circle class="radar-ring" cx="120" cy="205" r="0"/>
                         <circle class="radar-ring" cx="120" cy="205" r="0"/>
 
-                        <!-- â”€â”€ Flight paths (bezier curves &rarr; Dublin) â”€â”€ -->
+    <!-- ===== Flight paths (bezier curves &rarr Dublin) ===== -->
                         <!-- Amsterdam &rarr; Dublin -->
                         <path class="flight-path" pathLength="1"
                               d="M 275 148 Q 198 118 120 205"
@@ -240,7 +240,7 @@
                         <text x="136" y="201" fill="#F26522" font-size="13" font-family="Montserrat,sans-serif" font-weight="700">Dublin</text>
                         <text x="136" y="217" fill="rgba(255,255,255,0.45)" font-size="10" font-family="Montserrat,sans-serif" font-weight="600">Ireland</text>
 
-                        <!-- â”€â”€ City dots + labels â”€â”€ -->
+    <!-- ===== City dots + labels ===== -->
                         <!-- Amsterdam -->
                         <g class="city-dot" style="animation-delay:2.0s">
                             <circle cx="275" cy="148" r="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
@@ -301,7 +301,7 @@
     <!-- Pause SVG map animations when hero is scrolled off-screen -->
     
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ ERASMUS+ PROFESSIONAL MOBILITY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== ERASMUS+ PROFESSIONAL MOBILITY ===== -->
     <section class="er-programme er-programme--dark" id="programmes">
         <div class="container">
                 <div class="er-programme-header">
@@ -457,87 +457,90 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ SCHOOL PARTNERSHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-    <section class="er-programme er-programme--light">
+    <!-- ===== PARTNERSHIP MODELS ===== -->
+    <section class="er-partnerships">
         <div class="container">
-            <div class="er-programme-header">
-                <div class="er-section-kicker">School Partnerships &amp; Erasmus Collaboration</div>
-                <h2 class="er-section-title">Strategic Partnerships for<br>Schools &amp; Institutions</h2>
-                <p class="er-section-sub">CI Ireland acts as a strategic partner for schools and educational institutions interested in developing international projects.</p>
-            </div>
-
-            <div class="er-programme-body reversed">
-                <div class="er-programme-prose">
-                    <p>We support schools that are starting their first international initiatives and those deepening established Erasmus+ collaborations.</p>
-                    <p>This model allows schools to develop consistent international projects and build lasting educational partnerships.</p>
-                </div>
-
-                <div class="er-programme-box">
-                    <div class="er-box-section">
-                        <h4>Who it's for</h4>
-                        <div class="er-box-chips">
-                            <span class="er-box-chip">Erasmus+ Schools</span>
-                            <span class="er-box-chip">Institutions starting international projects</span>
-                            <span class="er-box-chip">Erasmus Coordinators in European schools</span>
-                            <span class="er-box-chip">Educational organisations focused on cooperation</span>
+            <div class="er-partnerships-grid">
+                <article class="er-partnership-card er-partnership-card--light">
+                    <div class="er-partnership-image er-partnership-image--schools" aria-hidden="true"></div>
+                    <div class="er-partnership-content">
+                        <div class="er-partnership-header">
+                            <div class="er-section-kicker">School Partnerships &amp; Erasmus Collaboration</div>
+                            <h2 class="er-section-title">Strategic Partnerships for<br>Schools &amp; Institutions</h2>
+                            <p class="er-section-sub">CI Ireland acts as a strategic partner for schools and educational institutions interested in developing international projects.</p>
+                        </div>
+                        <div class="er-partnership-body">
+                            <div class="er-partnership-prose">
+                                <p>We support schools that are starting their first international initiatives and those deepening established Erasmus+ collaborations.</p>
+                                <p>This model allows schools to develop consistent international projects and build lasting educational partnerships.</p>
+                            </div>
+                            <div class="er-programme-box">
+                                <div class="er-box-section er-partnership-audience">
+                                    <h4>Who it's for</h4>
+                                    <div class="er-box-chips">
+                                        <span class="er-box-chip">Erasmus+ Schools</span>
+                                        <span class="er-box-chip">Institutions starting international projects</span>
+                                        <span class="er-box-chip">Erasmus Coordinators in European schools</span>
+                                        <span class="er-box-chip">Educational organisations focused on cooperation</span>
+                                    </div>
+                                </div>
+                                <div class="er-box-section">
+                                    <h4>How we support institutions</h4>
+                                    <ul class="er-box-bullets">
+                                        <li>Development of international educational programmes</li>
+                                        <li>Organisation of professional mobilities for educators</li>
+                                        <li>Design of educational experiences in Ireland</li>
+                                        <li>Support in implementing educational activities</li>
+                                        <li>Facilitation of collaboration between institutions from different countries</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="er-box-section">
-                        <h4>How we support institutions</h4>
-                        <ul class="er-box-bullets">
-                            <li>Development of international educational programmes</li>
-                            <li>Organisation of professional mobilities for educators</li>
-                            <li>Design of educational experiences in Ireland</li>
-                            <li>Support in implementing educational activities</li>
-                            <li>Facilitation of collaboration between institutions from different countries</li>
-                        </ul>
+                </article>
+
+                <article class="er-partnership-card er-partnership-card--white">
+                    <div class="er-partnership-image er-partnership-image--innovation" aria-hidden="true"></div>
+                    <div class="er-partnership-content">
+                        <div class="er-partnership-header">
+                            <div class="er-section-kicker">International Education Programmes in Ireland</div>
+                            <h2 class="er-section-title">Pedagogical Innovation &amp;<br>Institutional Development</h2>
+                            <p class="er-section-sub">Beyond Erasmus+ mobilities, CI Ireland develops international programmes focused on pedagogical innovation and institutional development.</p>
+                        </div>
+                        <div class="er-partnership-body">
+                            <div class="er-programme-box" style="border-left-color: var(--ci-purple);">
+                                <div class="er-box-section er-partnership-audience">
+                                    <h4>Who it's for</h4>
+                                    <div class="er-box-chips">
+                                        <span class="er-box-chip">Teachers seeking pedagogical innovation</span>
+                                        <span class="er-box-chip">Educational leaders &amp; school managers</span>
+                                        <span class="er-box-chip">Academic teams seeking new approaches</span>
+                                        <span class="er-box-chip">Institutions developing international projects</span>
+                                    </div>
+                                </div>
+                                <div class="er-box-section">
+                                    <h4>How they work</h4>
+                                    <ul class="er-box-bullets">
+                                        <li>Structured academic training</li>
+                                        <li>Collaboration between international educators</li>
+                                        <li>Development of educational projects</li>
+                                        <li>Educational experiences in the Irish context</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="er-partnership-prose">
+                                <p>These programmes are designed to strengthen the capacity for pedagogical innovation within participating institutions.</p>
+                                <p>Participants work alongside educators from different countries and develop projects rooted in real school contexts in Ireland.</p>
+                                <p>The goal is to build practical, transferable approaches that can be implemented directly in their institutions.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ INTERNATIONAL EDUCATION PROGRAMMES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-    <section class="er-programme er-programme--white">
-        <div class="container">
-            <div class="er-programme-header">
-                <div class="er-section-kicker">International Education Programmes in Ireland</div>
-                <h2 class="er-section-title">Pedagogical Innovation &amp;<br>Institutional Development</h2>
-                <p class="er-section-sub">Beyond Erasmus+ mobilities, CI Ireland develops international programmes focused on pedagogical innovation and institutional development.</p>
-            </div>
-
-            <div class="er-programme-body">
-                <div class="er-programme-box" style="border-left-color: var(--ci-purple);">
-                    <div class="er-box-section">
-                        <h4>Who it's for</h4>
-                        <div class="er-box-chips">
-                            <span class="er-box-chip">Teachers seeking pedagogical innovation</span>
-                            <span class="er-box-chip">Educational leaders &amp; school managers</span>
-                            <span class="er-box-chip">Academic teams seeking new approaches</span>
-                            <span class="er-box-chip">Institutions developing international projects</span>
-                        </div>
-                    </div>
-                    <div class="er-box-section">
-                        <h4>How they work</h4>
-                        <ul class="er-box-bullets">
-                            <li>Structured academic training</li>
-                            <li>Collaboration between international educators</li>
-                            <li>Development of educational projects</li>
-                            <li>Educational experiences in the Irish context</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="er-programme-prose">
-                    <p>These programmes are designed to strengthen the capacity for pedagogical innovation within participating institutions.</p>
-                    <p>Participants work alongside educators from different countries and develop projects rooted in real school contexts in Ireland.</p>
-                    <p>The goal is to build practical, transferable approaches that can be implemented directly in their institutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ FOCUS AREAS (SCROLL STACK) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== FOCUS AREAS (SCROLL STACK) ===== -->
     <section class="er-focus" id="focus-areas">
         <div class="er-focus-header">
             <div class="er-section-kicker">Programme Focus Areas</div>
@@ -647,7 +650,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ PROGRAMME MODELS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== PROGRAMME MODELS ===== -->
     <section class="er-models">
         <div class="container">
             <div class="er-models-header">
@@ -700,7 +703,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ WHY CI IRELAND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== WHY CI IRELAND ===== -->
     <section class="er-why">
         <div class="container">
             <div class="er-why-header">
@@ -759,7 +762,7 @@
         </div>
     </section>
 
-    <!-- â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ WORK WITH US â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <!-- ===== WORK WITH US ===== -->
     <section class="er-contact" id="contact">
         <div class="container">
             <div class="er-contact-split">
@@ -825,7 +828,5 @@
 @push('scripts')
     <script src="/js/erasmus.js" defer></script>
 @endpush
-
-
 
 

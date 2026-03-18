@@ -47,7 +47,7 @@
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
-                    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+                    
                 </ul>
 
                 <div class="nav-actions">
