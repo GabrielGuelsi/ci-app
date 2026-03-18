@@ -107,6 +107,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            overflow-x: clip;
             padding: 120px 0 100px;
         }
 
@@ -640,6 +641,7 @@
         .er-focus {
             background: var(--ci-deepest);
             position: relative;
+            overflow-x: clip;
         }
         .er-focus::before {
             content: '';
@@ -1276,15 +1278,20 @@
             .modal-box { padding: 32px 24px 28px; }
             .modal-title { font-size: 20px; }
 
+            /* â"€â"€ Mobile: collapse section, carousel via dots/swipe â"€â"€ */
+            .scroll-stack-outer { height: auto; }
             .scroll-stack-sticky {
-                height: 100vh;
-                height: 100dvh;
+                position: relative;
+                height: auto;
                 padding: 44px 0 52px;
-                justify-content: center;
+                justify-content: flex-start;
             }
-            .stack-cards-wrap { height: 520px; }
-            .stack-cards-wrap::before { height: 36px; }
-            .stack-cards-wrap::after  { height: 56px; }
+            /* Pre-position cards before JS loads: show first, hide others */
+            .step-card { opacity: 0; transform: translateY(0) scale(1); }
+            .step-card[data-step="1"] { opacity: 1; }
+            .stack-cards-wrap { height: 480px; }
+            .stack-cards-wrap::before,
+            .stack-cards-wrap::after  { display: none; }
             .step-card {
                 left: 16px !important; right: 16px !important;
                 height: 480px !important;

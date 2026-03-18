@@ -68,6 +68,7 @@
             grid-template-columns: 55fr 45fr;
             min-height: calc(100vh - 52px);
             overflow: hidden;
+            overflow-x: clip;
         }
 
         .he-hero-left {
@@ -319,6 +320,7 @@
         .he-process {
             background: var(--ci-deepest);
             position: relative;
+            overflow-x: clip;
         }
         .he-process-header { display: none; }
         .he-process::before {
@@ -896,17 +898,21 @@
             .pathway-cta-card { flex-direction: column; text-align: center; padding: 28px 24px; }
             .pathway-card { padding: 22px 20px; }
 
-            /* â”€â”€ Mobile scroll stack: auto-height sticky, section bg fills below â”€â”€ */
+            /* â”€â”€ Mobile: collapse section, carousel via dots/swipe â”€â”€ */
+            .scroll-stack-outer { height: auto; }
             .scroll-stack-sticky {
-                height: 100vh;   /* fallback for older browsers */
-                height: 100dvh;  /* dynamically tracks address bar on mobile */
+                position: relative;
+                height: auto;
                 padding: 44px 0 52px;
-                justify-content: center;
+                justify-content: flex-start;
             }
+            /* Pre-position cards before JS loads: show first, hide others */
+            .step-card { opacity: 0; transform: translateY(0) scale(1); }
+            .step-card[data-step=”1”] { opacity: 1; }
             .stack-inner-header { padding: 0 20px 28px; }
-            .stack-cards-wrap   { height: 360px; }
-            .stack-cards-wrap::before { height: 36px; }
-            .stack-cards-wrap::after  { height: 56px; }
+            .stack-cards-wrap   { height: 320px; }
+            .stack-cards-wrap::before,
+            .stack-cards-wrap::after  { display: none; }
             .step-card {
                 left: 16px !important; right: 16px !important;
                 height: 320px !important;

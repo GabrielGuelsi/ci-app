@@ -118,14 +118,19 @@
                 <ul class="nav-links">
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
-                    <li><a href="/erasmus" class="active">Erasmus+ Mobility</a></li>
+                    <li><a href="/erasmus" class="active">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
                     <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-                    <span></span><span></span><span></span>
-                </button>
+
+                <div class="nav-actions">
+                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -133,12 +138,12 @@
 
 @section('mobile-nav-links')
     <ul class="mobile-nav-links">
-        <li><a href="/about">About Us <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
-        <li><a href="/higher-education">Higher Education <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
-        <li><a href="/erasmus" class="active">Erasmus+ Mobility <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
-        <li><a href="#" data-coming-soon="true">Teens Programmes <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
-        <li><a href="#" data-coming-soon="true">Corporate Learning <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
-        <li><a href="#contact">Get in Touch <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></li>
+        <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/erasmus" class="active">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 

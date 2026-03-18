@@ -31,12 +31,36 @@
                     <li><a href="/higher-education" class="active">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
-                    <li><a href="#">Corporate Learning</a></li>
-                    <li><a href="#consultation"><button onclick="openModal()" class="he-cta-primary" style="border:none;cursor:pointer;">Free Consultation</button></a></li>
+                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><button onclick="openModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Free Consultation</button></li>
                 </ul>
+
+                <div class="nav-actions">
+                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
+@endsection
+
+@section('mobile-nav-links')
+    <ul class="mobile-nav-links">
+        <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/higher-education" class="active">Higher Education <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+    </ul>
+@endsection
+
+@section('mobile-nav-footer')
+    <div class="mobile-drawer-footer">
+        <button class="mobile-cta-btn" onclick="openModal()">Free Consultation</button>
+    </div>
 @endsection
 
 @section('content')
@@ -575,6 +599,36 @@
             const wrap   = outer.querySelector('.stack-cards-wrap');
             const n    = cards.length;
             const PEEK = 38;
+
+            // Mobile: carousel via dots/swipe, no scroll-driven animation
+            if (window.innerWidth <= 768) {
+                let current = 0;
+                function showCard(idx) {
+                    current = idx;
+                    cards.forEach((card, i) => {
+                        if (i === idx) {
+                            card.style.transform = 'translateY(0) scale(1)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '20';
+                        } else {
+                            card.style.transform = 'translateY(0) scale(1)';
+                            card.style.opacity = '0';
+                            card.style.zIndex = '5';
+                        }
+                    });
+                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                }
+                dots.forEach((d, i) => d.addEventListener('click', () => showCard(i)));
+                let tx = 0;
+                const touchTarget = wrap || outer;
+                touchTarget.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+                touchTarget.addEventListener('touchend', e => {
+                    const dx = e.changedTouches[0].clientX - tx;
+                    if (Math.abs(dx) > 40) showCard(dx < 0 ? Math.min(current + 1, n - 1) : Math.max(current - 1, 0));
+                }, { passive: true });
+                showCard(0);
+                return;
+            }
 
             let rafId = null;
             let inView = false;

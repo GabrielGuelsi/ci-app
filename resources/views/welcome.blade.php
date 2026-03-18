@@ -45,16 +45,12 @@
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
-                    <li><a href="#" data-coming-soon="true">Teens</a></li>
-                    <li><a href="#">Corporate</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" data-coming-soon="true">Teens Programmes</a></li>
+                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
 
                 <div class="nav-actions">
-                    <button class="login-btn">
-                        <i class="far fa-user"></i>
-                        Log in
-                    </button>
                     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
                         <span></span>
                         <span></span>
@@ -70,18 +66,16 @@
     <ul class="mobile-nav-links">
         <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="/erasmus">Erasmus+ Professional Mobility <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#" data-coming-soon="true">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Ecommerce <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#">Contact <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 
 @section('mobile-nav-footer')
     <div class="mobile-drawer-footer">
-        <button class="mobile-login-btn"><i class="far fa-user"></i> Log in</button>
-        <button class="mobile-cta-btn">Apply Now</button>
+        <button class="mobile-cta-btn" onclick="window.location='#contact'">Get in Touch</button>
     </div>
 @endsection
 

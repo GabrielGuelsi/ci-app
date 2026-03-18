@@ -17,6 +17,37 @@
         const wrap  = outer.querySelector('.stack-cards-wrap');
         const n     = cards.length;
         const PEEK  = 38;
+
+        // Mobile: carousel via dots/swipe, no scroll-driven animation
+        if (window.innerWidth <= 768) {
+            let current = 0;
+            function showCard(idx) {
+                current = idx;
+                cards.forEach((card, i) => {
+                    if (i === idx) {
+                        card.style.transform = 'translateY(0) scale(1)';
+                        card.style.opacity = '1';
+                        card.style.zIndex = '20';
+                    } else {
+                        card.style.transform = 'translateY(0) scale(1)';
+                        card.style.opacity = '0';
+                        card.style.zIndex = '5';
+                    }
+                });
+                dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            }
+            dots.forEach((d, i) => d.addEventListener('click', () => showCard(i)));
+            let tx = 0;
+            const touchTarget = wrap || outer;
+            touchTarget.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, { passive: true });
+            touchTarget.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - tx;
+                if (Math.abs(dx) > 40) showCard(dx < 0 ? Math.min(current + 1, n - 1) : Math.max(current - 1, 0));
+            }, { passive: true });
+            showCard(0);
+            return;
+        }
+
         let rafId   = null;
         let inView  = false;
         let cardH   = 350;
