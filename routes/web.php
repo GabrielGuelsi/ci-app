@@ -25,3 +25,7 @@ Route::get('/erasmus', function () {
 Route::get('/teens', function () {
     return view('teens');
 })->name('teens');
+
+Route::get('/corporate', function () {
+    return view('corporate');
+})->name('corporate');

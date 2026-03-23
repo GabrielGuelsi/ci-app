@@ -33,6 +33,9 @@
 </head>
 <body>
 
+    {{-- Skip to main content (keyboard/screen reader accessibility) --}}
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     {{-- Top Banner --}}
     @yield('banner')
 
@@ -60,7 +63,9 @@
     </div>
 
     {{-- Page Content --}}
+    <main id="main-content">
     @yield('content')
+    </main>
 
     {{-- WhatsApp Float --}}
     <div class="whatsapp-float">

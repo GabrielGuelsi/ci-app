@@ -9,13 +9,71 @@
         }
 
         :root {
+            /* Brand */
             --ci-orange: #F26522;
             --ci-orange-hover: #E55512;
             --ci-purple: #3D1F3D;
             --ci-dark-purple: #2A152A;
             --ci-deepest: #1a0c1a;
+
+            /* Text */
             --text-dark: #333;
             --text-light: #666;
+            --text-primary: #1a0c1a;
+            --text-secondary: #4a3a4a;
+            --text-muted: #888;
+
+            /* Backgrounds */
+            --bg-page: #f7f5f4;
+            --bg-card: #ffffff;
+            --bg-subtle: #f7f5f4;
+
+            /* Borders */
+            --border-subtle: rgba(0,0,0,0.07);
+            --border-medium: rgba(0,0,0,0.12);
+
+            /* Semantic */
+            --color-success: #16a34a;
+            --color-error: #dc2626;
+
+            /* Shadows — 4-tier elevation */
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+            --shadow-xl: 0 24px 64px rgba(0,0,0,0.18);
+
+            /* Spacing — 8pt grid */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            --space-24: 96px;
+
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-pill: 999px;
+
+            /* Typography scale */
+            --text-xs: 11px;
+            --text-sm: 13px;
+            --text-base: 15px;
+            --text-md: 16px;
+            --text-lg: 18px;
+            --text-xl: 20px;
+            --text-2xl: 24px;
+            --text-3xl: clamp(24px, 3vw, 32px);
+            --text-4xl: clamp(28px, 3.5vw, 44px);
+            --text-hero: clamp(38px, 4.8vw, 68px);
         }
 
         html {
@@ -140,7 +198,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 28px;
             list-style: none;
         }
 
@@ -152,7 +210,7 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -868,6 +926,169 @@
             }
         }
 
-        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ PAGE-SPECIFIC STYLES SLOT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-        
-    
+        /* ─────────────── SKIP LINK (accessibility) ─────────────── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            background: var(--ci-orange);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 0 0 8px 8px;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 9999;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ─────────────── SECTION SPACING UTILITIES ─────────────── */
+        .section-spacing     { padding: 100px 0; }
+        .section-spacing--sm { padding: 72px 0; }
+        .section-spacing--lg { padding: 120px 0; }
+
+        @media (max-width: 768px) {
+            .section-spacing     { padding: 70px 0; }
+            .section-spacing--sm { padding: 52px 0; }
+            .section-spacing--lg { padding: 80px 0; }
+        }
+
+        /* ─────────────── TYPOGRAPHY UTILITIES ─────────────── */
+        .page-hero-title {
+            font-size: var(--text-hero);
+            font-weight: 900;
+            line-height: 1.08;
+        }
+
+        .page-section-title {
+            font-size: var(--text-4xl);
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .page-section-kicker {
+            font-size: var(--text-xs);
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        /* ─────────────── SHARED BUTTON SYSTEM ─────────────── */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--ci-orange);
+            color: #fff;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--ci-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: transparent;
+            color: rgba(255,255,255,0.85);
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(255,255,255,0.28);
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--ci-orange);
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--ci-orange);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--ci-orange);
+            color: #fff;
+        }
+
+        /* ─────────────── SHARED CARD SYSTEM ─────────────── */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-md);
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .card--dark {
+            background: linear-gradient(145deg, #2f1236 0%, #3D1F3D 100%);
+            color: #fff;
+        }
+
+        .card--bordered {
+            border: 1px solid var(--border-subtle);
+            box-shadow: none;
+        }
+
+        .card--bordered:hover {
+            border-color: rgba(242,101,34,0.3);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ─────────────── SHARED FORM UTILITIES ─────────────── */
+        .form-group label .required { color: var(--ci-orange); margin-left: 2px; }
+        .form-input--error { border-color: var(--color-error) !important; }
+        .form-error-msg { font-size: 12px; color: var(--color-error); margin-top: 4px; }
+        .form-success {
+            background: rgba(22,163,74,0.1);
+            border: 1px solid rgba(22,163,74,0.3);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: center;
+        }
+
+        /* ─────────────── iOS AUTO-ZOOM FIX ─────────────── */
+        @media (max-width: 768px) {
+            input, textarea, select { font-size: 16px !important; }
+        }
+
+        /* ─────────────── PAGE-SPECIFIC STYLES SLOT ─────────────── */
+

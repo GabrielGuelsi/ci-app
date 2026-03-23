@@ -35,7 +35,7 @@
                     <li><a href="/higher-education" class="active">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
-                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><a href="/corporate">Corporate Learning</a></li>
                     <li><button onclick="openModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Free Consultation</button></li>
                 </ul>
 
@@ -57,7 +57,7 @@
         <li><a href="/higher-education" class="active">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 
@@ -553,22 +553,22 @@
             <form class="modal-form" onsubmit="return false;">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Full Name <span class="req">*</span></label>
-                        <input type="text" placeholder="Your full name" required>
+                        <label for="he-name">Full Name <span class="req">*</span></label>
+                        <input id="he-name" type="text" placeholder="Your full name" required autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <label>Email <span class="req">*</span></label>
-                        <input type="email" placeholder="your@email.com" required>
+                        <label for="he-email">Email <span class="req">*</span></label>
+                        <input id="he-email" type="email" placeholder="your@email.com" required autocomplete="email">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Phone / WhatsApp <span class="req">*</span></label>
-                        <input type="tel" placeholder="+353 83 123 4567" required>
+                        <label for="he-phone">Phone / WhatsApp <span class="req">*</span></label>
+                        <input id="he-phone" type="tel" placeholder="+353 83 123 4567" required autocomplete="tel">
                     </div>
                     <div class="form-group">
-                        <label>Visa Type <span class="req">*</span></label>
-                        <select required>
+                        <label for="he-visa">Visa Type <span class="req">*</span></label>
+                        <select id="he-visa" required>
                             <option value="" disabled selected>Select visa type</option>
                             <option>EU Passport</option>
                             <option>Stamp 2</option>
@@ -581,6 +581,7 @@
                 <button type="submit" class="modal-submit">
                     Request Free Consultation <i class="fas fa-arrow-right"></i>
                 </button>
+                <div id="he-form-status" aria-live="polite" style="height:0;overflow:hidden;font-size:14px;margin-top:8px;"></div>
             </form>
             <div class="modal-trust">
                 <span><i class="fas fa-check"></i> Free</span>

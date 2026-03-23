@@ -124,7 +124,7 @@
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus" class="active">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
-                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><a href="/corporate">Corporate Learning</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
 
@@ -146,7 +146,7 @@
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus" class="active">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
@@ -796,31 +796,32 @@
                     <form class="er-form" onsubmit="return false;">
                         <div class="er-form-row">
                             <div class="er-form-group">
-                                <label>Full Name</label>
-                                <input type="text" placeholder="Your full name">
+                                <label for="er-name">Full Name <span style="color:var(--ci-orange)">*</span></label>
+                                <input id="er-name" type="text" placeholder="Your full name" required autocomplete="name">
                             </div>
                             <div class="er-form-group">
-                                <label>Institution</label>
-                                <input type="text" placeholder="Your school or organisation">
+                                <label for="er-institution">Institution</label>
+                                <input id="er-institution" type="text" placeholder="Your school or organisation" autocomplete="organization">
                             </div>
                         </div>
                         <div class="er-form-row">
                             <div class="er-form-group">
-                                <label>Country</label>
-                                <input type="text" placeholder="Your country">
+                                <label for="er-country">Country</label>
+                                <input id="er-country" type="text" placeholder="Your country" autocomplete="country-name">
                             </div>
                             <div class="er-form-group">
-                                <label>Email</label>
-                                <input type="email" placeholder="your@email.com">
+                                <label for="er-email">Email <span style="color:var(--ci-orange)">*</span></label>
+                                <input id="er-email" type="email" placeholder="your@email.com" required autocomplete="email">
                             </div>
                         </div>
                         <div class="er-form-group">
-                            <label>Message</label>
-                            <textarea rows="4" placeholder="Tell us about your interest in Erasmus+ mobility or school partnerships..."></textarea>
+                            <label for="er-message">Message</label>
+                            <textarea id="er-message" rows="4" placeholder="Tell us about your interest in Erasmus+ mobility or school partnerships..."></textarea>
                         </div>
                         <button type="submit" class="er-form-submit">
                             Send Message <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
                         </button>
+                        <div id="er-form-status" aria-live="polite" style="height:0;overflow:hidden;font-size:14px;margin-top:8px;"></div>
                     </form>
                 </div>
             </div>

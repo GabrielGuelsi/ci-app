@@ -33,7 +33,7 @@
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
-                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><a href="/corporate">Corporate Learning</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
 
@@ -55,7 +55,7 @@
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
@@ -127,12 +127,12 @@
             </div>
             <div class="about-gallery-marquee" aria-label="CI Ireland moments">
                 <div class="about-gallery-track">
-                    <div class="gallery-item large"  style="--image: url('{{ asset('images/about/about-1.webp') }}');"></div>
-                    <div class="gallery-item medium" style="--image: url('{{ asset('images/about/about-2.webp') }}');"></div>
-                    <div class="gallery-item tall"   style="--image: url('{{ asset('images/about/about-3.webp') }}');"></div>
-                    <div class="gallery-item icon"><i class="fas fa-globe"></i></div>
-                    <div class="gallery-item small"  style="--image: url('{{ asset('images/about/about-4.webp') }}');"></div>
-                    <div class="gallery-item medium" style="--image: url('{{ asset('images/about/about-5.webp') }}');"></div>
+                    <div class="gallery-item large"  style="--image: url('{{ asset('images/about/about-1.webp') }}');" role="img" aria-label="CI Ireland students"></div>
+                    <div class="gallery-item medium" style="--image: url('{{ asset('images/about/about-2.webp') }}');" role="img" aria-label="CI Ireland campus"></div>
+                    <div class="gallery-item tall"   style="--image: url('{{ asset('images/about/about-3.webp') }}');" role="img" aria-label="CI Ireland experience"></div>
+                    <div class="gallery-item icon" aria-hidden="true"><i class="fas fa-globe"></i></div>
+                    <div class="gallery-item small"  style="--image: url('{{ asset('images/about/about-4.webp') }}');" role="img" aria-label="CI Ireland team"></div>
+                    <div class="gallery-item medium" style="--image: url('{{ asset('images/about/about-5.webp') }}');" role="img" aria-label="CI Ireland Dublin"></div>
 
                     <div class="gallery-item large"  style="--image: url('{{ asset('images/about/about-1.webp') }}');" aria-hidden="true"></div>
                     <div class="gallery-item medium" style="--image: url('{{ asset('images/about/about-2.webp') }}');" aria-hidden="true"></div>

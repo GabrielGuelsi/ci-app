@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/css/higher-education.css',
                 'resources/css/erasmus.css',
                 'resources/css/teens.css',
+                'resources/css/corporate.css',
                 'resources/js/app.js',
             ],
             refresh: true,

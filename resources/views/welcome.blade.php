@@ -50,7 +50,7 @@
                     <li><a href="/higher-education">Higher Education</a></li>
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
-                    <li><a href="#" data-coming-soon="true">Corporate Learning</a></li>
+                    <li><a href="/corporate">Corporate Learning</a></li>
 
                 </ul>
 
@@ -72,7 +72,7 @@
         <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#" data-coming-soon="true">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
@@ -86,7 +86,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg" style="background-image: url('{{ asset('images/hero-higher-education.webp') }}')"></div>
+        <div class="hero-bg" style="background-image: url('{{ asset('images/hero-higher-education.webp') }}');" aria-hidden="true" role="presentation"></div>
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
