@@ -277,15 +277,16 @@
     <section class="co-about">
         <div class="container">
             <div class="co-about-split">
-                <div class="co-about-prose">
-                    <div class="co-section-kicker">About the Program</div>
-                    <h2 class="co-section-title">More Than an International Education</h2>
-                    <p>The European Executive Experience was designed for individuals and institutions seeking more than traditional international education.</p>
-                    <p class="co-about-bold">This is not a study trip.</p>
-                    <p>It is a structured, cohort-based experience that provides direct exposure to how business, innovation and global markets operate in Europe.</p>
-                    <p>Participants engage with international faculty, industry professionals and real business environments &mdash; gaining practical insights that directly impact their career positioning.</p>
-                </div>
-                <div class="co-overview-box">
+                <div class="co-about-left">
+                    <div class="co-about-prose">
+                        <div class="co-section-kicker">About the Program</div>
+                        <h2 class="co-section-title">More Than an International Education</h2>
+                        <p>The European Executive Experience was designed for individuals and institutions seeking more than traditional international education.</p>
+                        <p class="co-about-bold">This is not a study trip.</p>
+                        <p>It is a structured, cohort-based experience that provides direct exposure to how business, innovation and global markets operate in Europe.</p>
+                        <p>Participants engage with international faculty, industry professionals and real business environments &mdash; gaining practical insights that directly impact their career positioning.</p>
+                    </div>
+                    <div class="co-overview-box">
                     <div class="co-overview-title">Program Overview</div>
                     <ul class="co-overview-list">
                         <li>
@@ -324,6 +325,12 @@
                             </div>
                         </li>
                     </ul>
+                </div>
+                </div>{{-- end .co-about-left --}}
+                <div class="co-about-image">
+                    <img src="{{ asset('images/corporate/co-experience.webp') }}"
+                         alt="CI Executive Experience cohort session in a European business setting"
+                         loading="lazy">
                 </div>
             </div>
         </div>
@@ -417,22 +424,34 @@
             </div>
             <div class="co-locations-grid">
                 <div class="co-location-card">
-                    <div class="co-location-label">Ireland</div>
-                    <h3 class="co-location-city">Dublin</h3>
-                    <p class="co-location-tagline">Europe's Innovation Hub</p>
-                    <p class="co-location-desc">Experience one of Europe's most dynamic business environments, home to global tech leaders and fast-growing companies.</p>
+                    <div class="co-location-bg" style="background-image: url('{{ asset('images/corporate/co-dublin.webp') }}');" aria-hidden="true"></div>
+                    <div class="co-location-overlay"></div>
+                    <div class="co-location-content">
+                        <div class="co-location-label">Ireland</div>
+                        <h3 class="co-location-city">Dublin</h3>
+                        <p class="co-location-tagline">Europe's Innovation Hub</p>
+                        <p class="co-location-desc">Experience one of Europe's most dynamic business environments, home to global tech leaders and fast-growing companies.</p>
+                    </div>
                 </div>
                 <div class="co-location-card co-location-card--accent">
-                    <div class="co-location-label">France</div>
-                    <h3 class="co-location-city">Paris</h3>
-                    <p class="co-location-tagline">Strategy &amp; Creativity</p>
-                    <p class="co-location-desc">One of Europe's most influential cities in business, innovation and culture &mdash; combining strategic thinking with creative environments.</p>
+                    <div class="co-location-bg" style="background-image: url('{{ asset('images/corporate/co-paris.webp') }}');" aria-hidden="true"></div>
+                    <div class="co-location-overlay"></div>
+                    <div class="co-location-content">
+                        <div class="co-location-label">France</div>
+                        <h3 class="co-location-city">Paris</h3>
+                        <p class="co-location-tagline">Strategy &amp; Creativity</p>
+                        <p class="co-location-desc">One of Europe's most influential cities in business, innovation and culture &mdash; combining strategic thinking with creative environments.</p>
+                    </div>
                 </div>
                 <div class="co-location-card">
-                    <div class="co-location-label">Germany</div>
-                    <h3 class="co-location-city">Berlin</h3>
-                    <p class="co-location-tagline">Global Thinking</p>
-                    <p class="co-location-desc">A powerhouse of entrepreneurship and innovation, Berlin offers a unique blend of global outlook and creative business culture.</p>
+                    <div class="co-location-bg" style="background-image: url('{{ asset('images/corporate/co-berlin.webp') }}');" aria-hidden="true"></div>
+                    <div class="co-location-overlay"></div>
+                    <div class="co-location-content">
+                        <div class="co-location-label">Germany</div>
+                        <h3 class="co-location-city">Berlin</h3>
+                        <p class="co-location-tagline">Global Thinking</p>
+                        <p class="co-location-desc">A powerhouse of entrepreneurship and innovation, Berlin offers a unique blend of global outlook and creative business culture.</p>
+                    </div>
                 </div>
             </div>
         </div>

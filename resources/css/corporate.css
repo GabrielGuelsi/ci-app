@@ -320,9 +320,25 @@
 }
 .co-about-split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    grid-template-columns: 1fr 0.72fr;
+    gap: 56px;
     align-items: start;
+}
+.co-about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.co-about-image {
+    position: sticky;
+    top: 100px;
+}
+.co-about-image img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.14);
 }
 .co-about-prose p {
     font-size: 16px;
@@ -530,6 +546,8 @@
     border-radius: 24px;
     padding: 44px 36px;
     transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 .co-location-card:hover {
     border-color: rgba(255,255,255,0.18);
@@ -540,6 +558,27 @@
     background: rgba(242,101,34,0.06);
 }
 .co-location-card--accent:hover { border-color: rgba(242,101,34,0.6); }
+.co-location-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.22;
+    transition: opacity 0.4s;
+}
+.co-location-card:hover .co-location-bg {
+    opacity: 0.34;
+}
+.co-location-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(42,21,42,0.35) 0%, rgba(42,21,42,0.72) 100%);
+    pointer-events: none;
+}
+.co-location-content {
+    position: relative;
+    z-index: 1;
+}
 .co-location-label {
     font-size: 11px;
     font-weight: 700;
@@ -1068,6 +1107,8 @@
 @media (max-width: 1024px) {
     .co-hero-split { grid-template-columns: 1fr 1fr; gap: 32px; }
     .co-about-split { grid-template-columns: 1fr; gap: 40px; }
+    .co-about-image { position: static; }
+    .co-about-image img { aspect-ratio: 16 / 9; }
     .co-tiers-grid { grid-template-columns: 1fr; gap: 16px; }
     .co-tier-card--select { transform: none; }
     .co-locations-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1078,6 +1119,7 @@
 }
 
 @media (max-width: 768px) {
+    .co-about-image img { aspect-ratio: 16 / 9; }
     .nav-links { display: none; }
     .hamburger-btn { display: flex; }
     .co-hero { min-height: auto; padding: 100px 0 70px; }
