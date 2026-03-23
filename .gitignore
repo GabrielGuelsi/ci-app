@@ -24,3 +24,6 @@ Homestead.yaml
 Thumbs.db
 AGENTS.md
 boost.json
+.claude/
+.cursor/
+.mcp.json

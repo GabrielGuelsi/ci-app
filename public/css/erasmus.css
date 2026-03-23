@@ -746,7 +746,7 @@
         .er-focus {
             background: var(--ci-deepest);
             position: relative;
-            overflow-x: clip;
+            overflow: clip;
         }
         .er-focus::before {
             content: '';

@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find /c/Users/PC_Desk/Desktop/ci-app/app/Http/Middleware -type f -name *.php)",
-      "Bash(file /c/Users/PC_Desk/Desktop/ci-app/public/consultant/*.jpg /c/Users/PC_Desk/Desktop/ci-app/public/consultant/*.avif)",
-      "Bash(wc -l /c/Users/PC_Desk/Desktop/ci-app/resources/views/*.blade.php)"
-    ]
-  }
-}

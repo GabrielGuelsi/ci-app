@@ -328,7 +328,7 @@
         .he-process {
             background: var(--ci-deepest);
             position: relative;
-            overflow-x: clip;
+            overflow: clip;
         }
         .he-process-header { display: none; }
         .he-process::before {

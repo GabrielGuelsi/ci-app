@@ -76,11 +76,8 @@ function initScrollStack() {
     let headerH = 0;
 
     function setOuterHeight() {
-        const steps = Math.max(1, n - 1);
-        const baseH = wrapH > 0 ? wrapH : window.innerHeight;
-        const perCard = Math.round(cardH * 0.45);
-        const target = Math.round(baseH + perCard * steps);
-        outer.style.height = `${Math.max(baseH + 1, target)}px`;
+        const scrollableH = Math.round(0.75 * window.innerHeight);
+        outer.style.height = `${window.innerHeight + scrollableH}px`;
     }
 
     function measure() {
@@ -99,9 +96,9 @@ function initScrollStack() {
         const scrollableH = outer.offsetHeight - window.innerHeight;
         const scrolled    = Math.max(0, -rect.top);
         const total       = Math.min(1, scrolled / scrollableH);
-        const scaled      = total * n;
+        const scaled      = total * (n - 1);
         const idx         = Math.min(n - 1, Math.floor(scaled));
-        const prog        = idx === n - 1 ? 0 : scaled - Math.floor(scaled);
+        const prog        = scaled - Math.floor(scaled);
 
         // Center cards inside the wrap (works at any screen height)
         const base   = Math.round(Math.max(0, (wrapH - cardH) / 2));
