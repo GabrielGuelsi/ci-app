@@ -122,6 +122,7 @@
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="{{ route('corporate') }}" class="active">Corporate Learning</a></li>
+                    <li><a href="{{ route('professional') }}">CI Professional</a></li>
                     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -143,6 +144,7 @@
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('corporate') }}" class="active">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('professional') }}">CI Professional <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
@@ -339,30 +341,40 @@
     <!-- ===== WHAT MAKES IT DIFFERENT ===== -->
     <section class="co-diff">
         <div class="container">
-            <div class="co-diff-header">
-                <div class="co-section-kicker co-section-kicker--light">What Makes This Program Different</div>
-                <h2 class="co-section-title co-section-title--light">Built Around Real Business Exposure</h2>
-            </div>
-            <div class="co-diff-grid">
-                <div class="co-diff-card">
-                    <div class="co-diff-icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"></use></svg></div>
-                    <p>Designed around real business exposure, not only academic content</p>
+            <div class="co-diff-inner">
+                <div class="co-diff-content">
+                    <div class="co-diff-header">
+                        <div class="co-section-kicker co-section-kicker--light">What Makes This Program Different</div>
+                        <h2 class="co-section-title co-section-title--light">Built Around Real Business Exposure</h2>
+                    </div>
+                    <div class="co-diff-list">
+                        <div class="co-diff-item">
+                            <p>Designed around real business exposure, not only academic content</p>
+                        </div>
+                        <div class="co-diff-item">
+                            <p>Direct connection to European business ecosystems</p>
+                        </div>
+                        <div class="co-diff-item">
+                            <p>Curated access to companies, professionals and industry insights</p>
+                        </div>
+                        <div class="co-diff-item">
+                            <p>International cohort with high-level participants</p>
+                        </div>
+                        <div class="co-diff-item">
+                            <p>Strong focus on career positioning and global mindset</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="co-diff-card">
-                    <div class="co-diff-icon"><svg class="icon" aria-hidden="true"><use href="#icon-network"></use></svg></div>
-                    <p>Direct connection to European business ecosystems</p>
-                </div>
-                <div class="co-diff-card">
-                    <div class="co-diff-icon"><svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg></div>
-                    <p>Curated access to companies, professionals and industry insights</p>
-                </div>
-                <div class="co-diff-card">
-                    <div class="co-diff-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg></div>
-                    <p>International cohort with high-level participants</p>
-                </div>
-                <div class="co-diff-card">
-                    <div class="co-diff-icon"><svg class="icon" aria-hidden="true"><use href="#icon-star"></use></svg></div>
-                    <p>Strong focus on career positioning and global mindset</p>
+                <div class="co-diff-photos" aria-hidden="true">
+                    <div class="co-diff-photo-item">
+                        <img src="{{ asset('images/corporate/co-paris.webp') }}" alt="" loading="lazy">
+                    </div>
+                    <div class="co-diff-photo-item">
+                        <img src="{{ asset('images/corporate/co-dublin.webp') }}" alt="" loading="lazy">
+                    </div>
+                    <div class="co-diff-photo-item">
+                        <img src="{{ asset('images/corporate/co-berlin.webp') }}" alt="" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
@@ -404,7 +416,7 @@
                         <p>Connect with professionals, peers and industry figures across multiple European cities.</p>
                     </div>
                 </div>
-                <div class="co-exp-item">
+                <div class="co-exp-item" style="--exp-bg: url('{{ asset('images/corporate/co-experience.webp') }}')">
                     <div class="co-exp-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg></div>
                     <div class="co-exp-text">
                         <h4>Cultural Immersion</h4>
@@ -464,25 +476,32 @@
                 <div class="co-section-kicker">Areas of Focus</div>
                 <h2 class="co-section-title">Five Strategic Business Domains</h2>
             </div>
-            <div class="co-focus-grid">
-                <div class="co-focus-card">
-                    <div class="co-focus-icon"><svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg></div>
+            <nav class="co-focus-nav" role="tablist" aria-label="Areas of Focus">
+                <button class="co-focus-tab active" role="tab" aria-selected="true" aria-controls="co-focus-panel-0" data-tab="0">Business &amp; Leadership</button>
+                <button class="co-focus-tab" role="tab" aria-selected="false" aria-controls="co-focus-panel-1" data-tab="1">Marketing &amp; Communication</button>
+                <button class="co-focus-tab" role="tab" aria-selected="false" aria-controls="co-focus-panel-2" data-tab="2">Technology &amp; Innovation</button>
+                <button class="co-focus-tab" role="tab" aria-selected="false" aria-controls="co-focus-panel-3" data-tab="3">Finance &amp; Strategy</button>
+                <button class="co-focus-tab" role="tab" aria-selected="false" aria-controls="co-focus-panel-4" data-tab="4">Behavioral Sciences</button>
+            </nav>
+            <div class="co-focus-panels">
+                <div class="co-focus-panel active" id="co-focus-panel-0" role="tabpanel" style="--panel-color:#F26522;--panel-bg:rgba(242,101,34,0.07);">
+                    <div class="co-focus-panel-icon"><svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg></div>
                     <h4>Business &amp; Leadership</h4>
                 </div>
-                <div class="co-focus-card">
-                    <div class="co-focus-icon"><svg class="icon" aria-hidden="true"><use href="#icon-network"></use></svg></div>
+                <div class="co-focus-panel" id="co-focus-panel-1" role="tabpanel" style="--panel-color:#3B82F6;--panel-bg:rgba(59,130,246,0.07);">
+                    <div class="co-focus-panel-icon"><svg class="icon" aria-hidden="true"><use href="#icon-network"></use></svg></div>
                     <h4>Marketing &amp; Communication</h4>
                 </div>
-                <div class="co-focus-card">
-                    <div class="co-focus-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"></use></svg></div>
+                <div class="co-focus-panel" id="co-focus-panel-2" role="tabpanel" style="--panel-color:#10B981;--panel-bg:rgba(16,185,129,0.07);">
+                    <div class="co-focus-panel-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"></use></svg></div>
                     <h4>Technology &amp; Innovation</h4>
                 </div>
-                <div class="co-focus-card">
-                    <div class="co-focus-icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"></use></svg></div>
+                <div class="co-focus-panel" id="co-focus-panel-3" role="tabpanel" style="--panel-color:#F59E0B;--panel-bg:rgba(245,158,11,0.07);">
+                    <div class="co-focus-panel-icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"></use></svg></div>
                     <h4>Finance &amp; Strategy</h4>
                 </div>
-                <div class="co-focus-card">
-                    <div class="co-focus-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg></div>
+                <div class="co-focus-panel" id="co-focus-panel-4" role="tabpanel" style="--panel-color:#8B5CF6;--panel-bg:rgba(139,92,246,0.07);">
+                    <div class="co-focus-panel-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg></div>
                     <h4>Behavioral Sciences</h4>
                 </div>
             </div>
@@ -555,24 +574,40 @@
             </div>
             <div class="co-audience-grid">
                 <div class="co-audience-card">
-                    <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
-                    <h4>Young Professionals</h4>
-                    <p>Looking to accelerate their international careers and gain real European market exposure.</p>
+                    <div class="co-audience-card-accent">
+                        <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg></div>
+                    </div>
+                    <div class="co-audience-card-body">
+                        <h4>Young Professionals</h4>
+                        <p>Looking to accelerate their international careers and gain real European market exposure.</p>
+                    </div>
                 </div>
                 <div class="co-audience-card">
-                    <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg></div>
-                    <h4>University Students</h4>
-                    <p>With strong academic performance and global ambitions seeking a competitive edge.</p>
+                    <div class="co-audience-card-accent">
+                        <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg></div>
+                    </div>
+                    <div class="co-audience-card-body">
+                        <h4>University Students</h4>
+                        <p>With strong academic performance and global ambitions seeking a competitive edge.</p>
+                    </div>
                 </div>
                 <div class="co-audience-card">
-                    <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"></use></svg></div>
-                    <h4>Entrepreneurs</h4>
-                    <p>And business-minded individuals looking to understand and enter the European ecosystem.</p>
+                    <div class="co-audience-card-accent">
+                        <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-lightbulb"></use></svg></div>
+                    </div>
+                    <div class="co-audience-card-body">
+                        <h4>Entrepreneurs</h4>
+                        <p>And business-minded individuals looking to understand and enter the European ecosystem.</p>
+                    </div>
                 </div>
                 <div class="co-audience-card">
-                    <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg></div>
-                    <h4>Institutions</h4>
-                    <p>Seeking high-quality international programs for their students and professionals.</p>
+                    <div class="co-audience-card-accent">
+                        <div class="co-audience-icon"><svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg></div>
+                    </div>
+                    <div class="co-audience-card-body">
+                        <h4>Institutions</h4>
+                        <p>Seeking high-quality international programs for their students and professionals.</p>
+                    </div>
                 </div>
             </div>
         </div>

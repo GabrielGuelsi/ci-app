@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/erasmus.css',
                 'resources/css/teens.css',
                 'resources/css/corporate.css',
+                'resources/css/professional.css',
                 'resources/js/app.js',
             ],
             refresh: true,

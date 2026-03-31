@@ -31,6 +31,7 @@
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}" class="active">Teens Programmes</a></li>
                     <li><a href="/corporate">Corporate Learning</a></li>
+                    <li><a href="{{ route('professional') }}">CI Professional</a></li>
                     <li><button onclick="openTeensModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Get in Touch</button></li>
                 </ul>
                 <div class="nav-actions">
@@ -52,6 +53,7 @@
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}" class="active">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('professional') }}">CI Professional <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 
@@ -504,26 +506,73 @@
                 </div>
             </div>
 
-            <div class="tj-lpe-features">
-                <div class="tj-lpe-feature">
-                    <div class="tj-lpe-icon"><i class="fas fa-calendar-check"></i></div>
-                    <h4>Daily Activity Updates</h4>
-                    <p>Regular updates on programme activities, schedules, and student engagement throughout the experience.</p>
+            <div class="tj-lpe-body">
+                <div class="tj-lpe-features">
+                    <div class="tj-lpe-feature">
+                        <div class="tj-lpe-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h4>Daily Activity Updates</h4>
+                        <p>Regular updates on programme activities, schedules, and student engagement throughout the experience.</p>
+                    </div>
+                    <div class="tj-lpe-feature">
+                        <div class="tj-lpe-icon"><i class="fas fa-star"></i></div>
+                        <h4>Key Programme Highlights</h4>
+                        <p>Curated highlights from the most meaningful moments of the programme, shared with schools and families.</p>
+                    </div>
+                    <div class="tj-lpe-feature">
+                        <div class="tj-lpe-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4>Structured Location Check-ins</h4>
+                        <p>Structured location updates when appropriate, providing an additional layer of visibility and safety.</p>
+                    </div>
+                    <div class="tj-lpe-feature">
+                        <div class="tj-lpe-icon"><i class="fas fa-heart"></i></div>
+                        <h4>Wellbeing &amp; Routine Updates</h4>
+                        <p>Regular wellbeing check-ins ensuring students are settling well, engaged, and supported throughout.</p>
+                    </div>
                 </div>
-                <div class="tj-lpe-feature">
-                    <div class="tj-lpe-icon"><i class="fas fa-star"></i></div>
-                    <h4>Key Programme Highlights</h4>
-                    <p>Curated highlights from the most meaningful moments of the programme, shared with schools and families.</p>
-                </div>
-                <div class="tj-lpe-feature">
-                    <div class="tj-lpe-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <h4>Structured Location Check-ins</h4>
-                    <p>Structured location updates when appropriate, providing an additional layer of visibility and safety.</p>
-                </div>
-                <div class="tj-lpe-feature">
-                    <div class="tj-lpe-icon"><i class="fas fa-heart"></i></div>
-                    <h4>Wellbeing &amp; Routine Updates</h4>
-                    <p>Regular wellbeing check-ins ensuring students are settling well, engaged, and supported throughout.</p>
+
+                {{-- Decorative update feed mockup --}}
+                <div class="tj-lpe-feed" aria-hidden="true">
+                    <div class="tj-feed-card">
+                        <div class="tj-feed-header">
+                            <div class="tj-feed-badge"><i class="fas fa-circle"></i> Live Updates</div>
+                            <div class="tj-feed-avatars">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <ul class="tj-feed-list">
+                            <li class="tj-feed-item">
+                                <div class="tj-feed-item-icon" style="background:rgba(242,101,34,0.1);color:var(--ci-orange);"><i class="fas fa-calendar-check"></i></div>
+                                <div class="tj-feed-item-text">
+                                    <span class="tj-feed-item-title">Day 3 — Activity Summary</span>
+                                    <span class="tj-feed-item-meta">Morning session completed · 09:45</span>
+                                </div>
+                            </li>
+                            <li class="tj-feed-item">
+                                <div class="tj-feed-item-icon" style="background:rgba(16,185,129,0.1);color:#10B981;"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="tj-feed-item-text">
+                                    <span class="tj-feed-item-title">Location Check-in</span>
+                                    <span class="tj-feed-item-meta">Campus confirmed · All students present</span>
+                                </div>
+                            </li>
+                            <li class="tj-feed-item">
+                                <div class="tj-feed-item-icon" style="background:rgba(59,130,246,0.1);color:#3B82F6;"><i class="fas fa-star"></i></div>
+                                <div class="tj-feed-item-text">
+                                    <span class="tj-feed-item-title">Programme Highlight Shared</span>
+                                    <span class="tj-feed-item-meta">Cultural visit · City Centre · 14:00</span>
+                                </div>
+                            </li>
+                            <li class="tj-feed-item">
+                                <div class="tj-feed-item-icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><i class="fas fa-heart"></i></div>
+                                <div class="tj-feed-item-text">
+                                    <span class="tj-feed-item-title">Wellbeing Check-in</span>
+                                    <span class="tj-feed-item-meta">All students settling well · Evening</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tj-feed-footer">
+                            <i class="fas fa-lock"></i> Shared securely with registered contacts only
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -544,6 +593,21 @@
             <p style="font-size:1rem; color:rgba(255,255,255,0.75); max-width:620px; margin:0 auto 40px; line-height:1.75;">
                 We deliver programmes with clarity, responsibility, and consistency. We understand what is at stake when working with young students. That is why we take an active role in every stage of the experience.
             </p>
+            {{-- TODO: confirm these numbers with your team before going live --}}
+            <div class="tj-why-stats">
+                <div class="tj-why-stat">
+                    <span class="tj-why-stat-num">10+</span>
+                    <span class="tj-why-stat-label">Years Experience</span>
+                </div>
+                <div class="tj-why-stat">
+                    <span class="tj-why-stat-num">12+</span>
+                    <span class="tj-why-stat-label">Countries Served</span>
+                </div>
+                <div class="tj-why-stat">
+                    <span class="tj-why-stat-num">500+</span>
+                    <span class="tj-why-stat-label">Programmes Delivered</span>
+                </div>
+            </div>
             <button class="tj-cta-btn" onclick="openTeensModal()">
                 Speak to Our Team <i class="fas fa-arrow-right"></i>
             </button>

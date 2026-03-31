@@ -436,46 +436,64 @@
 
 .tj-pillars-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
 }
 
 .tj-pillar-card {
     background: #fff;
-    border-radius: 14px;
-    padding: 28px 24px;
+    border-radius: 16px;
+    padding: 32px 28px 32px 24px;
     box-shadow: 0 2px 12px rgba(61,31,61,0.06);
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    transition: box-shadow 0.2s;
+    gap: 0;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .tj-pillar-card:hover {
-    box-shadow: 0 6px 24px rgba(61,31,61,0.12);
+    box-shadow: 0 8px 28px rgba(61,31,61,0.12);
+    transform: translateY(-2px);
+}
+
+/* Stagger even cards down for visual rhythm */
+.tj-pillar-card:nth-child(even) {
+    margin-top: 20px;
 }
 
 .tj-pillar-num {
-    font-size: 11px;
-    font-weight: 800;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
     color: var(--ci-orange);
-    letter-spacing: 0.08em;
-    flex-shrink: 0;
-    padding-top: 2px;
+    opacity: 0.1;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.tj-pillar-body {
+    position: relative;
+    z-index: 1;
 }
 
 .tj-pillar-body h4 {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--ci-purple);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     line-height: 1.3;
 }
 
 .tj-pillar-body p {
     font-size: 13px;
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 /* ─────────────── PANEL CTA ─────────────── */
@@ -500,6 +518,48 @@
     margin-left: auto;
     margin-right: auto;
     line-height: 1.7;
+}
+
+/* Why CI Ireland — stats row */
+.tj-why-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+.tj-why-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 48px;
+    position: relative;
+}
+.tj-why-stat + .tj-why-stat::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+}
+.tj-why-stat-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
+}
+.tj-why-stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.6);
 }
 
 .tj-cta-btn {
@@ -576,10 +636,17 @@
     font-weight: 700;
 }
 
+.tj-lpe-body {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
 .tj-lpe-features {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
 .tj-lpe-feature {
@@ -614,6 +681,103 @@
     color: var(--text-light);
     line-height: 1.6;
 }
+
+/* Feed mockup */
+.tj-lpe-feed {
+    position: sticky;
+    top: 100px;
+}
+.tj-feed-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(61,31,61,0.12);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+.tj-feed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.tj-feed-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ci-orange);
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.tj-feed-badge i { font-size: 7px; animation: lpe-pulse 2s infinite; }
+@keyframes lpe-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.tj-feed-avatars {
+    display: flex;
+    gap: -4px;
+}
+.tj-feed-avatars span {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: linear-gradient(135deg, var(--ci-purple), var(--ci-orange));
+    display: block;
+    margin-left: -6px;
+}
+.tj-feed-avatars span:first-child { margin-left: 0; background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+.tj-feed-avatars span:nth-child(2) { background: linear-gradient(135deg, #10B981, #34D399); }
+.tj-feed-list {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+}
+.tj-feed-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 20px;
+    transition: background 0.15s;
+}
+.tj-feed-item:hover { background: #faf9fa; }
+.tj-feed-item-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+.tj-feed-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.tj-feed-item-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ci-purple);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tj-feed-item-meta {
+    font-size: 11px;
+    color: var(--text-light);
+}
+.tj-feed-footer {
+    padding: 12px 20px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 11px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #faf9fa;
+}
+.tj-feed-footer i { color: var(--ci-orange); }
 
 .tj-lpe-note {
     margin-top: 32px;
@@ -1140,10 +1304,14 @@
         grid-template-columns: repeat(2, 1fr);
     }
     .tj-pillars-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
+    .tj-lpe-body {
+        grid-template-columns: 1fr;
+    }
+    .tj-lpe-feed { position: static; }
     .tj-lpe-features {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
     .tj-lpe-header {
         grid-template-columns: 1fr;
@@ -1175,6 +1343,10 @@
     .tj-pillars-grid {
         grid-template-columns: 1fr;
     }
+    .tj-pillar-card:nth-child(even) { margin-top: 0; }
+    .tj-why-stats { gap: 0; }
+    .tj-why-stat { padding: 0 24px; }
+    .tj-why-stat-num { font-size: 36px; }
     .tj-portfolio-grid {
         grid-template-columns: 1fr;
     }

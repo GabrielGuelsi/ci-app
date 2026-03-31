@@ -36,6 +36,7 @@
                     <li><a href="/erasmus">Erasmus+</a></li>
                     <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
                     <li><a href="/corporate">Corporate Learning</a></li>
+                    <li><a href="{{ route('professional') }}">CI Professional</a></li>
                     <li><button onclick="openModal()" class="nav-cta" style="border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Free Consultation</button></li>
                 </ul>
 
@@ -58,6 +59,7 @@
         <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
         <li><a href="/corporate">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ route('professional') }}">CI Professional <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 

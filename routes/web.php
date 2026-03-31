@@ -29,3 +29,7 @@ Route::get('/teens', function () {
 Route::get('/corporate', function () {
     return view('corporate');
 })->name('corporate');
+
+Route::get('/professional', function () {
+    return view('professional');
+})->name('professional');
