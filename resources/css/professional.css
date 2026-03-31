@@ -199,6 +199,85 @@
     align-items: center;
     justify-content: center;
 }
+.pr-hero-visual--mobile {
+    display: none;
+}
+.pr-hero-visual::before {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,101,34,0.18) 0%, rgba(242,101,34,0.08) 35%, transparent 70%);
+    filter: blur(2px);
+    opacity: 0.9;
+    transform: translate(10px, -8px);
+    z-index: 0;
+}
+.pr-hero-visual--mobile::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.6;
+    transform: translate(0, -4px);
+}
+.pr-network-svg {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+}
+.pr-network-svg--mobile {
+    max-width: 360px;
+}
+.pr-net-line {
+    stroke: url(#pr-line-gradient);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    opacity: 0.55;
+    stroke-dasharray: 8 10;
+    animation: prLineFlow 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(242,101,34,0.18));
+}
+.pr-net-divider {
+    stroke: rgba(255,255,255,0.08);
+}
+.pr-net-node {
+    filter: url(#pr-node-glow);
+}
+.pr-net-node text {
+    opacity: 0.7;
+}
+.pr-hub-ring {
+    fill: none;
+    stroke: rgba(242,101,34,0.22);
+    stroke-width: 1.5;
+    opacity: 0;
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: prHubPulse 6s ease-out infinite;
+    filter: url(#pr-node-glow);
+}
+.pr-net-stats text {
+    opacity: 0.85;
+}
+@keyframes prLineFlow {
+    0% { stroke-dashoffset: 40; opacity: 0.35; }
+    50% { opacity: 0.7; }
+    100% { stroke-dashoffset: 0; opacity: 0.45; }
+}
+@keyframes prHubPulse {
+    0% { transform: scale(0.2); opacity: 0.7; }
+    60% { opacity: 0.2; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pr-net-line { animation: none; stroke-dasharray: none; }
+    .pr-hub-ring { animation: none; opacity: 0.25; transform: none; }
+    .pr-net-dot { display: none; }
+}
 .pr-hero-badge-stack {
     display: flex;
     flex-direction: column;
@@ -516,6 +595,9 @@
     border-radius: 20px;
     overflow: hidden;
     background: var(--ci-dark-purple);
+    background-image: url("/images/prof/Gemini_Generated_Image_r212jpr212jpr212.png");
+    background-size: cover;
+    background-position: center;
     aspect-ratio: 4/3;
     display: flex;
     align-items: center;
@@ -528,8 +610,7 @@
     background: linear-gradient(135deg, rgba(242,101,34,0.3) 0%, transparent 60%);
 }
 .pr-why-visual-icon {
-    font-size: 80px;
-    opacity: 0.15;
+    display: none;
 }
 
 /* ─────────────────── VISAS ─────────────────── */
@@ -547,6 +628,9 @@
     border-radius: 20px;
     overflow: hidden;
     background: var(--ci-dark-purple);
+    background-image: url("/images/prof/visa-application-form-laptop.jpg");
+    background-size: cover;
+    background-position: center;
     aspect-ratio: 4/3;
     display: flex;
     align-items: center;
@@ -559,8 +643,7 @@
     background: linear-gradient(135deg, rgba(61,31,61,0.8) 0%, transparent 60%);
 }
 .pr-visas-visual-icon {
-    font-size: 80px;
-    opacity: 0.15;
+    display: none;
 }
 .pr-visas-list {
     list-style: none;
@@ -803,6 +886,16 @@
 @media (max-width: 900px) {
     .pr-hero-split { grid-template-columns: 1fr; gap: 48px; }
     .pr-hero-visual { display: none; }
+    .pr-hero-visual--mobile {
+        display: flex;
+        margin: 24px auto 0;
+    }
+    .pr-hero-visual--mobile .pr-net-line {
+        animation-duration: 10s;
+        stroke: url(#pr-line-gradient-m);
+        opacity: 0.7;
+    }
+    .pr-hero-visual--mobile .pr-net-dot { display: none; }
     #panel-b2b .pr-services-cards { grid-template-columns: repeat(2, 1fr); }
     #panel-b2b .pr-service-card,
     #panel-b2b .pr-service-card:nth-child(4),

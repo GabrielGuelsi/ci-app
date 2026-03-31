@@ -191,39 +191,56 @@
                             <pattern id="prgrid" width="30" height="30" patternUnits="userSpaceOnUse">
                                 <circle cx="15" cy="15" r="1" fill="rgba(255,255,255,0.05)"/>
                             </pattern>
+                            <linearGradient id="pr-line-gradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="rgba(242,101,34,0.65)"/>
+                                <stop offset="50%" stop-color="rgba(255,255,255,0.25)"/>
+                                <stop offset="100%" stop-color="rgba(125,86,157,0.55)"/>
+                            </linearGradient>
+                            <filter id="pr-node-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+                                <feColorMatrix in="blur" type="matrix"
+                                    values="1 0 0 0 0
+                                            0 1 0 0 0
+                                            0 0 1 0 0
+                                            0 0 0 0.6 0"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
                         </defs>
 
                         <!-- Background -->
                         <rect width="500" height="420" fill="url(#prgrid)"/>
 
                         <!-- Zone separators -->
-                        <line x1="165" y1="10" x2="165" y2="405" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 6"/>
-                        <line x1="335" y1="10" x2="335" y2="405" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 6"/>
+                        <line class="pr-net-divider" x1="165" y1="10" x2="165" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="5 6"/>
+                        <line class="pr-net-divider" x1="335" y1="10" x2="335" y2="405" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="5 6"/>
 
                         <!-- Zone labels -->
                         <text x="82" y="18" text-anchor="middle" fill="rgba(255,255,255,0.22)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="2">PROFESSIONALS</text>
                         <text x="418" y="18" text-anchor="middle" fill="rgba(255,255,255,0.22)" font-size="8" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="2">EMPLOYERS</text>
 
                         <!-- Connection paths -->
-                        <path id="pr-l1" class="pr-net-line" pathLength="1" d="M 75 80 Q 162 80 250 200" style="animation-delay:0.3s"/>
-                        <path id="pr-l2" class="pr-net-line" pathLength="1" d="M 75 200 L 250 200"        style="animation-delay:0.6s"/>
-                        <path id="pr-l3" class="pr-net-line" pathLength="1" d="M 75 320 Q 162 320 250 200" style="animation-delay:0.9s"/>
-                        <path id="pr-l4" class="pr-net-line" pathLength="1" d="M 250 200 Q 338 80 425 80"  style="animation-delay:1.2s"/>
-                        <path id="pr-l5" class="pr-net-line" pathLength="1" d="M 250 200 L 425 200"        style="animation-delay:1.5s"/>
-                        <path id="pr-l6" class="pr-net-line" pathLength="1" d="M 250 200 Q 338 320 425 320" style="animation-delay:1.8s"/>
+                        <path id="pr-l1" class="pr-net-line" pathLength="1" d="M 107 80 Q 170 80 198 200" style="animation-delay:0.3s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-l2" class="pr-net-line" pathLength="1" d="M 107 200 L 198 200"        style="animation-delay:0.6s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-l3" class="pr-net-line" pathLength="1" d="M 107 320 Q 170 320 198 200" style="animation-delay:0.9s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-l4" class="pr-net-line" pathLength="1" d="M 302 200 Q 330 80 393 80"  style="animation-delay:1.2s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-l5" class="pr-net-line" pathLength="1" d="M 302 200 L 393 200"        style="animation-delay:1.5s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-l6" class="pr-net-line" pathLength="1" d="M 302 200 Q 330 320 393 320" style="animation-delay:1.8s" stroke="url(#pr-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
                         <!-- Traveling dots -->
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s"><mpath href="#pr-l1"/></animateMotion></circle>
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="1.8s"><mpath href="#pr-l2"/></animateMotion></circle>
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.4s"><mpath href="#pr-l3"/></animateMotion></circle>
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.1s"><mpath href="#pr-l4"/></animateMotion></circle>
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.7s"><mpath href="#pr-l5"/></animateMotion></circle>
-                        <circle r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="3.3s"><mpath href="#pr-l6"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s"><mpath href="#pr-l1"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="1.8s"><mpath href="#pr-l2"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.4s"><mpath href="#pr-l3"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.1s"><mpath href="#pr-l4"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="2.7s"><mpath href="#pr-l5"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.5" fill="#F26522" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="3.3s"><mpath href="#pr-l6"/></animateMotion></circle>
 
                         <!-- Hub radar rings -->
-                        <circle class="pr-hub-ring" cx="250" cy="200" r="0"/>
-                        <circle class="pr-hub-ring" cx="250" cy="200" r="0" style="animation-delay:1.4s"/>
-                        <circle class="pr-hub-ring" cx="250" cy="200" r="0" style="animation-delay:2.8s"/>
+                        <circle class="pr-hub-ring" cx="250" cy="200" r="48"/>
+                        <circle class="pr-hub-ring" cx="250" cy="200" r="48" style="animation-delay:1.4s"/>
+                        <circle class="pr-hub-ring" cx="250" cy="200" r="48" style="animation-delay:2.8s"/>
 
                         <!-- Hub -->
                         <circle cx="250" cy="200" r="52" fill="rgba(242,101,34,0.07)" stroke="rgba(242,101,34,0.18)" stroke-width="1"/>
@@ -279,9 +296,87 @@
 
                         <!-- Floating stats panel -->
                         <g class="pr-net-stats">
-                            <rect x="184" y="242" width="132" height="46" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                            <text x="250" y="260" text-anchor="middle" fill="rgba(255,255,255,0.32)" font-size="7" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="2">TOTAL MATCHES</text>
-                            <text x="250" y="279" text-anchor="middle" fill="#F26522" font-size="16" font-family="Montserrat,sans-serif" font-weight="900" letter-spacing="-0.5">500,000+</text>
+                            <rect x="178" y="258" width="144" height="46" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <text x="250" y="276" text-anchor="middle" fill="rgba(255,255,255,0.32)" font-size="7" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="2">TOTAL MATCHES</text>
+                            <text x="250" y="295" text-anchor="middle" fill="#F26522" font-size="16" font-family="Montserrat,sans-serif" font-weight="900" letter-spacing="-0.5">500,000+</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="pr-hero-visual pr-hero-visual--mobile" aria-hidden="true">
+                    <svg class="pr-network-svg pr-network-svg--mobile" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+                        <defs>
+                            <pattern id="prgrid-m" width="26" height="26" patternUnits="userSpaceOnUse">
+                                <circle cx="13" cy="13" r="1" fill="rgba(255,255,255,0.05)"/>
+                            </pattern>
+                            <linearGradient id="pr-line-gradient-m" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="rgba(242,101,34,0.65)"/>
+                                <stop offset="50%" stop-color="rgba(255,255,255,0.22)"/>
+                                <stop offset="100%" stop-color="rgba(125,86,157,0.55)"/>
+                            </linearGradient>
+                            <filter id="pr-node-glow-m" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur"/>
+                                <feColorMatrix in="blur" type="matrix"
+                                    values="1 0 0 0 0
+                                            0 1 0 0 0
+                                            0 0 1 0 0
+                                            0 0 0 0.55 0"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <rect width="360" height="260" fill="url(#prgrid-m)"/>
+
+                        <path id="pr-ml1" class="pr-net-line" pathLength="1" d="M 86 70 Q 130 70 140 130" style="animation-delay:0.2s" stroke="url(#pr-line-gradient-m)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-ml2" class="pr-net-line" pathLength="1" d="M 86 190 Q 130 190 140 130" style="animation-delay:0.5s" stroke="url(#pr-line-gradient-m)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-mr1" class="pr-net-line" pathLength="1" d="M 220 130 Q 230 70 260 70" style="animation-delay:0.8s" stroke="url(#pr-line-gradient-m)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <path id="pr-mr2" class="pr-net-line" pathLength="1" d="M 220 130 Q 230 190 260 190" style="animation-delay:1.1s" stroke="url(#pr-line-gradient-m)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+                        <circle class="pr-net-dot" r="3.2" fill="#F26522" opacity="0.85"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1s"><mpath href="#pr-ml1"/></animateMotion></circle>
+                        <circle class="pr-net-dot" r="3.2" fill="#F26522" opacity="0.85"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.6s"><mpath href="#pr-mr1"/></animateMotion></circle>
+
+                        <circle class="pr-hub-ring" cx="180" cy="130" r="42"/>
+                        <circle class="pr-hub-ring" cx="180" cy="130" r="42" style="animation-delay:1.4s"/>
+                        <circle class="pr-hub-ring" cx="180" cy="130" r="42" style="animation-delay:2.8s"/>
+
+                        <circle cx="180" cy="130" r="40" fill="rgba(242,101,34,0.07)" stroke="rgba(242,101,34,0.2)" stroke-width="1"/>
+                        <circle cx="180" cy="130" r="28" fill="rgba(242,101,34,0.15)" stroke="rgba(242,101,34,0.32)" stroke-width="1.2"/>
+                        <circle cx="180" cy="130" r="20" fill="#F26522"/>
+                        <text x="180" y="126" text-anchor="middle" fill="#fff" font-size="11" font-family="Montserrat,sans-serif" font-weight="900" letter-spacing="1">CI</text>
+                        <text x="180" y="138" text-anchor="middle" fill="rgba(255,255,255,0.88)" font-size="6.5" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.2">MATCH</text>
+
+                        <g class="pr-net-node" style="animation-delay:0.1s" filter="url(#pr-node-glow-m)">
+                            <circle cx="60" cy="70" r="26" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1.3"/>
+                            <circle cx="60" cy="64" r="7.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3"/>
+                            <path d="M 46 86 Q 48 78 60 78 Q 72 78 74 86" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3" stroke-linecap="round"/>
+                        </g>
+                        <g class="pr-net-node" style="animation-delay:0.3s" filter="url(#pr-node-glow-m)">
+                            <circle cx="60" cy="190" r="26" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1.3"/>
+                            <circle cx="60" cy="184" r="7.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3"/>
+                            <path d="M 46 206 Q 48 198 60 198 Q 72 198 74 206" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3" stroke-linecap="round"/>
+                        </g>
+
+                        <g class="pr-net-node" style="animation-delay:0.8s" filter="url(#pr-node-glow-m)">
+                            <rect x="260" y="44" width="56" height="56" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(242,101,34,0.35)" stroke-width="1.3"/>
+                            <rect x="274" y="54" width="28" height="36" rx="3" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                            <rect x="280" y="60" width="6" height="6" rx="1" fill="rgba(255,255,255,0.28)"/>
+                            <rect x="291" y="60" width="6" height="6" rx="1" fill="rgba(255,255,255,0.28)"/>
+                            <rect x="285" y="72" width="10" height="10" rx="2" fill="rgba(255,255,255,0.25)"/>
+                        </g>
+                        <g class="pr-net-node" style="animation-delay:1.1s" filter="url(#pr-node-glow-m)">
+                            <rect x="260" y="164" width="56" height="56" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(242,101,34,0.35)" stroke-width="1.3"/>
+                            <rect x="272" y="176" width="32" height="18" rx="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                            <path d="M 282 176 L 282 172 Q 282 170 285 170 L 291 170 Q 294 170 294 172 L 294 176" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+                            <line x1="272" y1="186" x2="304" y2="186" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+                        </g>
+
+                        <g class="pr-net-stats">
+                            <rect x="124" y="176" width="112" height="40" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <text x="180" y="192" text-anchor="middle" fill="rgba(255,255,255,0.32)" font-size="6.5" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing="1.6">TOTAL MATCHES</text>
+                            <text x="180" y="208" text-anchor="middle" fill="#F26522" font-size="14" font-family="Montserrat,sans-serif" font-weight="900" letter-spacing="-0.4">500,000+</text>
                         </g>
                     </svg>
                 </div>
