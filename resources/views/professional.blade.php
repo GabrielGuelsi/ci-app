@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'CI Professional | Recruitment & Career Services in Ireland')
+@section('title', 'CI Professional | ' . __('Recruitment & Career Services in Ireland'))
 @section('no-fontawesome', true)
 
 @section('head')
@@ -14,8 +14,8 @@
 @section('styles')
 @endsection
 
-@section('footer-tagline')CI Professional &mdash; Recruitment &amp; Career Services in Ireland.@endsection
-@section('footer-bottom-right')Connecting Qualified Professionals with Irish Employers.@endsection
+@section('footer-tagline'){{ __('CI Professional — Recruitment & Career Services in Ireland.') }}@endsection
+@section('footer-bottom-right'){{ __('Connecting Qualified Professionals with Irish Employers.') }}@endsection
 
 @section('banner')
     <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -105,8 +105,8 @@
     </svg>
 
     <div class="top-banner">
-        CI Professional &mdash; Connecting Qualified Professionals with Irish Employers.
-        <a href="#contact">Get in Touch <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        {{ __('CI Professional — Connecting Qualified Professionals with Irish Employers.') }}
+        <a href="#contact">{{ __('Get in Touch') }} <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
     </div>
 @endsection
 
@@ -114,20 +114,18 @@
     <nav class="main-nav">
         <div class="container">
             <div class="nav-content">
-                <a href="/" class="logo">
+                <a href="{{ $lr('home') }}" class="logo">
                     <img class="logo-image" src="{{ asset('images/logo-ci.png') }}" alt="CI Ireland">
                 </a>
                 <ul class="nav-links">
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/higher-education">Higher Education</a></li>
-                    <li><a href="/erasmus">Erasmus+</a></li>
-                    <li><a href="{{ route('teens') }}">Teens Programmes</a></li>
-                    <li><a href="{{ route('corporate') }}">Corporate Learning</a></li>
-                    <li><a href="{{ route('professional') }}" class="active">CI Professional</a></li>
-                    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+                    <li><a href="{{ $lr('about') }}">{{ __('About Us') }}</a></li>
+                    <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }}</a></li>
+                    <li><a href="{{ $lr('professional') }}" class="active">{{ __('CI Professional') }}</a></li>
+                    <li><a href="#contact" class="nav-cta">{{ __('Get in Touch') }}</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+                    @include('partials.lang-toggle')
+                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="{{ __('Open menu') }}" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -140,19 +138,17 @@
 
 @section('mobile-nav-links')
     <ul class="mobile-nav-links">
-        <li><a href="/about">About Us <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="/higher-education">Higher Education <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="/erasmus">Erasmus+ <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ route('teens') }}">Teens Programmes <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ route('corporate') }}">Corporate Learning <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ route('professional') }}" class="active">CI Professional <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#contact">Get in Touch <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ $lr('about') }}">{{ __('About Us') }} <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }} <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="{{ $lr('professional') }}" class="active">{{ __('CI Professional') }} <i class="fas fa-chevron-right"></i></a></li>
+        <li><a href="#contact">{{ __('Get in Touch') }} <i class="fas fa-chevron-right"></i></a></li>
     </ul>
 @endsection
 
 @section('mobile-nav-footer')
     <div class="mobile-drawer-footer">
-        <button class="mobile-cta-btn" onclick="window.location='#contact'">Get in Touch</button>
+        @include('partials.lang-toggle')
+        <button class="mobile-cta-btn" onclick="window.location='#contact'">{{ __('Get in Touch') }}</button>
     </div>
 @endsection
 
@@ -166,21 +162,21 @@
                 <div class="pr-hero-content">
                     <div class="pr-hero-kicker">
                         <svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>
-                        Recruitment &amp; Career Services &middot; Ireland
+                        {{ __('Recruitment & Career Services · Ireland') }}
                     </div>
                     <h1 class="pr-hero-title">
                         CI
                         <span>Professional</span>
                     </h1>
                     <p class="pr-hero-sub">
-                        Streamlining company hiring needs, CI Professional connects qualified professionals with their dream careers &mdash; bridging the gap between outstanding talent and the best opportunities in Ireland.
+                        {{ __('Streamlining company hiring needs, CI Professional connects qualified professionals with their dream careers — bridging the gap between outstanding talent and the best opportunities in Ireland.') }}
                     </p>
                     <div class="pr-hero-ctas">
                         <a href="#contact" class="pr-cta-primary">
-                            Join Us <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                            {{ __('Join Us') }} <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
                         </a>
                         <a href="#services" class="pr-cta-ghost">
-                            Our Services <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                            {{ __('Our Services') }} <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
                         </a>
                     </div>
                 </div>
@@ -391,19 +387,19 @@
             <div class="pr-stats-grid">
                 <div class="pr-stat-item">
                     <span class="pr-stat-num">700+</span>
-                    <span class="pr-stat-label">Employees</span>
+                    <span class="pr-stat-label">{{ __('Employees') }}</span>
                 </div>
                 <div class="pr-stat-item">
                     <span class="pr-stat-num">29+</span>
-                    <span class="pr-stat-label">Awards</span>
+                    <span class="pr-stat-label">{{ __('Awards') }}</span>
                 </div>
                 <div class="pr-stat-item">
                     <span class="pr-stat-num">500k+</span>
-                    <span class="pr-stat-label">Customers</span>
+                    <span class="pr-stat-label">{{ __('Customers') }}</span>
                 </div>
                 <div class="pr-stat-item">
                     <span class="pr-stat-num">500+</span>
-                    <span class="pr-stat-label">Partners</span>
+                    <span class="pr-stat-label">{{ __('Partners') }}</span>
                 </div>
             </div>
         </div>
@@ -415,9 +411,9 @@
             <div class="pr-opportunity-inner">
 
                 <div class="pr-opportunity-text">
-                    <div class="pr-section-kicker pr-section-kicker--light">Our Model</div>
-                    <h2 class="pr-section-title pr-section-title--light">A Mapped Need is Turned Into an Opportunity</h2>
-                    <p>CI Professional is a product developed based on a requirement: matching specific professionals with available job positions in the market. We aim to be the bridge between outstanding professionals and job opportunities, streamlining the intermediary process for both parties.</p>
+                    <div class="pr-section-kicker pr-section-kicker--light">{{ __('Our Model') }}</div>
+                    <h2 class="pr-section-title pr-section-title--light">{{ __('A Mapped Need is Turned Into an Opportunity') }}</h2>
+                    <p>{{ __('CI Professional is a product developed based on a requirement: matching specific professionals with available job positions in the market. We aim to be the bridge between outstanding professionals and job opportunities, streamlining the intermediary process for both parties.') }}</p>
                 </div>
 
                 <div class="pr-opportunity-cards">
@@ -426,8 +422,8 @@
                             <svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg>
                         </div>
                         <div class="pr-opportunity-card-body">
-                            <strong>B2B &mdash; Business to Business</strong>
-                            <p>We have received your needs and job description, and we will find the perfect match for them. We have a vast database of resumes from professionals based in Ireland and overseas.</p>
+                            <strong>{{ __('B2B — Business to Business') }}</strong>
+                            <p>{{ __('We have received your needs and job description, and we will find the perfect match for them. We have a vast database of resumes from professionals based in Ireland and overseas.') }}</p>
                         </div>
                     </div>
                     <div class="pr-opportunity-card">
@@ -435,8 +431,8 @@
                             <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
                         </div>
                         <div class="pr-opportunity-card-body">
-                            <strong>B2C &mdash; Business to Customers</strong>
-                            <p>We have a vast database of resumes from professionals based in Ireland and overseas, connecting individuals with roles that align with their skills and career goals.</p>
+                            <strong>{{ __('B2C — Business to Customers') }}</strong>
+                            <p>{{ __('We have a vast database of resumes from professionals based in Ireland and overseas, connecting individuals with roles that align with their skills and career goals.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -449,9 +445,9 @@
     <section class="pr-expertise" id="expertise">
         <div class="container">
             <div class="pr-expertise-header">
-                <div class="pr-section-kicker">What We Cover</div>
-                <h2 class="pr-section-title">Areas of Expertise</h2>
-                <p class="pr-section-sub" style="margin: 0 auto;">We place qualified professionals across 15 key sectors, ensuring the right match for every role.</p>
+                <div class="pr-section-kicker">{{ __('What We Cover') }}</div>
+                <h2 class="pr-section-title">{{ __('Areas of Expertise') }}</h2>
+                <p class="pr-section-sub" style="margin: 0 auto;">{{ __('We place qualified professionals across 15 key sectors, ensuring the right match for every role.') }}</p>
             </div>
             <div class="pr-expertise-grid">
                 <span class="pr-expertise-tag">
@@ -460,59 +456,59 @@
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg>
-                    Engineering
+                    {{ __('Engineering') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-                    Hospitality &amp; Tourism
+                    {{ __('Hospitality & Tourism') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-tag"></use></svg>
-                    Retail
+                    {{ __('Retail') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
-                    Health &amp; Medical Care
+                    {{ __('Health & Medical Care') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
-                    Education
+                    {{ __('Education') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>
-                    Administrative &amp; Office Services
+                    {{ __('Administrative & Office Services') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-trending-up"></use></svg>
-                    Digital Marketing
+                    {{ __('Digital Marketing') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-handshake"></use></svg>
-                    Sales
+                    {{ __('Sales') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
-                    Transportation &amp; Logistics
+                    {{ __('Transportation & Logistics') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                    Cleaning &amp; Maintenance
+                    {{ __('Cleaning & Maintenance') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-star"></use></svg>
-                    Food Industry
+                    {{ __('Food Industry') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg>
-                    Childhood Education &amp; Care
+                    {{ __('Childhood Education & Care') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg>
-                    Construction
+                    {{ __('Construction') }}
                 </span>
                 <span class="pr-expertise-tag">
                     <svg class="icon" aria-hidden="true"><use href="#icon-dollar"></use></svg>
-                    Accounting &amp; Finance
+                    {{ __('Accounting & Finance') }}
                 </span>
             </div>
         </div>
@@ -522,11 +518,11 @@
     <section class="pr-services" id="services">
         <div class="container">
             <div class="pr-services-header">
-                <div class="pr-section-kicker">What We Offer</div>
-                <h2 class="pr-section-title">Our Services</h2>
+                <div class="pr-section-kicker">{{ __('What We Offer') }}</div>
+                <h2 class="pr-section-title">{{ __('Our Services') }}</h2>
             </div>
 
-            <div class="pr-services-toggle" role="tablist" aria-label="Service audience">
+            <div class="pr-services-toggle" role="tablist" aria-label="{{ __('Service audience') }}">
                 <button
                     class="pr-services-btn active"
                     id="btn-b2b"
@@ -536,7 +532,7 @@
                     onclick="switchServicePanel('b2b')"
                 >
                     <svg class="icon" aria-hidden="true"><use href="#icon-building"></use></svg>
-                    For Companies (B2B)
+                    {{ __('For Companies (B2B)') }}
                 </button>
                 <button
                     class="pr-services-btn"
@@ -547,7 +543,7 @@
                     onclick="switchServicePanel('b2c')"
                 >
                     <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
-                    For Professionals (B2C)
+                    {{ __('For Professionals (B2C)') }}
                 </button>
             </div>
 
@@ -558,36 +554,36 @@
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-users"></use></svg>
                         </div>
-                        <h3>Permanent Recruitment</h3>
-                        <p>Our company finds candidates for permanent positions. We handle the entire recruitment process, from job posting to conducting interviews and final candidate selection.</p>
+                        <h3>{{ __('Permanent Recruitment') }}</h3>
+                        <p>{{ __('Our company finds candidates for permanent positions. We handle the entire recruitment process, from job posting to conducting interviews and final candidate selection.') }}</p>
                     </div>
                     <div class="pr-service-card">
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
                         </div>
-                        <h3>Behavioural Testing Application</h3>
-                        <p>We provide candidate assessment services through behaviour validated tests to ensure the most accurate hiring of professionals in line with our clients' demands.</p>
+                        <h3>{{ __('Behavioural Testing Application') }}</h3>
+                        <p>{{ __("We provide candidate assessment services through behaviour validated tests to ensure the most accurate hiring of professionals in line with our clients' demands.") }}</p>
                     </div>
                     <div class="pr-service-card">
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
                         </div>
-                        <h3>Foreign Placement</h3>
-                        <p>Assisting individuals in finding employment opportunities in a foreign country, matching skills and qualifications of candidates with job openings where they may be needed.</p>
+                        <h3>{{ __('Foreign Placement') }}</h3>
+                        <p>{{ __('Assisting individuals in finding employment opportunities in a foreign country, matching skills and qualifications of candidates with job openings where they may be needed.') }}</p>
                     </div>
                     <div class="pr-service-card">
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
                         </div>
-                        <h3>Internship Programmes</h3>
-                        <p>Our company can assist you in selecting and managing internship programmes, connecting your organisation with talented emerging professionals.</p>
+                        <h3>{{ __('Internship Programmes') }}</h3>
+                        <p>{{ __('Our company can assist you in selecting and managing internship programmes, connecting your organisation with talented emerging professionals.') }}</p>
                     </div>
                     <div class="pr-service-card">
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
                         </div>
-                        <h3>Work Permit Application</h3>
-                        <p>We offer the service of applying for work permits for companies seeking to hire non-European professionals. This includes Critical Skills or General Employment Permit.</p>
+                        <h3>{{ __('Work Permit Application') }}</h3>
+                        <p>{{ __('We offer the service of applying for work permits for companies seeking to hire non-European professionals. This includes Critical Skills or General Employment Permit.') }}</p>
                     </div>
                 </div>
             </div>
@@ -599,15 +595,15 @@
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-trending-up"></use></svg>
                         </div>
-                        <h3>Career Consultancy</h3>
-                        <p>For professionals seeking guidance in the field that best suits their skills. We offer CV development, interview preparation, and guidance on optimising your LinkedIn profile.</p>
+                        <h3>{{ __('Career Consultancy') }}</h3>
+                        <p>{{ __('For professionals seeking guidance in the field that best suits their skills. We offer CV development, interview preparation, and guidance on optimising your LinkedIn profile.') }}</p>
                     </div>
                     <div class="pr-service-card">
                         <div class="pr-service-card-icon">
                             <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
                         </div>
-                        <h3>Work Permit Application</h3>
-                        <p>We offer the service of applying for work permits for professionals. This includes Critical Skills or General Employment Permit to support your career journey in Ireland.</p>
+                        <h3>{{ __('Work Permit Application') }}</h3>
+                        <p>{{ __('We offer the service of applying for work permits for professionals. This includes Critical Skills or General Employment Permit to support your career journey in Ireland.') }}</p>
                     </div>
                 </div>
             </div>
@@ -621,32 +617,32 @@
             <div class="pr-why-split">
 
                 <div>
-                    <div class="pr-section-kicker">Our Advantage</div>
-                    <h2 class="pr-section-title">Why Work With Us?</h2>
+                    <div class="pr-section-kicker">{{ __('Our Advantage') }}</div>
+                    <h2 class="pr-section-title">{{ __('Why Work With Us?') }}</h2>
                     <ul class="pr-why-list">
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-why-item-text">We can create exclusive packages that encompass learning and work programmes for sectors in need of specific professionals with labour shortages.</span>
+                            <span class="pr-why-item-text">{{ __('We can create exclusive packages that encompass learning and work programmes for sectors in need of specific professionals with labour shortages.') }}</span>
                         </li>
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-why-item-text">CI possesses a distinctive advantage in facilitating the seamless connection between professionals entering, or currently residing in, Ireland and prospective employers that align with their specific skill sets and aspirations.</span>
+                            <span class="pr-why-item-text">{{ __('CI possesses a distinctive advantage in facilitating the seamless connection between professionals entering, or currently residing in, Ireland and prospective employers that align with their specific skill sets and aspirations.') }}</span>
                         </li>
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-why-item-text">Over 14,000 students enrolled in universities, colleges, and English schools in Ireland — and over half a million worldwide, giving us unparalleled access to motivated, qualified talent.</span>
+                            <span class="pr-why-item-text">{{ __('Over 14,000 students enrolled in universities, colleges, and English schools in Ireland — and over half a million worldwide, giving us unparalleled access to motivated, qualified talent.') }}</span>
                         </li>
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-why-item-text">Success-based fees ensure our interests are always aligned with yours — we only charge when you successfully hire through our services.</span>
+                            <span class="pr-why-item-text">{{ __('Success-based fees ensure our interests are always aligned with yours — we only charge when you successfully hire through our services.') }}</span>
                         </li>
                     </ul>
                 </div>
@@ -671,26 +667,26 @@
                 </div>
 
                 <div>
-                    <div class="pr-section-kicker">Immigration Support</div>
-                    <h2 class="pr-section-title">Visas &amp; Work Permits</h2>
+                    <div class="pr-section-kicker">{{ __('Immigration Support') }}</div>
+                    <h2 class="pr-section-title">{{ __('Visas & Work Permits') }}</h2>
                     <ul class="pr-visas-list">
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-visas-item-text">In our database, we hold a substantial number of professionals with European passports, ready to start working immediately with no permit requirements.</span>
+                            <span class="pr-visas-item-text">{{ __('In our database, we hold a substantial number of professionals with European passports, ready to start working immediately with no permit requirements.') }}</span>
                         </li>
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-visas-item-text">A significant volume of professionals in our network possess part-time work permissions, providing flexible hiring options for your business.</span>
+                            <span class="pr-visas-item-text">{{ __('A significant volume of professionals in our network possess part-time work permissions, providing flexible hiring options for your business.') }}</span>
                         </li>
                         <li class="pr-why-item">
                             <div class="pr-why-dot">
                                 <svg class="icon" style="font-size:0.75em" aria-hidden="true"><use href="#icon-check"></use></svg>
                             </div>
-                            <span class="pr-visas-item-text">Should your company be interested, our immigration lawyer can handle the entire visa application process, including Critical Skills or General Employment Permits.</span>
+                            <span class="pr-visas-item-text">{{ __('Should your company be interested, our immigration lawyer can handle the entire visa application process, including Critical Skills or General Employment Permits.') }}</span>
                         </li>
                     </ul>
                 </div>
@@ -703,24 +699,24 @@
     <section class="pr-payment">
         <div class="container">
             <div class="pr-payment-header">
-                <div class="pr-section-kicker pr-section-kicker--light">Transparent Pricing</div>
-                <h2 class="pr-section-title pr-section-title--light">Payment Plans</h2>
-                <p>Our payment plans are designed to offer flexibility and value for our partner companies. Our aim is to align our interests with yours, ensuring excellent value while finding the perfect candidates for your needs.</p>
+                <div class="pr-section-kicker pr-section-kicker--light">{{ __('Transparent Pricing') }}</div>
+                <h2 class="pr-section-title pr-section-title--light">{{ __('Payment Plans') }}</h2>
+                <p>{{ __('Our payment plans are designed to offer flexibility and value for our partner companies. Our aim is to align our interests with yours, ensuring excellent value while finding the perfect candidates for your needs.') }}</p>
             </div>
             <div class="pr-payment-grid">
                 <div class="pr-payment-card">
                     <div class="pr-payment-card-img">
                         <svg class="icon" aria-hidden="true"><use href="#icon-handshake"></use></svg>
                     </div>
-                    <h3>Success-Based Fee</h3>
-                    <p>We only charge a fee when the company successfully hires a candidate through our services. This fee is based on a percentage of the candidate's agreed-upon salary and is lower compared to market rates.</p>
+                    <h3>{{ __('Success-Based Fee') }}</h3>
+                    <p>{{ __("We only charge a fee when the company successfully hires a candidate through our services. This fee is based on a percentage of the candidate's agreed-upon salary and is lower compared to market rates.") }}</p>
                 </div>
                 <div class="pr-payment-card">
                     <div class="pr-payment-card-img">
                         <svg class="icon" aria-hidden="true"><use href="#icon-dollar"></use></svg>
                     </div>
-                    <h3>Fixed Fee</h3>
-                    <p>For some areas, such as the hospitality sector, a fixed fee will be charged. This provides cost certainty and simplicity for high-volume hiring needs in specific industries.</p>
+                    <h3>{{ __('Fixed Fee') }}</h3>
+                    <p>{{ __('For some areas, such as the hospitality sector, a fixed fee will be charged. This provides cost certainty and simplicity for high-volume hiring needs in specific industries.') }}</p>
                 </div>
             </div>
         </div>
@@ -730,14 +726,14 @@
     <section class="pr-contact" id="contact">
         <div class="container">
             <div class="pr-contact-box">
-                <div class="pr-section-kicker">Get in Touch</div>
-                <h2 class="pr-section-title">Ready to Find the Perfect Match?</h2>
-                <p class="pr-section-sub">Whether you're a company looking to hire or a professional seeking your next opportunity in Ireland, we're here to help. Reach out today and let's build something great together.</p>
+                <div class="pr-section-kicker">{{ __('Get in Touch') }}</div>
+                <h2 class="pr-section-title">{{ __('Ready to Find the Perfect Match?') }}</h2>
+                <p class="pr-section-sub">{{ __("Whether you're a company looking to hire or a professional seeking your next opportunity in Ireland, we're here to help. Reach out today and let's build something great together.") }}</p>
                 <button onclick="openProfessionalModal()" class="pr-cta-primary">
                     <svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
-                    Contact Our Team
+                    {{ __('Contact Our Team') }}
                 </button>
-                <p class="pr-contact-name">Marilu Rosado &mdash; Director, CI Professional</p>
+                <p class="pr-contact-name">{{ __('Marilu Rosado — Director, CI Professional') }}</p>
             </div>
         </div>
     </section>
@@ -745,7 +741,7 @@
     <!-- ===== CONTACT MODAL ===== -->
     <div class="pr-modal-overlay" id="professionalModal" role="dialog" aria-modal="true" aria-labelledby="pr-modal-title">
         <div class="pr-modal-box">
-            <button class="pr-modal-close" onclick="closeProfessionalModal()" aria-label="Close">
+            <button class="pr-modal-close" onclick="closeProfessionalModal()" aria-label="{{ __('Close') }}">
                 <svg class="icon" aria-hidden="true">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -753,40 +749,40 @@
             </button>
             <div class="pr-modal-header">
                 <div class="pr-modal-kicker">CI Professional</div>
-                <h2 class="pr-modal-title" id="pr-modal-title">Let's Find the Perfect Match</h2>
-                <p class="pr-modal-sub">Fill in your details and our team will get back to you within one business day.</p>
+                <h2 class="pr-modal-title" id="pr-modal-title">{{ __("Let's Find the Perfect Match") }}</h2>
+                <p class="pr-modal-sub">{{ __('Fill in your details and our team will get back to you within one business day.') }}</p>
             </div>
             <form class="pr-modal-form" id="pr-contact-form" onsubmit="handleProfessionalFormSubmit(event)">
                 <div class="pr-form-row">
                     <div class="pr-form-group">
-                        <label for="pr-name">Full Name <span class="req">*</span></label>
-                        <input id="pr-name" type="text" placeholder="Your full name" required autocomplete="name">
+                        <label for="pr-name">{{ __('Full Name') }} <span class="req">*</span></label>
+                        <input id="pr-name" type="text" placeholder="{{ __('Your full name') }}" required autocomplete="name">
                     </div>
                     <div class="pr-form-group">
-                        <label for="pr-email">Email <span class="req">*</span></label>
+                        <label for="pr-email">{{ __('Email') }} <span class="req">*</span></label>
                         <input id="pr-email" type="email" placeholder="your@email.com" required autocomplete="email">
                     </div>
                 </div>
                 <div class="pr-form-row">
                     <div class="pr-form-group">
-                        <label for="pr-phone">Phone / WhatsApp <span class="req">*</span></label>
+                        <label for="pr-phone">{{ __('Phone / WhatsApp') }} <span class="req">*</span></label>
                         <input id="pr-phone" type="tel" placeholder="+353 83 123 4567" required autocomplete="tel">
                     </div>
                     <div class="pr-form-group">
-                        <label for="pr-type">I am a <span class="req">*</span></label>
+                        <label for="pr-type">{{ __('I am a') }} <span class="req">*</span></label>
                         <select id="pr-type" required>
-                            <option value="" disabled selected>Select one</option>
-                            <option value="company">Company looking to hire</option>
-                            <option value="professional">Professional seeking work</option>
+                            <option value="" disabled selected>{{ __('Select one') }}</option>
+                            <option value="company">{{ __('Company looking to hire') }}</option>
+                            <option value="professional">{{ __('Professional seeking work') }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="pr-form-group">
-                    <label for="pr-message">Message</label>
-                    <textarea id="pr-message" rows="3" placeholder="Tell us about your hiring needs or career goals…"></textarea>
+                    <label for="pr-message">{{ __('Message') }}</label>
+                    <textarea id="pr-message" rows="3" placeholder="{{ __('Tell us about your hiring needs or career goals…') }}"></textarea>
                 </div>
                 <button type="submit" class="pr-modal-submit">
-                    Send Message
+                    {{ __('Send Message') }}
                     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
                 </button>
                 <div id="pr-form-status" aria-live="polite" style="height:0;overflow:hidden;font-size:14px;text-align:center;margin-top:8px;color:var(--ci-orange);font-weight:600;"></div>
@@ -838,14 +834,14 @@
         var status = document.getElementById('pr-form-status');
         var btn = event.target.querySelector('.pr-modal-submit');
         btn.disabled = true;
-        btn.textContent = 'Sending…';
+        btn.textContent = @json(__('Sending…'));
         /* Simulate submission — replace with real fetch/action as needed */
         setTimeout(function () {
             status.style.height = 'auto';
-            status.textContent = 'Thank you! We\'ll be in touch within one business day.';
+            status.textContent = @json(__("Thank you! We'll be in touch within one business day."));
             event.target.reset();
             btn.disabled = false;
-            btn.textContent = 'Send Message';
+            btn.textContent = @json(__('Send Message'));
             setTimeout(function () { closeProfessionalModal(); status.style.height = '0'; status.textContent = ''; }, 3000);
         }, 900);
     }

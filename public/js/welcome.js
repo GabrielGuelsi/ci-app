@@ -188,20 +188,316 @@ if (typeof mobileQuery.addEventListener === 'function') {
 
 bootHeroSlider();
 
-// Persona tab switcher
-const personaTabs = document.querySelectorAll('.persona-tab');
-const programPanels = document.querySelectorAll('.program-panel');
+// Pathway — interactive 4-stage journey
+(function initPathway() {
+    const root = document.querySelector('.pathway-stage');
+    if (!root) return;
 
-personaTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const target = tab.dataset.panel;
-        personaTabs.forEach(t => {
-            t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
+    let stages;
+    try {
+        stages = JSON.parse(root.dataset.stages);
+    } catch (err) {
+        return;
+    }
+    if (!Array.isArray(stages) || !stages.length) return;
+
+    const stepsEls = root.querySelectorAll('.p-step');
+    const detailEl = root.querySelector('.p-step-detail');
+    const progressEl = root.querySelector('.pathway-progress');
+    const ctaEl = root.querySelector('[data-cta]');
+    const ctaLabel = root.querySelector('[data-cta-label]');
+
+    const routes = (window.ROUTES) || {};
+    const ctaCopy = {
+        'higher-education': 'Explore Higher Education',
+        'professional': 'Explore Professional',
+    };
+    const ctaHref = {
+        'higher-education': routes.higherEducation || '#',
+        'professional': routes.professional || '#',
+    };
+
+    let active = 0;
+    let timer = null;
+    let userInteracted = false;
+    const last = stages.length - 1;
+
+    function render(i) {
+        active = i;
+        stepsEls.forEach((el, idx) => {
+            el.classList.toggle('active', idx === i);
+            el.classList.toggle('done', idx < i);
+            el.setAttribute('aria-selected', idx === i ? 'true' : 'false');
         });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        programPanels.forEach(panel => panel.classList.remove('active'));
-        document.getElementById('panel-' + target).classList.add('active');
+        if (progressEl) {
+            progressEl.style.width = `${(i / last) * 80}%`;
+        }
+        if (detailEl) {
+            const cells = stages[i].detail.map(d => `
+                <div>
+                    <div class="p-detail-key">${d.k}</div>
+                    <div class="p-detail-val">${d.v}<small>${d.s}</small></div>
+                </div>
+            `).join('');
+            detailEl.innerHTML = cells;
+        }
+        const target = stages[i].cta;
+        if (ctaLabel) ctaLabel.textContent = ctaCopy[target] || ctaLabel.textContent;
+        if (ctaEl && ctaHref[target]) ctaEl.setAttribute('href', ctaHref[target]);
+    }
+
+    function startAuto() {
+        stopAuto();
+        timer = setInterval(() => render((active + 1) % stages.length), 5500);
+    }
+    function stopAuto() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    stepsEls.forEach((el, idx) => {
+        el.addEventListener('click', () => {
+            userInteracted = true;
+            stopAuto();
+            render(idx);
+        });
     });
-});
+    root.addEventListener('mouseenter', stopAuto);
+    root.addEventListener('mouseleave', () => {
+        if (!userInteracted) startAuto();
+    });
+
+    render(0);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) startAuto();
+})();
+
+// Diagnostic — quiz modal
+(function initQuiz() {
+    const data = window.QUIZ_DATA;
+    const routes = window.ROUTES || {};
+    const backdrop = document.querySelector('[data-quiz-modal]');
+    if (!data || !backdrop) return;
+
+    const subEl = backdrop.querySelector('[data-quiz-step-label]');
+    const headEl = backdrop.querySelector('[data-quiz-headline]');
+    const bodyEl = backdrop.querySelector('[data-quiz-body]');
+    const footEl = backdrop.querySelector('[data-quiz-foot]');
+    const closeBtn = backdrop.querySelector('[data-quiz-close]');
+    const dialogEl = backdrop.querySelector('.quiz-modal');
+
+    const total = data.questions.length;
+    let step = 0;
+    let answers = [];
+    let recommendation = null;
+
+    function escapeHtml(s) {
+        return String(s ?? '').replace(/[&<>"']/g, c => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[c]);
+    }
+
+    function focusFirst() {
+        const target = bodyEl.querySelector('button, a, input, [tabindex]') || dialogEl;
+        if (target && typeof target.focus === 'function') {
+            target.focus({ preventScroll: true });
+        }
+    }
+
+    function open() {
+        backdrop.hidden = false;
+        backdrop.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(() => backdrop.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+        renderStep();
+    }
+
+    function close() {
+        backdrop.classList.remove('open');
+        backdrop.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+            backdrop.hidden = true;
+            document.body.style.overflow = '';
+        }, 300);
+        reset();
+    }
+
+    function reset() {
+        step = 0;
+        answers = [];
+        recommendation = null;
+    }
+
+    function renderStep() {
+        if (step < total) {
+            renderQuestion();
+        } else {
+            computeRecommendation();
+            renderResult();
+        }
+        focusFirst();
+    }
+
+    function renderQuestion() {
+        const q = data.questions[step];
+        const i18n = window.I18N || {};
+        subEl.textContent = `${i18n.question_label || 'Question'} ${String(step + 1).padStart(2, '0')} / 0${total}`;
+        headEl.textContent = q.q;
+        bodyEl.innerHTML = `<div class="q-modal-opts">${q.opts.map((o, j) => `
+            <button type="button" class="q-modal-opt" data-opt="${j}">
+                <span>${escapeHtml(o.t)}</span>
+                <span class="k">${String.fromCharCode(65 + j)}</span>
+            </button>
+        `).join('')}</div>`;
+        bodyEl.querySelectorAll('[data-opt]').forEach(btn => btn.addEventListener('click', () => {
+            answers[step] = parseInt(btn.dataset.opt, 10);
+            step++;
+            renderStep();
+        }));
+        const dots = data.questions.map((_, k) => `<span class="${k <= step - 1 ? 'done' : ''}"></span>`).join('');
+        const backLabel = (window.I18N && window.I18N.back) || '← Back';
+        footEl.innerHTML = `
+            <div class="q-modal-progress" aria-hidden="true">${dots}</div>
+            ${step > 0 ? `<button type="button" class="q-modal-back">${backLabel}</button>` : ''}
+        `;
+        const back = footEl.querySelector('.q-modal-back');
+        if (back) back.addEventListener('click', () => { step = Math.max(0, step - 1); renderStep(); });
+    }
+
+    function computeRecommendation() {
+        let proScore = 0;
+        let heScore = 0;
+        data.questions.forEach((q, i) => {
+            const a = answers[i];
+            if (a == null) return;
+            const opt = q.opts[a];
+            if (!opt) return;
+            if (opt.lean === 'pro') proScore += opt.w;
+            else if (opt.lean === 'he') heScore += opt.w;
+        });
+        recommendation = proScore > heScore ? data.recommendations.pro : data.recommendations.he;
+    }
+
+    function renderResult() {
+        const r = recommendation;
+        const i18n = window.I18N || {};
+        subEl.textContent = i18n.your_pathway || 'Your pathway';
+        headEl.textContent = r.title;
+        const targetRoute = r.route === 'higher-education' ? routes.higherEducation : routes.professional;
+        bodyEl.innerHTML = `
+            <div class="q-result">
+                <div class="badge">${escapeHtml(r.badge)}</div>
+                <p class="q-result-lead">${escapeHtml(r.lead)}</p>
+                <ul>${r.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+                <div class="q-result-ctas">
+                    <a class="q-result-cta-primary" href="${targetRoute || '#'}">${escapeHtml(r.label)} <span aria-hidden="true">→</span></a>
+                    <button type="button" class="q-result-cta-secondary" data-quiz-contact>${escapeHtml(i18n.send_my_answers || 'Send my answers to an advisor')}</button>
+                </div>
+            </div>`;
+        footEl.innerHTML = '';
+        bodyEl.querySelector('[data-quiz-contact]').addEventListener('click', renderContact);
+    }
+
+    function renderContact() {
+        const i18n = window.I18N || {};
+        subEl.textContent = i18n.send_to_advisor || 'Send to advisor';
+        headEl.textContent = i18n.reach_out || 'A senior advisor will reach out within 1 business day.';
+        bodyEl.innerHTML = `
+            <form class="q-form" novalidate>
+                <div class="field">
+                    <label>${escapeHtml(i18n.full_name || 'Full name')}</label>
+                    <input name="name" required autocomplete="name">
+                </div>
+                <div class="q-form-row">
+                    <div class="field">
+                        <label>${escapeHtml(i18n.email_label || 'Email')}</label>
+                        <input name="email" type="email" required autocomplete="email">
+                    </div>
+                    <div class="field">
+                        <label>${escapeHtml(i18n.phone_label || 'Phone (optional)')}</label>
+                        <input name="phone" type="tel" autocomplete="tel">
+                    </div>
+                </div>
+                <div class="q-form-error" data-error hidden></div>
+                <div class="q-result-ctas">
+                    <button type="submit" class="q-result-cta-primary">${escapeHtml(i18n.send_to_advisor || 'Send to advisor')} <span aria-hidden="true">→</span></button>
+                    <button type="button" class="q-result-cta-secondary" data-quiz-back-result>${escapeHtml(i18n.back || '← Back')}</button>
+                </div>
+            </form>`;
+        footEl.innerHTML = '';
+        const form = bodyEl.querySelector('form');
+        form.addEventListener('submit', handleContactSubmit);
+        bodyEl.querySelector('[data-quiz-back-result]').addEventListener('click', renderResult);
+    }
+
+    async function handleContactSubmit(e) {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const errorEl = form.querySelector('[data-error]');
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+
+        const fd = new FormData(form);
+        const name = (fd.get('name') || '').toString().trim();
+        const email = (fd.get('email') || '').toString().trim();
+        const phone = (fd.get('phone') || '').toString().trim();
+
+        const i18n = window.I18N || {};
+        if (!name) {
+            errorEl.textContent = i18n.name_required || 'Please enter your name.';
+            errorEl.hidden = false;
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            errorEl.textContent = i18n.email_invalid || 'Please enter a valid email.';
+            errorEl.hidden = false;
+            return;
+        }
+
+        const submitBtn = form.querySelector('button[type=submit]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = i18n.sending || 'Sending…';
+
+        const payload = {
+            name,
+            email,
+            phone,
+            recommendation: recommendation && recommendation.route,
+            answers: answers.map((idx, i) => ({
+                q: data.questions[i].q,
+                a: data.questions[i].opts[idx] ? data.questions[i].opts[idx].t : null,
+            })),
+        };
+
+        // TODO(backend): replace with axios.post('/diagnostic-inquiry', payload) once
+        // the route, FormRequest, Mailable, and DiagnosticInquiry model are in place.
+        // The Mailable should send to the configured advisor inbox AND a confirmation
+        // copy to the user (per the user's stated preference).
+        console.info('[diagnostic stub] payload', payload);
+        await new Promise(r => setTimeout(r, 700));
+
+        renderThanks();
+    }
+
+    function renderThanks() {
+        const i18n = window.I18N || {};
+        subEl.textContent = i18n.sent || 'Sent';
+        headEl.textContent = '';
+        bodyEl.innerHTML = `
+            <div class="q-thanks">
+                <div class="icon" aria-hidden="true">✓</div>
+                <h3>${escapeHtml(i18n.thanks_title || "Thanks — we've got your answers.")}</h3>
+                <p>${escapeHtml(i18n.thanks_body || 'A senior advisor will review your pathway and follow up within 1 business day.')}</p>
+            </div>`;
+        const allDone = data.questions.map(() => '<span class="done"></span>').join('');
+        footEl.innerHTML = `<div class="q-modal-progress" aria-hidden="true">${allDone}</div>`;
+    }
+
+    document.querySelectorAll('[data-quiz-open]').forEach(el => el.addEventListener('click', open));
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', e => { if (e.target === backdrop) close(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && backdrop.classList.contains('open')) close();
+    });
+})();

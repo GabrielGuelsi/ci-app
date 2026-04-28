@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() === 'pt' ? 'pt-BR' : 'en' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CI Ireland - Coming Soon</title>
+    <title>CI Ireland - {{ __('Coming Soon') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo-ci.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/logo-ci.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +59,29 @@
             color: #F26522;
         }
 
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: inline-flex;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            overflow: hidden;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            background: transparent;
+        }
+        .lang-toggle-btn {
+            padding: 6px 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            line-height: 1;
+            transition: background 0.2s, color 0.2s;
+        }
+        .lang-toggle-btn:hover { color: #fff; }
+        .lang-toggle-btn.active { background: #F26522; color: #fff; }
+
         p {
             color: rgba(255, 255, 255, 0.55);
             font-size: 1rem;
@@ -93,11 +116,12 @@
     </style>
 </head>
 <body>
+    @include('partials.lang-toggle')
     <div class="container">
         <img src="{{ asset('images/logo-ci.png') }}" alt="CI Ireland" class="logo">
         <div class="divider"></div>
-        <h1>Coming <span>Soon</span></h1>
-        <p>We're working on something great.</p>
+        <h1>{!! __('Coming <span>Soon</span>') !!}</h1>
+        <p>{{ __("We're working on something great.") }}</p>
     </div>
 </body>
 </html>

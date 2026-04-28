@@ -1,35 +1,41 @@
 <?php
 
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('coming-soon');
-});
+$pageRoutes = function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
 
-Route::get('/home', function () {
-    return view('welcome');
-});
+    Route::redirect('/home', '/', 301);
 
-Route::get('/about', function () {
-    return view('about');
-});
+    Route::get('/coming-soon', function () {
+        return view('coming-soon');
+    })->name('coming-soon');
 
-Route::get('/higher-education', function () {
-    return view('higher-education');
-});
+    Route::get('/about', function () {
+        return view('about');
+    })->name('about');
 
-Route::get('/erasmus', function () {
-    return view('erasmus');
-});
+    Route::get('/higher-education', function () {
+        return view('higher-education');
+    })->name('higher-education');
 
-Route::get('/teens', function () {
-    return view('teens');
-})->name('teens');
+    Route::get('/professional', function () {
+        return view('professional');
+    })->name('professional');
 
-Route::get('/corporate', function () {
-    return view('corporate');
-})->name('corporate');
+    Route::redirect('/erasmus', '/coming-soon', 302);
+    Route::redirect('/teens', '/coming-soon', 302)->name('teens');
+    Route::redirect('/corporate', '/coming-soon', 302)->name('corporate');
+};
 
-Route::get('/professional', function () {
-    return view('professional');
-})->name('professional');
+// English (no prefix). Names: home, about, ...
+Route::middleware(SetLocale::class)->group($pageRoutes);
+
+// Portuguese (/pt prefix). Names: pt.home, pt.about, ...
+Route::middleware(SetLocale::class)
+    ->prefix('pt')
+    ->name('pt.')
+    ->group($pageRoutes);

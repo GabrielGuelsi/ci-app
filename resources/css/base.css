@@ -1090,5 +1090,34 @@
             input, textarea, select { font-size: 16px !important; }
         }
 
+        /* ─────────────── LANGUAGE TOGGLE (EN / PT) ─────────────── */
+        .lang-toggle {
+            display: inline-flex;
+            border: 1px solid #e0ddd8;
+            border-radius: 100px;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            background: white;
+        }
+        .lang-toggle-btn {
+            padding: 6px 12px;
+            color: #888;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+        }
+        .lang-toggle-btn:hover { color: var(--ci-orange); }
+        .lang-toggle-btn.active {
+            background: var(--ci-orange);
+            color: white;
+        }
+
         /* ─────────────── PAGE-SPECIFIC STYLES SLOT ─────────────── */
 
