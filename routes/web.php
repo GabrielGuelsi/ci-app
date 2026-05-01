@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 $pageRoutes = function () {
     Route::get('/', function () {
+        return view('coming-soon');
+    });
+
+    Route::get('/home', function () {
         return view('welcome');
     })->name('home');
-
-    Route::redirect('/home', '/', 301);
 
     Route::get('/coming-soon', function () {
         return view('coming-soon');
