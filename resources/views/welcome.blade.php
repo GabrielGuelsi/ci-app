@@ -38,45 +38,17 @@
 @endsection
 
 @section('nav')
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="{{ $lr('home') }}" class="logo">
-                    <img class="logo-image" src="{{ asset('images/logo-ci.png') }}" alt="CI Exchange">
-                </a>
-
-                <ul class="nav-links">
-                    <li><a href="{{ $lr('about') }}">{{ __('About Us') }}</a></li>
-                    <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }}</a></li>
-                    <li><a href="{{ $lr('professional') }}">{{ __('CI Professional') }}</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    @include('partials.lang-toggle')
-                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="{{ __('Open menu') }}" aria-expanded="false">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('partials.main-nav', ['active' => null])
 @endsection
 
 @section('mobile-nav-links')
-    <ul class="mobile-nav-links">
-        <li><a href="{{ $lr('about') }}">{{ __('About Us') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ $lr('professional') }}">{{ __('CI Professional') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#contact">{{ __('Get in Touch') }} <i class="fas fa-chevron-right"></i></a></li>
-    </ul>
+    @include('partials.mobile-nav', ['active' => null])
 @endsection
 
 @section('mobile-nav-footer')
     <div class="mobile-drawer-footer">
         @include('partials.lang-toggle')
-        <button class="mobile-cta-btn" onclick="window.location='#contact'">{{ __('Get in Touch') }}</button>
+        <a class="mobile-cta-btn" href="{{ $lr('start-your-plan') }}">{{ __('Start Your Plan') }}</a>
     </div>
 @endsection
 
@@ -223,7 +195,7 @@
                 'title' => __('English'),
                 'sub'   => __('Academic fluency'),
                 'desc'  => __('Intensive English with Academic Purpose — calibrated for the classroom, the interview, and the workplace.'),
-                'cta'   => 'higher-education',
+                'cta'   => 'study-in-ireland',
                 'detail' => [
                     ['k' => __('Duration'), 'v' => __('6–25 weeks'),  's' => __('Flexible start dates')],
                     ['k' => __('Outcome'),  'v' => __('B2 / C1'),     's' => __('IELTS 6.5+ equivalent')],
@@ -235,7 +207,7 @@
                 'title' => __('University'),
                 'sub'   => __("Bachelor or Master's"),
                 'desc'  => __("Placement across Ireland's top universities and colleges — undergraduate, postgraduate, and foundation pathways."),
-                'cta'   => 'higher-education',
+                'cta'   => 'study-in-ireland',
                 'detail' => [
                     ['k' => __('Partners'),   'v' => __('12+ colleges'),     's' => __('Nationwide coverage')],
                     ['k' => __('Programmes'), 'v' => __('BA · MSc · MBA'),   's' => __('Across 15 sectors')],
@@ -247,7 +219,7 @@
                 'title' => __('Career'),
                 'sub'   => __('Employability layer'),
                 'desc'  => __('CV, LinkedIn, interview coaching and matched introductions to employers in our 500+ partner network.'),
-                'cta'   => 'professional',
+                'cta'   => 'career-bridge',
                 'detail' => [
                     ['k' => __('Coaching'), 'v' => __('1-to-1'),     's' => __('Sector specialists')],
                     ['k' => __('Network'),  'v' => __('500+ firms'), 's' => __('B2B partnerships')],
@@ -259,7 +231,7 @@
                 'title' => __('Work'),
                 'sub'   => __('Long-term residency'),
                 'desc'  => __('Work permits, Stamp transitions and long-stay strategy — so studying here becomes building a life here.'),
-                'cta'   => 'professional',
+                'cta'   => 'career-bridge',
                 'detail' => [
                     ['k' => __('Permits'),   'v' => __('Critical Skills'),     's' => __('Legal handling included')],
                     ['k' => __('Pathway'),   'v' => __('Stamp 2 → 1G → 4'),    's' => __('Guided transitions')],
@@ -304,8 +276,8 @@
                 </div>
 
                 <div class="pathway-cta-row">
-                    <a href="{{ $lr('higher-education') }}" class="pathway-cta" data-cta>
-                        <span data-cta-label>{{ __('Explore Higher Education') }}</span>
+                    <a href="{{ $lr('study-in-ireland') }}" class="pathway-cta" data-cta>
+                        <span data-cta-label>{{ __('Explore Study Routes') }}</span>
                         <span class="arrow" aria-hidden="true">→</span>
                     </a>
                 </div>
@@ -376,8 +348,8 @@
                         __('Concierge handling of the full application'),
                         __('Career layer activated from your second year'),
                     ],
-                    'route' => 'higher-education',
-                    'label' => __('Explore Higher Education'),
+                    'route' => 'study-in-ireland',
+                    'label' => __('Explore Study Routes'),
                 ],
                 'pro' => [
                     'badge'   => __('Recommended pathway'),
@@ -388,8 +360,8 @@
                         __('Direct intros across 500+ partner employers'),
                         __('End-to-end work permit and Stamp handling'),
                     ],
-                    'route' => 'professional',
-                    'label' => __('Explore Professional'),
+                    'route' => 'career-bridge',
+                    'label' => __('Explore Career Bridge'),
                 ],
             ],
         ];
@@ -647,8 +619,8 @@
         }
     ];
     window.ROUTES = window.ROUTES || {};
-    window.ROUTES.higherEducation = @json(route('higher-education'));
-    window.ROUTES.professional = @json(route('professional'));
+    window.ROUTES.studyInIreland = @json(route(app()->getLocale() === 'pt' ? 'pt.study-in-ireland' : 'study-in-ireland'));
+    window.ROUTES.careerBridge = @json(route(app()->getLocale() === 'pt' ? 'pt.career-bridge' : 'career-bridge'));
     window.LOCALE = @json(app()->getLocale());
     @php
         $i18nMap = [

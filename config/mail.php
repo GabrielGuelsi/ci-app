@@ -115,4 +115,19 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Recipient (CI Ireland team)
+    |--------------------------------------------------------------------------
+    |
+    | Used by the Profile Assessment notification to deliver new submissions
+    | to the CI Ireland Dublin team. Override per-environment via .env.
+    |
+    */
+
+    'to' => [
+        'address' => env('MAIL_TO_ADDRESS', 'team@ci.com.br'),
+        'name' => env('MAIL_TO_NAME', 'CI Ireland Team'),
+    ],
+
 ];

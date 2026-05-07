@@ -1,42 +1,59 @@
 <?php
 
+use App\Http\Controllers\AssessmentLeadController;
+use App\Http\Controllers\ProfileAssessmentController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
 $pageRoutes = function () {
     Route::get('/', function () {
         return view('coming-soon');
-    });
+    })->name('home');
 
     Route::get('/home', function () {
         return view('welcome');
-    })->name('home');
+    })->name('welcome');
 
-    Route::get('/coming-soon', function () {
-        return view('coming-soon');
-    })->name('coming-soon');
+    Route::get('/study-in-ireland', function () {
+        return view('study-in-ireland');
+    })->name('study-in-ireland');
 
-    Route::get('/about', function () {
-        return view('about');
-    })->name('about');
+    Route::get('/already-in-ireland', function () {
+        return view('already-in-ireland');
+    })->name('already-in-ireland');
 
-    Route::get('/higher-education', function () {
-        return view('higher-education');
-    })->name('higher-education');
+    Route::get('/career-bridge', function () {
+        return view('career-bridge');
+    })->name('career-bridge');
 
-    Route::get('/professional', function () {
-        return view('professional');
-    })->name('professional');
+    Route::get('/for-employers', function () {
+        return view('for-employers');
+    })->name('for-employers');
 
-    Route::redirect('/erasmus', '/coming-soon', 302);
-    Route::redirect('/teens', '/coming-soon', 302)->name('teens');
-    Route::redirect('/corporate', '/coming-soon', 302)->name('corporate');
+    Route::get('/why-ci-ireland', function () {
+        return view('why-ci-ireland');
+    })->name('why-ci-ireland');
+
+    Route::get('/start-your-plan', function () {
+        return view('start-your-plan');
+    })->name('start-your-plan');
+
+    Route::post('/start-your-plan', [ProfileAssessmentController::class, 'store'])
+        ->name('start-your-plan.store');
+
+    Route::post('/assessment-lead', [AssessmentLeadController::class, 'store'])
+        ->name('assessment-lead.store');
+
+    Route::redirect('/about', '/why-ci-ireland', 301);
+    Route::redirect('/higher-education', '/study-in-ireland', 301);
+    Route::redirect('/professional', '/career-bridge', 301);
+    Route::redirect('/corporate', '/for-employers', 301);
+    Route::redirect('/erasmus', '/study-in-ireland', 301);
+    Route::redirect('/teens', '/study-in-ireland', 301);
 };
 
-// English (no prefix). Names: home, about, ...
 Route::middleware(SetLocale::class)->group($pageRoutes);
 
-// Portuguese (/pt prefix). Names: pt.home, pt.about, ...
 Route::middleware(SetLocale::class)
     ->prefix('pt')
     ->name('pt.')

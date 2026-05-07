@@ -27,3 +27,5 @@ boost.json
 .claude/
 .cursor/
 .mcp.json
+.agents/
+skills-lock.json

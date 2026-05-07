@@ -209,12 +209,12 @@ bootHeroSlider();
 
     const routes = (window.ROUTES) || {};
     const ctaCopy = {
-        'higher-education': 'Explore Higher Education',
-        'professional': 'Explore Professional',
+        'study-in-ireland': 'Explore Study Routes',
+        'career-bridge': 'Explore Career Bridge',
     };
     const ctaHref = {
-        'higher-education': routes.higherEducation || '#',
-        'professional': routes.professional || '#',
+        'study-in-ireland': routes.studyInIreland || '#',
+        'career-bridge': routes.careerBridge || '#',
     };
 
     let active = 0;
@@ -384,7 +384,7 @@ bootHeroSlider();
         const i18n = window.I18N || {};
         subEl.textContent = i18n.your_pathway || 'Your pathway';
         headEl.textContent = r.title;
-        const targetRoute = r.route === 'higher-education' ? routes.higherEducation : routes.professional;
+        const targetRoute = r.route === 'study-in-ireland' ? routes.studyInIreland : routes.careerBridge;
         bodyEl.innerHTML = `
             <div class="q-result">
                 <div class="badge">${escapeHtml(r.badge)}</div>

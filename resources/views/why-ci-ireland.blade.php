@@ -1,68 +1,18 @@
 ﻿@extends('layouts.app')
 
-@section('title', __('About Us') . ' - CI Exchange Ireland')
+@php $pageActive = 'why-ci-ireland'; @endphp
+
+@section('title', __('Why CI Ireland') . ' - CI Exchange Ireland')
 
 @section('head')
     @if (file_exists(public_path('build/manifest.json')))
-        @vite('resources/css/about.css')
+        @vite('resources/css/why-ci-ireland.css')
     @else
-        <link rel="stylesheet" href="/css/about.css">
+        <link rel="stylesheet" href="/css/why-ci-ireland.css">
     @endif
 @endsection
 
-@section('styles')
-@endsection
-
-@section('banner')
-    <div class="top-banner">
-        {{ __('From Dublin to the World — CI Ireland is your European Education Mobility Hub.') }}
-        <a href="#">{{ __('Learn more') }} <i class="fas fa-arrow-right"></i></a>
-    </div>
-@endsection
-
-@section('nav')
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="{{ $lr('home') }}" class="logo">
-                    <img class="logo-image" src="{{ asset('images/logo-ci.png') }}" alt="CI Exchange">
-                </a>
-
-                <ul class="nav-links">
-                    <li><a href="{{ $lr('about') }}" class="active">{{ __('About Us') }}</a></li>
-                    <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }}</a></li>
-                    <li><a href="{{ $lr('professional') }}">{{ __('CI Professional') }}</a></li>
-                    <li><a href="#contact" class="nav-cta">{{ __('Get in Touch') }}</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    @include('partials.lang-toggle')
-                    <button class="hamburger-btn" id="hamburgerBtn" aria-label="{{ __('Open menu') }}" aria-expanded="false">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-@endsection
-
-@section('mobile-nav-links')
-    <ul class="mobile-nav-links">
-        <li><a href="{{ $lr('about') }}" class="active">{{ __('About Us') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="{{ $lr('professional') }}">{{ __('CI Professional') }} <i class="fas fa-chevron-right"></i></a></li>
-        <li><a href="#contact">{{ __('Get in Touch') }} <i class="fas fa-chevron-right"></i></a></li>
-    </ul>
-@endsection
-
-@section('mobile-nav-footer')
-    <div class="mobile-drawer-footer">
-        @include('partials.lang-toggle')
-        <button class="mobile-cta-btn" onclick="window.location='#contact'">{{ __('Get in Touch') }}</button>
-    </div>
-@endsection
+@include('partials.page-shell')
 
 @section('content')
     <section class="about-hero">
@@ -321,6 +271,6 @@
 @endsection
 
 @push('scripts')
-<script src="/js/about.js" defer></script>
+<script src="{{ asset('js/why-ci-ireland.js') }}" defer></script>
 @endpush
 
