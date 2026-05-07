@@ -354,10 +354,10 @@
                     <div class="si-rs-helper">
                         <span class="si-rs-helper-icon" aria-hidden="true"><i class="fas fa-headset"></i></span>
                         <span class="si-rs-helper-text">{{ __('Not sure which one fits?') }}</span>
-                        <button type="button" class="si-rs-helper-link" data-open-assessment-modal>
+                        <a class="si-rs-helper-link" href="https://wa.me/353868179430" target="_blank" rel="noopener">
                             <span>{{ __('Talk with an advisor') }}</span>
                             <span class="si-rs-helper-arrow" aria-hidden="true">→</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -474,38 +474,38 @@
         $ccStudyAttrs = [__('Course'), __('English level'), __('Visa & budget'), __('Intake')];
         $ccCareerAttrs = [__('Employability'), __('Network'), __('Confidence'), __('Opportunities')];
     @endphp
-    <section class="content-section content-section--alt si-cc">
+    <section class="content-section content-section--alt cc">
         <div class="container">
-            <div class="si-cc-head">
+            <div class="cc-head">
                 <span class="section-kicker">{{ __('Study × Career') }}</span>
                 <h2 class="section-title">{{ __('Your study plan should also speak to your career plan') }}</h2>
-                <p class="si-cc-lead">{{ __('Your course choice shapes employability, network, confidence and long-term opportunities. We plan both sides as one.') }}</p>
+                <p class="cc-lead">{{ __('Your course choice shapes employability, network, confidence and long-term opportunities. We plan both sides as one.') }}</p>
             </div>
 
-            <ol class="si-cc-journey" aria-label="{{ __('From study to career') }}">
+            <ol class="cc-journey" aria-label="{{ __('From study to career') }}">
                 @foreach ($ccJourney as $i => $stop)
-                    <li class="si-cc-stop @if ($i === 2) is-anchor @endif" data-step="{{ $i }}">
-                        <span class="si-cc-stop-dot" aria-hidden="true"><i class="fas {{ $stop['icon'] }}"></i></span>
-                        <span class="si-cc-stop-label">{{ $stop['label'] }}</span>
+                    <li class="cc-stop @if ($i === 2) is-anchor @endif" data-step="{{ $i }}">
+                        <span class="cc-stop-dot" aria-hidden="true"><i class="fas {{ $stop['icon'] }}"></i></span>
+                        <span class="cc-stop-label">{{ $stop['label'] }}</span>
                     </li>
                 @endforeach
             </ol>
 
-            <div class="si-cc-halves">
-                <div class="si-cc-half si-cc-half--study">
-                    <span class="si-cc-half-kicker">{{ __('Your study') }}</span>
-                    <ul class="si-cc-half-list">
+            <div class="cc-halves">
+                <div class="cc-half cc-half--study">
+                    <span class="cc-half-kicker">{{ __('Your study') }}</span>
+                    <ul class="cc-half-list">
                         @foreach ($ccStudyAttrs as $attr)
                             <li>{{ $attr }}</li>
                         @endforeach
                     </ul>
                 </div>
-                <div class="si-cc-bridge" aria-hidden="true">
-                    <span class="si-cc-bridge-icon"><i class="fas fa-arrows-left-right"></i></span>
+                <div class="cc-bridge" aria-hidden="true">
+                    <span class="cc-bridge-icon"><i class="fas fa-arrows-left-right"></i></span>
                 </div>
-                <div class="si-cc-half si-cc-half--career">
-                    <span class="si-cc-half-kicker">{{ __('Your career') }}</span>
-                    <ul class="si-cc-half-list">
+                <div class="cc-half cc-half--career">
+                    <span class="cc-half-kicker">{{ __('Your career') }}</span>
+                    <ul class="cc-half-list">
                         @foreach ($ccCareerAttrs as $attr)
                             <li>{{ $attr }}</li>
                         @endforeach
@@ -513,11 +513,11 @@
                 </div>
             </div>
 
-            <blockquote class="si-cc-manifesto">
+            <blockquote class="cc-manifesto">
                 <p>{{ __('We do not promise a job. We help you make study decisions with a clearer view of where they could lead.') }}</p>
             </blockquote>
 
-            <div class="si-cc-cta-row">
+            <div class="cc-cta-row">
                 <a class="btn btn-primary" href="{{ $lr('career-bridge') }}">
                     {{ __('Explore Career Bridge') }} <i class="fas fa-arrow-right"></i>
                 </a>
@@ -720,7 +720,7 @@
         'title' => __('Do not choose your route in Ireland by trial and error'),
         'text' => __('The right course choice can impact your academic life, visa planning, budget and future opportunities. With CI Ireland, you have a Dublin-based team ready to help you understand your options and plan a clearer path to study in Ireland.'),
         'primaryCta' => ['label' => __('Start My Profile Assessment'), 'href' => $lr('start-your-plan')],
-        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => '#contact'],
+        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
     @include('partials.profile-assessment-modal')
@@ -728,5 +728,6 @@
 
 @push('scripts')
     <script src="{{ asset('js/assessment-modal.js') }}" defer></script>
+    <script src="{{ asset('js/process-scroll-stack.js') }}" defer></script>
     <script src="{{ asset('js/study-in-ireland.js') }}" defer></script>
 @endpush

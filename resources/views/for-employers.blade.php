@@ -20,8 +20,8 @@
         'kicker' => __('For Employers'),
         'title' => __('Connect with international talent in Ireland'),
         'subtitle' => __('CI Ireland helps employers connect with international students, graduates and professionals who are already living, studying or building their future in Ireland.') . '<br><br>' . __('Through Career Bridge, we support companies looking to access motivated international talent, build early career pipelines and engage with diverse communities in a more structured way.'),
-        'primaryCta' => ['label' => __('Partner with CI Ireland'), 'href' => '#contact'],
-        'secondaryCta' => ['label' => __('Speak to Our Employer Team'), 'href' => '#contact'],
+        'primaryCta' => ['label' => __('Partner with CI Ireland'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
+        'secondaryCta' => ['label' => __('Speak to Our Employer Team'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
     {{-- Section: International talent already here --}}
@@ -155,27 +155,27 @@
                 <article class="route-card">
                     <h3 class="route-card-title">{{ __('Recruitment Support') }}</h3>
                     <p class="route-card-desc">{{ __('For companies looking for candidates for specific roles, CI Ireland can help identify potential international talent from our community and wider network. This may include candidate attraction, initial screening, shortlisting and introductions when suitable profiles are available.') }}</p>
-                    <a href="#contact" class="route-card-cta">{{ __('Discuss Recruitment Support') }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="route-card-cta">{{ __('Discuss Recruitment Support') }} <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="route-card">
                     <h3 class="route-card-title">{{ __('Graduate and Early Career Talent') }}</h3>
                     <p class="route-card-desc">{{ __('For employers interested in junior, graduate or early career profiles, we can help connect your company with international students and recent graduates preparing for the Irish job market.') }}</p>
-                    <a href="#contact" class="route-card-cta">{{ __('Explore Graduate Talent') }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="route-card-cta">{{ __('Explore Graduate Talent') }} <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="route-card">
                     <h3 class="route-card-title">{{ __('Career Talks and Employer Events') }}</h3>
                     <p class="route-card-desc">{{ __('Companies can participate in career talks, webinars, workshops or in-person events to build visibility with international candidates and share insights about their sector.') }}</p>
-                    <a href="#contact" class="route-card-cta">{{ __('Plan an Employer Event') }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="route-card-cta">{{ __('Plan an Employer Event') }} <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="route-card">
                     <h3 class="route-card-title">{{ __('Industry Visits') }}</h3>
                     <p class="route-card-desc">{{ __('Industry visits allow students and professionals to experience the workplace, understand company culture and learn more about career paths in Ireland.') }}</p>
-                    <a href="#contact" class="route-card-cta">{{ __('Host an Industry Visit') }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="route-card-cta">{{ __('Host an Industry Visit') }} <i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="route-card">
                     <h3 class="route-card-title">{{ __('Talent Days') }}</h3>
                     <p class="route-card-desc">{{ __('Talent Days are structured employer engagement events designed to connect companies with potential candidates in a more direct and meaningful way.') }}</p>
-                    <a href="#contact" class="route-card-cta">{{ __('Create a Talent Day') }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="route-card-cta">{{ __('Create a Talent Day') }} <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
         </div>
@@ -324,7 +324,7 @@
     @include('partials.final-cta', [
         'title' => __('Build your international talent pipeline in Ireland'),
         'text' => __('Whether your company is hiring now or wants to build visibility with international students, graduates and professionals, CI Ireland can help you connect with a motivated and diverse talent community.'),
-        'primaryCta' => ['label' => __('Partner with CI Ireland'), 'href' => '#contact'],
-        'secondaryCta' => ['label' => __('Speak to Our Employer Team'), 'href' => '#contact'],
+        'primaryCta' => ['label' => __('Partner with CI Ireland'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
+        'secondaryCta' => ['label' => __('Speak to Our Employer Team'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 @endsection

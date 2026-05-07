@@ -21,7 +21,7 @@
         'title' => __('Career Bridge by CI Ireland'),
         'subtitle' => __('Career preparation and employer connection for international students, graduates and professionals building their future in Ireland.') . '<br><br>' . __('Career Bridge helps you understand the Irish job market, strengthen your professional profile and prepare for opportunities that match your background, studies and goals.'),
         'primaryCta' => ['label' => __('Start My Career Plan'), 'href' => $lr('start-your-plan')],
-        'secondaryCta' => ['label' => __('Speak to a Career Advisor'), 'href' => '#contact'],
+        'secondaryCta' => ['label' => __('Speak to a Career Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
     {{-- Section: Beginning of bigger plan --}}
@@ -353,6 +353,6 @@
         'title' => __('Build your career in Ireland with more clarity and preparation'),
         'text' => __('Whether you are studying, graduating or already working towards a professional future in Ireland, Career Bridge can help you understand the market, strengthen your profile and prepare for opportunities with more strategy.'),
         'primaryCta' => ['label' => __('Start My Career Plan'), 'href' => $lr('start-your-plan')],
-        'secondaryCta' => ['label' => __('Talk to a Career Advisor'), 'href' => '#contact'],
+        'secondaryCta' => ['label' => __('Talk to a Career Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 @endsection

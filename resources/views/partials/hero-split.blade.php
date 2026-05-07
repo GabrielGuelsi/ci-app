@@ -23,13 +23,15 @@
                 @if ($heroPrimaryCta || $heroSecondaryCta)
                     <div class="hero-split-actions">
                         @if ($heroPrimaryCta)
-                            <a class="btn btn-primary" href="{{ $heroPrimaryCta['href'] }}">
+                            <a class="btn btn-primary" href="{{ $heroPrimaryCta['href'] }}"
+                                @if (!empty($heroPrimaryCta['newTab'])) target="_blank" rel="noopener" @endif>
                                 {{ $heroPrimaryCta['label'] }}
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         @endif
                         @if ($heroSecondaryCta)
-                            <a class="btn btn-outline" href="{{ $heroSecondaryCta['href'] }}">
+                            <a class="btn btn-outline" href="{{ $heroSecondaryCta['href'] }}"
+                                @if (!empty($heroSecondaryCta['newTab'])) target="_blank" rel="noopener" @endif>
                                 {{ $heroSecondaryCta['label'] }}
                             </a>
                         @endif

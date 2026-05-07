@@ -21,7 +21,7 @@
         'title' => __('Start your plan in Ireland'),
         'subtitle' => __('Not sure which route makes sense for you? Tell us where you are now, what you want to achieve and what stage of the journey you are in. CI Ireland will review your profile and help you understand which study or career pathway may be more suitable for your goals in Ireland.'),
         'primaryCta' => ['label' => __('Start My Profile Assessment'), 'href' => '#assessment'],
-        'secondaryCta' => ['label' => __('Speak to an Advisor'), 'href' => '#contact'],
+        'secondaryCta' => ['label' => __('Speak to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
     {{-- Section: Why a clear plan --}}
@@ -435,7 +435,7 @@
                 <h3 class="callout-card-title">{{ __('Not sure what to choose?') }}</h3>
                 <p>{{ __('You do not need to know the answer before speaking with us. Many students come to CI Ireland feeling confused about their options.') }}</p>
                 <p><strong>{{ __('Our role is to help you organise the information, understand what is realistic and identify the next step that makes sense for your journey.') }}</strong></p>
-                <a class="btn btn-primary" href="#contact">{{ __('Speak to an Advisor') }} <i class="fas fa-arrow-right"></i></a>
+                <a class="btn btn-primary" href="https://wa.me/353868179430" target="_blank" rel="noopener">{{ __('Speak to an Advisor') }} <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -464,7 +464,7 @@
         'title' => __('Ready to understand your best route in Ireland?'),
         'text' => __('Start with a profile assessment and let CI Ireland help you plan your next academic or professional step with more clarity.'),
         'primaryCta' => ['label' => __('Start My Profile Assessment'), 'href' => '#assessment'],
-        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => '#contact'],
+        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 @endsection
 

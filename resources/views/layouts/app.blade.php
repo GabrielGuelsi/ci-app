@@ -69,9 +69,9 @@
     </main>
 
     {{-- WhatsApp Float --}}
-    <div class="whatsapp-float">
+    <a class="whatsapp-float" href="https://wa.me/353868179430" target="_blank" rel="noopener" aria-label="WhatsApp CI Ireland">
         <i class="fab fa-whatsapp"></i>
-    </div>
+    </a>
 
     {{-- Coming Soon Toast --}}
     <div class="coming-soon-toast" id="comingSoonToast" role="status" aria-live="polite"></div>

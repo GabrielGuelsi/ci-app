@@ -54,7 +54,7 @@
                     <button type="button" class="btn btn-primary btn-lg" data-open-assessment-modal>
                         {{ __('Plan My Next Step') }} <i class="fas fa-arrow-right"></i>
                     </button>
-                    <a class="ai-hero-link" href="#contact">
+                    <a class="ai-hero-link" href="https://wa.me/353868179430" target="_blank" rel="noopener">
                         <i class="fas fa-headset" aria-hidden="true"></i>
                         <span>{{ __('Talk with an advisor') }}</span>
                         <span class="ai-hero-link-arrow" aria-hidden="true">→</span>
@@ -121,20 +121,27 @@
             <div class="section-header">
                 <h2 class="section-title">{{ __('This page is for you if you are:') }}</h2>
             </div>
-            <div class="ai-checklist-grid">
-                @foreach ([
-                    'Studying English in Ireland',
-                    'Close to finishing your English course',
-                    'Holding a Stamp 2 visa',
-                    'Unsure if your English is ready for college',
-                    'Thinking about moving into Higher Education',
-                    'Considering a Pathway, Undergraduate, Postgraduate or Masters programme',
-                    'Worried about documents, deadlines or visa timing',
-                    'Trying to connect your studies with career opportunities',
-                    'Looking for a more strategic way to stay and progress in Ireland',
-                ] as $item)
-                    <div class="ai-checklist-item"><i class="fas fa-check-circle"></i> {{ __($item) }}</div>
-                @endforeach
+            <div class="ai-foryou">
+                <figure class="ai-foryou-photo">
+                    <img src="{{ asset('images/student-arriving-griffith.jpg') }}"
+                         alt=""
+                         loading="lazy">
+                </figure>
+                <div class="ai-foryou-list">
+                    @foreach ([
+                        'Studying English in Ireland',
+                        'Close to finishing your English course',
+                        'Holding a Stamp 2 visa',
+                        'Unsure if your English is ready for college',
+                        'Thinking about moving into Higher Education',
+                        'Considering a Pathway, Undergraduate, Postgraduate or Masters programme',
+                        'Worried about documents, deadlines or visa timing',
+                        'Trying to connect your studies with career opportunities',
+                        'Looking for a more strategic way to stay and progress in Ireland',
+                    ] as $item)
+                        <div class="ai-checklist-item"><i class="fas fa-check-circle"></i> {{ __($item) }}</div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
@@ -146,7 +153,7 @@
                 <span class="section-kicker">{{ __('Profile review') }}</span>
                 <h2 class="section-title">{{ __('What we help you understand') }}</h2>
             </div>
-            <div class="feature-grid">
+            <div class="ai-review-bento">
                 <div class="feature-card">
                     <div class="feature-card-icon"><i class="fas fa-language"></i></div>
                     <h3 class="feature-card-title">{{ __('Your English level') }}</h3>
@@ -172,23 +179,58 @@
                     <h3 class="feature-card-title">{{ __('Your budget') }}</h3>
                     <p class="feature-card-text">{{ __('Studying in Ireland requires planning. We help you understand the financial side of your options so you can make a more realistic decision.') }}</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card feature-card--anchor">
                     <div class="feature-card-icon"><i class="fas fa-compass"></i></div>
                     <h3 class="feature-card-title">{{ __('Your career direction') }}</h3>
                     <p class="feature-card-text">{{ __('Your next course should not be chosen in isolation. We help you think about how your academic route may connect with your professional goals in Ireland.') }}</p>
+                    <a class="feature-card-cta" href="{{ $lr('career-bridge') }}">
+                        {{ __('Explore Career Bridge') }} <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Section: From English to HE --}}
-    <section id="english-to-he" class="content-section content-section--alt">
+    <section id="english-to-he" class="content-section content-section--alt eth">
         <div class="container">
-            <div class="callout-card">
-                <h3 class="callout-card-title">{{ __('From English School to Higher Education') }}</h3>
-                <p>{{ __('For many students, English school is only the beginning of their journey in Ireland. The real challenge is understanding how to move from English into a stronger academic route, without making decisions based only on price, pressure or last-minute deadlines.') }}</p>
-                <p>{{ __('CI Ireland helps students plan this transition with more clarity. We look at your English level, academic background, visa situation, budget, documentation and career goals before helping you understand which route may be suitable for your profile.') }}</p>
-                <a class="btn btn-primary" href="{{ $lr('start-your-plan') }}">{{ __('Plan My Transition to Higher Education') }} <i class="fas fa-arrow-right"></i></a>
+            <div class="eth-grid">
+                <figure class="eth-figure">
+                    <img src="{{ asset('images/hero-higher-education1.webp') }}"
+                         alt="{{ __('Higher education students on a Dublin campus') }}"
+                         loading="lazy">
+                    <span class="eth-figure-label">
+                        <i class="fas fa-graduation-cap"></i>
+                        {{ __('Your next academic chapter') }}
+                    </span>
+                </figure>
+                <div class="eth-content">
+                    <span class="section-kicker eth-kicker">{{ __('English → Higher Education') }}</span>
+                    <h2 class="section-title">{{ __('From English School to Higher Education') }}</h2>
+                    <p class="eth-prose">{{ __('For many students, English school is only the beginning of their journey in Ireland. The real challenge is understanding how to move from English into a stronger academic route, without making decisions based only on price, pressure or last-minute deadlines.') }}</p>
+                    <p class="eth-prose">{{ __('CI Ireland helps students plan this transition with more clarity. We look at your English level, academic background, visa situation, budget, documentation and career goals before helping you understand which route may be suitable for your profile.') }}</p>
+
+                    <ol class="eth-ladder" aria-label="{{ __('From English School to Higher Education') }}">
+                        <li class="eth-stop">
+                            <span class="eth-stop-icon"><i class="fas fa-language"></i></span>
+                            <span class="eth-stop-label">{{ __('English School') }}</span>
+                        </li>
+                        <li class="eth-bridge" aria-hidden="true"><i class="fas fa-arrow-right"></i></li>
+                        <li class="eth-stop">
+                            <span class="eth-stop-icon"><i class="fas fa-book-open"></i></span>
+                            <span class="eth-stop-label">{{ __('Pathway') }}</span>
+                        </li>
+                        <li class="eth-bridge" aria-hidden="true"><i class="fas fa-arrow-right"></i></li>
+                        <li class="eth-stop is-finale">
+                            <span class="eth-stop-icon"><i class="fas fa-building-columns"></i></span>
+                            <span class="eth-stop-label">{{ __('Higher Education') }}</span>
+                        </li>
+                    </ol>
+
+                    <button type="button" class="btn btn-primary" data-open-assessment-modal>
+                        {{ __('Plan My Transition to Higher Education') }} <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -300,10 +342,10 @@
                                     @endforeach
                                 </dl>
                                 <div class="si-rs-cta-row">
-                                    <a class="si-rs-cta" href="{{ $r['cta']['href'] }}">
+                                    <button type="button" class="si-rs-cta" data-open-assessment-modal>
                                         <span>{{ $r['cta']['label'] }}</span>
                                         <span class="si-rs-cta-arrow" aria-hidden="true">→</span>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </article>
@@ -313,7 +355,7 @@
                 <div class="si-rs-helper si-rs-helper--standalone">
                     <span class="si-rs-helper-icon" aria-hidden="true"><i class="fas fa-headset"></i></span>
                     <span class="si-rs-helper-text">{{ __('Not sure which route fits where you are now?') }}</span>
-                    <a class="si-rs-helper-link" href="#contact">
+                    <a class="si-rs-helper-link" href="https://wa.me/353868179430" target="_blank" rel="noopener">
                         <span>{{ __('Talk with an advisor') }}</span>
                         <span class="si-rs-helper-arrow" aria-hidden="true">→</span>
                     </a>
@@ -322,28 +364,64 @@
         </div>
     </section>
 
-    {{-- Section: Career callout --}}
-    <section class="content-section content-section--alt">
+    {{-- Section: Study × Career — pathway editorial --}}
+    @php
+        $aiCcJourney = [
+            ['icon' => 'fa-book-open',      'label' => __('Your study')],
+            ['icon' => 'fa-graduation-cap', 'label' => __('Graduate')],
+            ['icon' => 'fa-people-arrows',  'label' => __('Career Bridge')],
+            ['icon' => 'fa-briefcase',      'label' => __('Your career')],
+        ];
+        $aiCcSituation = [__('Academic background'), __('English level'), __('Visa timing'), __('Work experience'), __('Career goals')];
+        $aiCcOutcomes  = [__('A clear study route'), __('Stronger employability'), __('Career network'), __('Long-term opportunities')];
+    @endphp
+    <section class="content-section content-section--alt cc">
         <div class="container">
-            <div class="split-section">
-                <div class="split-section-text section-prose">
-                    <span class="section-kicker">{{ __('Study × Career') }}</span>
-                    <h2 class="section-title">{{ __('Your next course should support your future career') }}</h2>
-                    <p>{{ __('Many students choose their next course because it is available, affordable or recommended by someone in a similar situation. But your profile is unique.') }}</p>
-                    <p>{{ __('Your academic background, English level, visa timing, work experience and career goals can completely change which route makes sense for you.') }}</p>
-                    <p>{{ __('At CI Ireland, we help students already in Ireland think beyond the next enrolment. We help you understand how your next academic step may connect with your long-term plans, employability and future opportunities in the Irish market.') }}</p>
-                    <a class="btn btn-primary" href="{{ $lr('start-your-plan') }}">{{ __('Plan My Study and Career Route') }} <i class="fas fa-arrow-right"></i></a>
+            <div class="cc-head">
+                <span class="section-kicker">{{ __('Study × Career') }}</span>
+                <h2 class="section-title">{{ __('Your next course should support your future career') }}</h2>
+                <p class="cc-lead">{{ __('At CI Ireland we help students already in Ireland think beyond the next enrolment — connecting your study choice with employability, network and long-term opportunities in the Irish market.') }}</p>
+            </div>
+
+            <ol class="cc-journey" aria-label="{{ __('From study to career') }}">
+                @foreach ($aiCcJourney as $i => $stop)
+                    <li class="cc-stop @if ($i === 2) is-anchor @endif" data-step="{{ $i }}">
+                        <span class="cc-stop-dot" aria-hidden="true"><i class="fas {{ $stop['icon'] }}"></i></span>
+                        <span class="cc-stop-label">{{ $stop['label'] }}</span>
+                    </li>
+                @endforeach
+            </ol>
+
+            <div class="cc-halves">
+                <div class="cc-half cc-half--study">
+                    <span class="cc-half-kicker">{{ __('Your situation today') }}</span>
+                    <ul class="cc-half-list">
+                        @foreach ($aiCcSituation as $attr)
+                            <li>{{ $attr }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <div class="split-section-visual">
-                    <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="120" cy="180" r="60" fill="#fff7f1" stroke="#F26522" stroke-width="2"/>
-                        <text x="120" y="186" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="#3D1F3D">{{ __('Now') }}</text>
-                        <circle cx="360" cy="180" r="60" fill="#fff" stroke="#3D1F3D" stroke-width="2"/>
-                        <text x="360" y="186" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="#3D1F3D">{{ __('Goal') }}</text>
-                        <path d="M 180 180 L 300 180" fill="none" stroke="#F26522" stroke-width="3" stroke-dasharray="8 6"/>
-                        <polygon points="290,170 305,180 290,190" fill="#F26522"/>
-                    </svg>
+                <div class="cc-bridge" aria-hidden="true">
+                    <span class="cc-bridge-icon"><i class="fas fa-arrows-left-right"></i></span>
                 </div>
+                <div class="cc-half cc-half--career">
+                    <span class="cc-half-kicker">{{ __('Where it leads') }}</span>
+                    <ul class="cc-half-list">
+                        @foreach ($aiCcOutcomes as $attr)
+                            <li>{{ $attr }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+            <blockquote class="cc-manifesto">
+                <p>{{ __('We do not promise a job. We help you make study decisions with a clearer view of where they could lead.') }}</p>
+            </blockquote>
+
+            <div class="cc-cta-row">
+                <a class="btn btn-primary" href="{{ $lr('start-your-plan') }}">
+                    {{ __('Plan My Study and Career Route') }} <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -367,27 +445,42 @@
         </div>
     </section>
 
-    @include('partials.process-steps', [
+    @include('partials.process-scroll-stack', [
         'kicker' => __('Step by step'),
         'title' => __('How CI Ireland can support your next step'),
+        'lead' => __('Our process is designed to turn confusion into clear next steps in Ireland.'),
         'steps' => [
-            ['title' => __('Profile Review'), 'body' => __('We start by understanding where you are now: your English level, current course, visa situation, academic background, budget and goals.')],
-            ['title' => __('Route Analysis'), 'body' => __('We identify which academic and professional routes may be compatible with your profile.')],
-            ['title' => __('Course and Institution Guidance'), 'body' => __('We help you explore suitable institutions, programmes and intakes based on your situation.')],
-            ['title' => __('Document Preparation'), 'body' => __('We guide you on the documents that may be required for your application and help you understand what should be prepared in advance.')],
-            ['title' => __('Application Support'), 'body' => __('We support you through the application process, offer stage, enrolment steps and important deadlines.')],
-            ['title' => __('Career Preparation'), 'body' => __('When relevant, we connect your academic journey with career preparation through Career Bridge.')],
+            ['icon' => 'fa-user-check',       'title' => __('Profile Review'),                  'body' => __('We start by understanding where you are now: your English level, current course, visa situation, academic background, budget and goals.')],
+            ['icon' => 'fa-route',            'title' => __('Route Analysis'),                  'body' => __('We identify which academic and professional routes may be compatible with your profile.')],
+            ['icon' => 'fa-building-columns', 'title' => __('Course and Institution Guidance'), 'body' => __('We help you explore suitable institutions, programmes and intakes based on your situation.')],
+            ['icon' => 'fa-file-lines',       'title' => __('Document Preparation'),            'body' => __('We guide you on the documents that may be required for your application and help you understand what should be prepared in advance.')],
+            ['icon' => 'fa-paper-plane',      'title' => __('Application Support'),             'body' => __('We support you through the application process, offer stage, enrolment steps and important deadlines.')],
+            ['icon' => 'fa-bridge',           'title' => __('Career Preparation'),              'body' => __('When relevant, we connect your academic journey with career preparation through Career Bridge.')],
         ],
     ])
 
-    {{-- Section: Career first --}}
+    {{-- Section: Career first (rich callout reused from /study-in-ireland) --}}
     <section class="content-section content-section--alt">
         <div class="container">
-            <div class="callout-card">
-                <h3 class="callout-card-title">{{ __('Do not wait until graduation to think about career') }}</h3>
-                <p>{{ __('Career planning should not start only when your course is ending. The earlier you understand your strengths, gaps, English level, target sector and market expectations, the better prepared you can be.') }}</p>
-                <p>{{ __('Career Bridge can support students who want to start building their professional profile while they are still studying, helping them prepare their CV, LinkedIn, interview skills and career direction for the Irish job market.') }}</p>
-                <a class="btn btn-primary" href="{{ $lr('career-bridge') }}">{{ __('Explore Career Bridge') }} <i class="fas fa-arrow-right"></i></a>
+            <div class="callout-card ai-career-callout">
+                <div class="ai-career-callout-text">
+                    <h3 class="callout-card-title">{{ __('Do not wait until graduation to think about career') }}</h3>
+                    <p>{{ __('Career planning should not start only when your course is ending. The earlier you understand your strengths, gaps, English level, target sector and market expectations, the better prepared you can be.') }}</p>
+                    <p>{{ __('Career Bridge can support students who want to start building their professional profile while they are still studying, helping them prepare their CV, LinkedIn, interview skills and career direction for the Irish job market.') }}</p>
+                    <a class="btn btn-primary" href="{{ $lr('career-bridge') }}">{{ __('Explore Career Bridge') }} <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="ai-career-callout-visual">
+                    <img src="{{ asset('images/career-mind.webp') }}"
+                         alt="{{ __('Plan your course with your future career in mind') }}"
+                         loading="lazy">
+                    <div class="ai-career-callout-badge">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <strong>{{ __('Course') }} → {{ __('Career') }}</strong>
+                            <span>{{ __('Aligned by design') }}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -419,10 +512,17 @@
     {{-- Section: Why CI when you are here --}}
     <section class="content-section content-section--alt">
         <div class="container">
-            <div class="callout-card">
+            <div class="callout-card ai-why-callout">
+                <i class="ai-why-glyph fas fa-quote-left" aria-hidden="true"></i>
                 <h3 class="callout-card-title">{{ __('Why choose CI Ireland when you are already here?') }}</h3>
                 <p>{{ __('CI Ireland is based in Dublin, close to the reality of international students living in Ireland. Our team understands the challenges students face after arriving in the country, from English progression and college applications to documentation, visa timing, budgeting and career planning.') }}</p>
                 <p><strong>{{ __('We are here to help you make decisions with more structure, not pressure.') }}</strong></p>
+                <div class="ai-why-chips">
+                    <span class="ai-why-chip"><i class="fas fa-location-dot"></i> {{ __('Dublin-based') }}</span>
+                    <span class="ai-why-chip"><i class="fas fa-globe"></i> {{ __('EN/PT support') }}</span>
+                    <span class="ai-why-chip"><i class="fas fa-bullseye"></i> {{ __('Profile-first') }}</span>
+                </div>
+                <a class="btn btn-primary" href="{{ $lr('why-ci-ireland') }}">{{ __('Learn more about CI Ireland') }} <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -443,8 +543,8 @@
     @include('partials.final-cta', [
         'title' => __('Your next step in Ireland deserves a clear plan.'),
         'text' => __('Do not wait until your course is almost finished to understand your options. Whether you want to move into Higher Education, improve your academic English, prepare for your career or understand your next route in Ireland, CI Ireland can help you plan with more confidence.'),
-        'primaryCta' => ['label' => __('Plan My Next Step'), 'href' => $lr('start-your-plan')],
-        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => '#contact'],
+        'primaryCta' => ['label' => __('Plan My Next Step'), 'modal' => true],
+        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
     @include('partials.profile-assessment-modal', [
@@ -459,4 +559,5 @@
 
 @push('scripts')
     <script src="{{ asset('js/assessment-modal.js') }}" defer></script>
+    <script src="{{ asset('js/process-scroll-stack.js') }}" defer></script>
 @endpush

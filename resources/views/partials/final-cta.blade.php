@@ -18,13 +18,22 @@
             @if ($ctaPrimary || $ctaSecondary)
                 <div class="final-cta-actions">
                     @if ($ctaPrimary)
-                        <a class="btn btn-primary" href="{{ $ctaPrimary['href'] }}">
-                            {{ $ctaPrimary['label'] }}
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        @if (!empty($ctaPrimary['modal']))
+                            <button type="button" class="btn btn-primary" data-open-assessment-modal>
+                                {{ $ctaPrimary['label'] }}
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        @else
+                            <a class="btn btn-primary" href="{{ $ctaPrimary['href'] }}"
+                                @if (!empty($ctaPrimary['newTab'])) target="_blank" rel="noopener" @endif>
+                                {{ $ctaPrimary['label'] }}
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        @endif
                     @endif
                     @if ($ctaSecondary)
-                        <a class="btn btn-outline-light" href="{{ $ctaSecondary['href'] }}">
+                        <a class="btn btn-outline-light" href="{{ $ctaSecondary['href'] }}"
+                            @if (!empty($ctaSecondary['newTab'])) target="_blank" rel="noopener" @endif>
                             {{ $ctaSecondary['label'] }}
                         </a>
                     @endif
