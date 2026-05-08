@@ -21,7 +21,7 @@
     @php
         $aiHeroChips = [
             ['target' => 'english-to-he', 'label' => __('Studying English')],
-            ['target' => 'what-we-help',  'label' => __('Stamp 2 holder')],
+            ['target' => 'what-we-help',  'label' => __('Any visa or EU passport')],
             ['target' => 'routes',        'label' => __('Course ending soon')],
             ['target' => 'for-you',       'label' => __('Just arrived')],
         ];
@@ -73,7 +73,7 @@
                     <div class="ai-arc-intro">
                         <span class="section-kicker">{{ __('You are not alone') }}</span>
                         <h2 class="section-title">{{ __('The next step in Ireland can feel confusing') }}</h2>
-                        <p class="section-lead">{{ __('Many international students arrive in Ireland with one main goal: to study English and experience life abroad. But after a few months, new questions usually appear.') }}</p>
+                        <p class="section-lead">{{ __('International students, EU passport holders and work-permit residents in Ireland often share the same questions: what comes next, how to move into Higher Education, and how to take a real career step here.') }}</p>
                     </div>
                     <figure class="ai-arc-photo">
                         <img src="{{ asset('images/about/about-4.webp') }}"
@@ -131,7 +131,9 @@
                     @foreach ([
                         'Studying English in Ireland',
                         'Close to finishing your English course',
-                        'Holding a Stamp 2 visa',
+                        'On any Irish visa (Stamp 1, 1G, 2 or 4) or holding an EU/EEA passport',
+                        'An EU/EEA citizen or work-permit holder considering Higher Education in Ireland',
+                        'Already working in Ireland and looking to grow your career through further study',
                         'Unsure if your English is ready for college',
                         'Thinking about moving into Higher Education',
                         'Considering a Pathway, Undergraduate, Postgraduate or Masters programme',
@@ -499,6 +501,8 @@
                     ['"I want to stay in Ireland, but I do not know which course to choose."', 'We help you analyse your options based on your academic background, budget, visa timing and career goals.'],
                     ['"I am afraid of choosing the wrong course."', 'That concern is valid. A wrong choice can affect your finances, studies and future plans. Our role is to help you make a more informed decision.'],
                     ['"I want to study something that can help my career."', 'We help you connect your study options with your professional profile and market direction.'],
+                    ['"I have an EU passport and I want to move into Higher Education or change careers in Ireland."', 'We can help you understand which programmes match your background and how to transition into a new area, without visa constraints limiting your options.'],
+                    ['"I am on Stamp 1 or Stamp 1G and want to take a real step in my career."', 'We can help you align a course or career plan with your sector, English level, schedule and goals.'],
                 ] as $situation)
                     <div class="ai-situation">
                         <div class="ai-situation-quote">{{ __($situation[0]) }}</div>
@@ -515,7 +519,7 @@
             <div class="callout-card ai-why-callout">
                 <i class="ai-why-glyph fas fa-quote-left" aria-hidden="true"></i>
                 <h3 class="callout-card-title">{{ __('Why choose CI Ireland when you are already here?') }}</h3>
-                <p>{{ __('CI Ireland is based in Dublin, close to the reality of international students living in Ireland. Our team understands the challenges students face after arriving in the country, from English progression and college applications to documentation, visa timing, budgeting and career planning.') }}</p>
+                <p>{{ __('CI Ireland is based in Dublin, close to the reality of international students living in Ireland. Our team understands the realities of building a future in Ireland — whether that means English progression, applying for Higher Education, navigating visa or EU residency, budgeting, or taking a real career step.') }}</p>
                 <p><strong>{{ __('We are here to help you make decisions with more structure, not pressure.') }}</strong></p>
                 <div class="ai-why-chips">
                     <span class="ai-why-chip"><i class="fas fa-location-dot"></i> {{ __('Dublin-based') }}</span>

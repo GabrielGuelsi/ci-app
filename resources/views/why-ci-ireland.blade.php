@@ -23,44 +23,42 @@
                     <h1 class="about-hero-title">{!! __('An <span>European Education Mobility Hub</span>') !!}</h1>
                     <p class="about-hero-subtitle">{{ __('From Dublin, CI Ireland connects students, educators, universities, schools and institutions through academic programs, professional mobility and international educational experiences that promote professional development, educational innovation and global cooperation.') }}</p>
 
-                    <div class="hero-journey">
-                        <div class="journey-stop">
-                            <div class="journey-flag"><span class="flag-badge flag-br">BR</span></div>
-                            <div class="journey-year">1988</div>
-                            <div class="journey-label">{{ __('Born in Brazil') }}</div>
-                            <div class="journey-desc">{{ __('100+ units · 1M+ students') }}</div>
-                        </div>
-                        <div class="journey-connector">
-                            <div class="journey-arrow-line"></div>
-                        </div>
-                        <div class="journey-stop">
-                            <div class="journey-flag"><span class="flag-badge flag-ie">IE</span></div>
-                            <div class="journey-year">2016</div>
-                            <div class="journey-label">{{ __('Arrived in Dublin') }}</div>
-                            <div class="journey-desc">{{ __('11,000+ students in Ireland') }}</div>
-                        </div>
-                    </div>
-
                     <div class="hero-mini-stats">
-                        <div class="mini-stat"><span>100+</span> {{ __('Units in Brazil') }}</div>
+                        <div class="mini-stat"><span>11,000+</span> {{ __('students in Ireland') }}</div>
                         <div class="mini-stat-dot"></div>
-                        <div class="mini-stat"><span>1M+</span> {{ __('Students worldwide') }}</div>
+                        <div class="mini-stat"><span>{{ __('Since') }}</span> 2016</div>
                         <div class="mini-stat-dot"></div>
-                        <div class="mini-stat"><span>11,000+</span> {{ __('in Ireland') }}</div>
+                        <div class="mini-stat"><i class="fas fa-map-pin"></i> {{ __('Dublin HQ') }}</div>
                     </div>
                 </div>
+                {{-- Bento mosaic — to swap photos, drop new files into public/images/about/ireland/
+                     as mosaic-1.webp ... mosaic-4.webp and update the four src paths below. --}}
                 <div class="about-hero-media">
-                    <div class="hero-photo-main">
-                        <img class="hero-main-img"
-                             src="{{ asset('images/about/ci-brasil.webp') }}"
-                             alt="{{ __('CI Brazil headquarters') }}"
-                             fetchpriority="high">
-                        <div class="hero-photo-gradient"></div>
-                        <div class="hero-photo-caption"><i class="fas fa-map-pin"></i> {{ __('CI Brazil Headquarters') }}</div>
-                        <div class="hero-accent-card">
-                            <img src="{{ asset('images/about/ci-ireland.webp') }}" alt="{{ __('CI Ireland office') }}" loading="lazy">
-                            <div class="hero-accent-label"><i class="fas fa-map-pin"></i> {{ __('CI Ireland, Dublin') }}</div>
-                        </div>
+                    <div class="hero-mosaic">
+                        <figure class="hero-mosaic-tile large">
+                            <img src="{{ asset('images/about/ci-ireland.webp') }}"
+                                 alt="{{ __('CI Ireland Dublin office') }}"
+                                 fetchpriority="high">
+                            <figcaption class="hero-mosaic-caption"><i class="fas fa-map-pin"></i> {{ __('Dublin Office') }}</figcaption>
+                        </figure>
+                        <figure class="hero-mosaic-tile">
+                            <img src="{{ asset('images/corporate/co-dublin.webp') }}"
+                                 alt="{{ __('CI Ireland reception') }}"
+                                 loading="lazy">
+                            <figcaption class="hero-mosaic-caption">{{ __('Reception') }}</figcaption>
+                        </figure>
+                        <figure class="hero-mosaic-tile">
+                            <img src="{{ asset('images/student-arriving-griffith.jpg') }}"
+                                 alt="{{ __('Students arriving on campus in Ireland') }}"
+                                 loading="lazy">
+                            <figcaption class="hero-mosaic-caption">{{ __('Classroom') }}</figcaption>
+                        </figure>
+                        <figure class="hero-mosaic-tile">
+                            <img src="{{ asset('images/hero-ireland-cliff.webp') }}"
+                                 alt="{{ __('Around Dublin and Ireland') }}"
+                                 loading="lazy">
+                            <figcaption class="hero-mosaic-caption">{{ __('Around Dublin') }}</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -122,6 +120,19 @@
                     <h4>{{ __('Efficiency') }}</h4>
                     <p>{{ __('We help students make the right decisions based on reliable data and smooth internal processes.') }}</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="heritage-strip" aria-label="CI heritage">
+        <div class="container">
+            <div class="heritage-strip-inner">
+                <div class="heritage-flags" aria-hidden="true">
+                    <span class="flag-badge flag-br">BR</span>
+                    <i class="fas fa-arrow-right heritage-arrow"></i>
+                    <span class="flag-badge flag-ie">IE</span>
+                </div>
+                <p class="heritage-copy">{{ __('Founded in Brazil in 1988, CI established its European hub in Dublin in 2016 — connecting 11,000+ students across Ireland and beyond.') }}</p>
             </div>
         </div>
     </section>
