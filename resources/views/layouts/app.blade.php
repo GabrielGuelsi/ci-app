@@ -80,35 +80,8 @@
     <footer class="ci-footer" id="contact">
         <div class="container">
             <div class="footer-stack">
-                <div class="footer-panel footer-top">
-                    <div class="footer-brand">
-                        <img class="footer-logo" src="{{ asset('images/logo-ci.png') }}" alt="CI Exchange">
-                        <p class="footer-tagline">@yield('footer-tagline', __('Study in Ireland with confidence. Our Dublin team helps you choose, apply, and arrive.'))</p>
-                        <div class="footer-contact-pill">
-                            <i class="fas fa-phone"></i>
-                            {{ __('Admissions Team') }} +353 83 083 7734 / +353 86 014 2313
-                        </div>
-                    </div>
-                    <div class="footer-contact">
-                        <div class="contact-card">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <div class="contact-label">{{ __('Visit us') }}</div>
-                                <div class="contact-value">CI Intercambio - Irlanda</div>
-                                <div class="contact-meta">{{ __('Dublin office') }}</div>
-                            </div>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                            <div>
-                                <div class="contact-label">Instagram</div>
-                                <div class="contact-value">@ciirlanda</div>
-                                <div class="contact-meta">{{ __('Send us a DM for quick questions') }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
+                {{-- Map --}}
                 <div class="footer-panel footer-map-panel">
                     <div class="footer-map-header">
                         <div class="footer-map-title">{{ __('Find us on the map') }}</div>
@@ -119,25 +92,62 @@
                     </div>
                 </div>
 
-                <div class="footer-panel footer-social-panel">
-                    <div class="footer-social-header">
-                        <h3>{{ __('Follow CI Ireland') }}</h3>
-                        <p>{{ __('Instagram, Facebook, and LinkedIn updates from our Dublin team.') }}</p>
+                {{-- Info block: pages + contact + CTAs + brand (logo right) --}}
+                <div class="footer-panel footer-info">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">{{ __('Pages') }}</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="{{ $lr('study-in-ireland') }}">{{ __('Study in Ireland') }}</a></li>
+                            <li><a href="{{ $lr('already-in-ireland') }}">{{ __('Already in Ireland') }}</a></li>
+                            <li><a href="{{ $lr('career-bridge') }}">{{ __('Career Bridge') }}</a></li>
+                            <li><a href="{{ $lr('for-employers') }}">{{ __('For Employers') }}</a></li>
+                            <li><a href="{{ $lr('why-ci-ireland') }}">{{ __('About Us') }}</a></li>
+                        </ul>
                     </div>
-                    <div class="footer-socials">
-                        <a class="footer-social-link instagram" href="https://www.instagram.com/ciirlanda/" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </a>
-                        <a class="footer-social-link" href="https://www.facebook.com/CI.Intercambio.Irlanda" target="_blank" rel="noopener">
-                            <i class="fab fa-facebook-f"></i> Facebook
-                        </a>
-                        <a class="footer-social-link" href="https://www.linkedin.com/company/ci-irlanda/?originalSubdomain=ie" target="_blank" rel="noopener">
-                            <i class="fab fa-linkedin-in"></i> LinkedIn
+
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">{{ __('Contact') }}</h4>
+                        <ul class="footer-nav-list footer-contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>CI Intercambio - Irlanda<small>{{ __('Dublin office') }}</small></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+353830837734">+353 83 083 7734</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+353860142313">+353 86 014 2313</a>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <a href="https://www.instagram.com/ciirlanda" target="_blank" rel="noopener">@ciirlanda</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-col-cta">
+                        <h4 class="footer-col-title">{{ __('Get started') }}</h4>
+                        <a href="{{ $lr('start-your-plan') }}" class="footer-cta-primary">{{ __('Start Your Plan') }}</a>
+                        <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="footer-cta-secondary">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ __('Chat on WhatsApp') }}
                         </a>
                     </div>
-                    <div class="footer-note">@yield('footer-note', __('Share your Facebook and LinkedIn URLs to activate these links.'))</div>
+
+                    <div class="footer-col footer-col-brand">
+                        <img class="footer-logo" src="{{ asset('images/logo-ci.png') }}" alt="CI Exchange">
+                        <p class="footer-tagline">@yield('footer-tagline', __('Study in Ireland with confidence. Our Dublin team helps you choose, apply, and arrive.'))</p>
+                        <div class="footer-social-icons">
+                            <a href="https://www.instagram.com/ciirlanda" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/CI.Intercambio.Irlanda" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/company/ci-irlanda/?originalSubdomain=ie" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/353868179430" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
                 </div>
 
+                {{-- Legal strip --}}
                 <div class="footer-bottom">
                     <span>{{ __('CI Exchange Ireland. All rights reserved.') }}</span>
                     <span>@yield('footer-bottom-right', __('Designed for future students worldwide.'))</span>

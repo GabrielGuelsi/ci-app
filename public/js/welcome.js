@@ -501,3 +501,81 @@ bootHeroSlider();
         if (e.key === 'Escape' && backdrop.classList.contains('open')) close();
     });
 })();
+
+// Success Stories Slider
+(function initStoriesSlider() {
+    const root = document.querySelector('[data-stories-slider]');
+    if (!root) return;
+
+    const track = root.querySelector('[data-stories-track]');
+    const slides = root.querySelectorAll('.story-slide');
+    const dots = root.querySelectorAll('.stories-dot');
+    const prev = root.querySelector('.stories-prev');
+    const next = root.querySelector('.stories-next');
+    if (!track || !slides.length) return;
+
+    const AUTOPLAY_MS = 7000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0;
+    let timer = null;
+    let inView = true;
+
+    function go(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, n) => d.classList.toggle('is-active', n === index));
+    }
+
+    function step(delta) {
+        go(index + delta);
+    }
+
+    function stopAuto() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function startAuto() {
+        stopAuto();
+        if (!inView || reduceMotion.matches) return;
+        timer = setInterval(() => step(1), AUTOPLAY_MS);
+    }
+
+    dots.forEach((d, n) => d.addEventListener('click', () => { go(n); startAuto(); }));
+    if (prev) prev.addEventListener('click', () => { step(-1); startAuto(); });
+    if (next) next.addEventListener('click', () => { step(1); startAuto(); });
+
+    root.addEventListener('mouseenter', stopAuto);
+    root.addEventListener('mouseleave', startAuto);
+    root.addEventListener('focusin', stopAuto);
+    root.addEventListener('focusout', startAuto);
+
+    if (typeof IntersectionObserver !== 'undefined') {
+        new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                inView = entry.isIntersecting;
+                if (inView) {
+                    startAuto();
+                } else {
+                    stopAuto();
+                }
+            });
+        }, { threshold: 0.2 }).observe(root);
+    }
+
+    let touchStartX = 0;
+    root.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAuto();
+    }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+        startAuto();
+    }, { passive: true });
+
+    go(0);
+    startAuto();
+})();

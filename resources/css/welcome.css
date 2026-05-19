@@ -360,39 +360,25 @@
             flex-shrink: 0;
             display: inline-flex;
             align-items: center;
-            gap: 28px;
-            padding: 0;
+            justify-content: center;
+            /* Tile aspect matches the normalized logo aspect (2.5:1) */
+            width: 170px;
+            height: 68px;
+            padding: 6px 10px;
             background: transparent;
             border: 0;
             box-shadow: none;
             cursor: default;
-            transition: color 0.25s ease;
             margin-right: 28px;
         }
 
-        .marquee-item:hover .marquee-name {
-            color: var(--ci-orange);
-        }
-
-        .marquee-name {
-            font-family: 'Montserrat', sans-serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: clamp(20px, 1.9vw, 28px);
-            line-height: 1;
-            letter-spacing: -0.015em;
-            color: #5A2A55;
-            white-space: nowrap;
-            transition: color 0.25s ease;
-        }
-
-        .marquee-sep {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: #F28F5C;
-            flex-shrink: 0;
-            margin-bottom: 4px;
+        .marquee-logo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            opacity: 1;
         }
 
         /* The Pathway — interactive 4-stage section */
@@ -1200,165 +1186,242 @@
             line-height: 1.65;
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
+        /* Success Stories Slider */
+        .stories-slider {
             position: relative;
             z-index: 1;
+            max-width: 1080px;
+            margin: 0 auto;
         }
 
-        .testimonial-card {
+        .stories-viewport {
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.38);
+        }
+
+        .stories-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            will-change: transform;
+        }
+
+        .story-slide {
+            flex: 0 0 100%;
+            min-width: 0;
             background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(24px, 4vw, 56px);
+            padding: clamp(20px, 3vw, 36px);
+            align-items: stretch;
+        }
+
+        .story-photo {
+            margin: 0;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 8px 36px rgba(0,0,0,0.28);
-            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            gap: 16px;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 56px rgba(0,0,0,0.38);
-        }
-
-        .testimonial-photo-wrap {
-            width: 100%;
-            height: 325px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .testimonial-photo-wrap img {
+        .story-photo img {
             width: 100%;
             height: 100%;
+            min-height: 360px;
+            max-height: 480px;
             object-fit: cover;
-            object-position: center center;
+            border-radius: 18px;
             display: block;
-            transition: transform 0.4s ease;
         }
 
-        .testimonial-card:hover .testimonial-photo-wrap img {
-            transform: scale(1.04);
-        }
-
-        .testimonial-photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #2d1045 0%, #5a2d8a 60%, #3D1F3D 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .testimonial-photo-placeholder svg {
-            width: 56px;
-            height: 56px;
-            color: rgba(255,255,255,0.2);
-        }
-
-        .testimonial-body {
-            padding: 22px 24px 20px;
+        .story-student {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            flex: 1;
+            gap: 4px;
         }
 
-        .testimonial-stars {
-            color: var(--ci-orange);
-            font-size: 17px;
-            letter-spacing: 3px;
-            line-height: 1;
-        }
-
-        .testimonial-quote {
-            font-size: 14px;
-            color: #4a4a4a;
-            line-height: 1.75;
-            font-style: italic;
-            flex: 1;
-            position: relative;
-            padding-top: 6px;
-        }
-
-        .testimonial-quote::before {
-            content: '\201C';
-            font-size: 68px;
-            color: rgba(242, 101, 34, 0.1);
-            font-style: normal;
-            font-family: Georgia, serif;
-            line-height: 0.8;
-            position: absolute;
-            top: -4px;
-            left: -6px;
-        }
-
-        .testimonial-student {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-
-        .student-name {
-            font-size: 13.5px;
+        .story-student-name {
+            font-size: 16px;
             font-weight: 700;
             color: #1a1a1a;
             line-height: 1.3;
         }
 
-        .student-course {
-            font-size: 11.5px;
-            color: #aaa;
+        .story-student-course {
+            font-size: 13px;
+            color: #888;
             line-height: 1.4;
         }
 
-        .testimonial-divider {
-            height: 1px;
-            background: #efefef;
+        .story-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
         }
 
-        .testimonial-consultant {
+        .story-stars {
+            color: var(--ci-orange);
+            font-size: 20px;
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+
+        .story-quote {
+            position: relative;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(20px, 2.2vw, 28px);
+            line-height: 1.4;
+            color: #2a2a2a;
+            margin: 0;
+            padding-top: 16px;
+            padding-left: 4px;
+            font-style: italic;
+        }
+
+        .story-quote::before {
+            content: '\201C';
+            position: absolute;
+            top: -28px;
+            left: -10px;
+            font-size: 110px;
+            line-height: 1;
+            color: rgba(242, 101, 34, 0.18);
+            font-style: normal;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+
+        .story-consultant {
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 14px;
+            padding: 14px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
 
-        .consultant-photo {
-            width: 42px;
-            height: 42px;
+        .story-consultant-photo {
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             object-fit: cover;
-            flex-shrink: 0;
             border: 2px solid var(--ci-orange);
+            flex-shrink: 0;
         }
 
-        .consultant-info {
+        .story-consultant-info {
             min-width: 0;
         }
 
-        .consultant-name {
-            font-size: 13px;
+        .story-consultant-name {
+            font-size: 16px;
             font-weight: 700;
-            color: #222;
+            color: #1a1a1a;
             line-height: 1.3;
         }
 
-        .consultant-badge {
-            font-size: 11px;
+        .story-consultant-badge {
+            font-size: 12px;
             color: #1dab5f;
             font-weight: 600;
-            margin-top: 2px;
+            margin-top: 3px;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
-        .consultant-badge svg {
-            width: 12px;
-            height: 12px;
+        .story-consultant-badge svg {
+            width: 13px;
+            height: 13px;
             flex-shrink: 0;
+        }
+
+        .story-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+
+        .story-cta:hover {
+            transform: translateY(-2px);
+            background: #1fbb5a;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+        }
+
+        .story-cta svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .stories-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            margin-top: 32px;
+        }
+
+        .stories-arrow {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stories-arrow:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .stories-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .stories-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .stories-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .stories-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .stories-dot.is-active {
+            background: var(--ci-orange);
+            transform: scale(1.3);
         }
 
         /* Responsive */
@@ -1378,11 +1441,6 @@
             .impact-card-xl,
             .impact-card-md,
             .impact-card-wide { grid-column: span 6; }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
         }
 
         @media (max-width: 960px) {
@@ -1526,12 +1584,10 @@
             .marquee-list { gap: 0; padding: 10px; }
 
             .marquee-item {
-                gap: 20px;
+                width: 130px;
+                height: 52px;
+                padding: 4px 8px;
                 margin-right: 20px;
-            }
-
-            .marquee-name {
-                font-size: clamp(18px, 5vw, 24px);
             }
 
             .pathway-section { padding: 60px 0 70px; }
@@ -1546,14 +1602,42 @@
 
             .testimonials { padding: 64px 0 72px; }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
             .testimonials-header { margin-bottom: 40px; }
 
-            .testimonial-photo-wrap { height: 325px; }
+            .story-slide {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 20px;
+            }
+
+            .story-photo img {
+                min-height: 240px;
+                max-height: 320px;
+            }
+
+            .story-quote {
+                font-size: 18px;
+                padding-top: 10px;
+            }
+
+            .story-quote::before {
+                font-size: 72px;
+                top: -12px;
+            }
+
+            .story-cta {
+                width: 100%;
+                align-self: stretch;
+            }
+
+            .stories-nav {
+                gap: 16px;
+                margin-top: 24px;
+            }
+
+            .stories-viewport {
+                border-radius: 18px;
+            }
         }
 
         @media (max-width: 480px) {

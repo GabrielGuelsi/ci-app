@@ -100,14 +100,14 @@
 
             <div class="impact-grid">
                 <article class="impact-card impact-card-xl impact-highlight">
-                    <div class="impact-card-number">37</div>
-                    <h3>{{ __('37 Years in the Market') }}</h3>
+                    <div class="impact-card-number">38</div>
+                    <h3>{{ __('38 Years in the Market') }}</h3>
                     <p>{{ __('Proven experience helping international students plan their study journey in Ireland.') }}</p>
                 </article>
 
                 <article class="impact-card impact-card-md">
-                    <div class="impact-card-number">11000+</div>
-                    <h3>{{ __('Over 5,000 Students Placed') }}</h3>
+                    <div class="impact-card-number">7,000</div>
+                    <h3>{{ __('7,000 Students') }}</h3>
                     <p>{{ __('A strong track record of successful applications across partner institutions.') }}</p>
                 </article>
 
@@ -118,28 +118,28 @@
                 </article>
 
                 <article class="impact-card impact-card-wide">
-                    <h3>{{ __('End to End Support') }}</h3>
+                    <h3>{{ __('From First Contact to Visa Support') }}</h3>
                     <p>{{ __('From the first consultation through visa support to your career in Ireland. One team handling every step.') }}</p>
                 </article>
 
                 <article class="impact-card impact-card-wide">
-                    <h3>{!! __('Higher Education & Professional Pathways') !!}</h3>
+                    <h3>{!! __('Higher Education & International Career Options') !!}</h3>
                     <p>{{ __('Dedicated tracks for students applying to Irish universities and qualified professionals seeking placement across 15+ sectors.') }}</p>
                 </article>
 
                 <article class="impact-card impact-card-wide">
-                    <h3>{{ __('Built for Life in Ireland') }}</h3>
-                    <p>{{ __('Language preparation, career coaching and longer term residency support. Designed for outcomes that last.') }}</p>
+                    <h3>{{ __('Life in Ireland') }}</h3>
+                    <p>{{ __('English courses, university and career mentoring, focused on long-term residency support. An investment in your life and career abroad.') }}</p>
                 </article>
             </div>
         </div>
     </section>
 
     <!-- Trusted By &mdash; Logo Loop -->
-    <section class="trusted-by" aria-label="{{ __('Trusted By') }}">
+    <section class="trusted-by" aria-label="{{ __('Connecting') }}">
         <div class="container">
             <div class="trusted-by-header">
-                <div class="trusted-by-label">{{ __('Trusted By') }}</div>
+                <div class="trusted-by-label">{{ __('Connecting') }}</div>
                 <h2 class="trusted-by-title">{!! __('Colleges & <span>Corporate Partners</span>') !!}</h2>
             </div>
         </div>
@@ -149,18 +149,18 @@
 
                 @php
                     $partnerColleges = [
-                        'National College of Ireland',
-                        'City Colleges',
-                        'Dublin Business School',
-                        'Dorset College',
-                        'Griffith College',
-                        'Holmes Institute Dublin',
-                        'IBAT College',
-                        'TU Dublin',
-                        'Dublin City University',
-                        'Independent College Dublin',
-                        'ICD Business School',
-                        'Galway Business School',
+                        ['name' => 'National College of Ireland',  'logo' => 'nci.png'],
+                        ['name' => 'City Colleges',                'logo' => 'citycolleges.png'],
+                        ['name' => 'Dublin Business School',       'logo' => 'DBS.png'],
+                        ['name' => 'Dorset College',               'logo' => 'dorset.png'],
+                        ['name' => 'Griffith College',             'logo' => 'Griffith.png'],
+                        ['name' => 'Holmes Institute Dublin',      'logo' => 'holmes.png'],
+                        ['name' => 'IBAT College',                 'logo' => 'ibat.png'],
+                        ['name' => 'TU Dublin',                    'logo' => 'Tudublin.png'],
+                        ['name' => 'Dublin City University',       'logo' => 'DCU.png'],
+                        ['name' => 'Independent College Dublin',   'logo' => 'independent.png'],
+                        ['name' => 'ICD Business School',          'logo' => 'ICD.png'],
+                        ['name' => 'Galway Business School',       'logo' => 'galwaybss.png'],
                     ];
                 @endphp
 
@@ -168,8 +168,10 @@
                 <ul class="marquee-list" aria-label="Partner colleges">
                     @foreach ($partnerColleges as $college)
                         <li class="marquee-item">
-                            <span class="marquee-name">{{ $college }}</span>
-                            <span class="marquee-sep" aria-hidden="true"></span>
+                            <img class="marquee-logo"
+                                 src="{{ asset('images/partners/' . $college['logo']) }}"
+                                 alt="{{ $college['name'] }}"
+                                 loading="lazy">
                         </li>
                     @endforeach
                 </ul>
@@ -178,8 +180,10 @@
                 <ul class="marquee-list" aria-hidden="true">
                     @foreach ($partnerColleges as $college)
                         <li class="marquee-item">
-                            <span class="marquee-name">{{ $college }}</span>
-                            <span class="marquee-sep" aria-hidden="true"></span>
+                            <img class="marquee-logo"
+                                 src="{{ asset('images/partners/' . $college['logo']) }}"
+                                 alt=""
+                                 loading="lazy">
                         </li>
                     @endforeach
                 </ul>
@@ -194,48 +198,48 @@
                 'num'   => '01',
                 'title' => __('English'),
                 'sub'   => __('Academic fluency'),
-                'desc'  => __('Intensive English with Academic Purpose — calibrated for the classroom, the interview, and the workplace.'),
+                'desc'  => __('Intensive English with Academic Purpose — calibrated for the classroom and the workplace.'),
                 'cta'   => 'study-in-ireland',
                 'detail' => [
                     ['k' => __('Duration'), 'v' => __('6–25 weeks'),  's' => __('Flexible start dates')],
-                    ['k' => __('Outcome'),  'v' => __('B2 / C1'),     's' => __('IELTS 6.5+ equivalent')],
-                    ['k' => __('Format'),   'v' => __('In-person'),   's' => __('Dublin · Galway')],
+                    ['k' => __('Goal'),     'v' => __('B2+ / C1'),        's' => __('IELTS 6.5+ equivalent')],
+                    ['k' => __('Format'),   'v' => __('In-person'),   's' => __('Dublin · Galway · Cork · Limerick')],
                 ],
             ],
             [
                 'num'   => '02',
                 'title' => __('University'),
                 'sub'   => __("Bachelor or Master's"),
-                'desc'  => __("Placement across Ireland's top universities and colleges — undergraduate, postgraduate, and foundation pathways."),
+                'desc'  => __("Applications to top universities, pathways, undergraduate, postgraduate and master's programmes."),
                 'cta'   => 'study-in-ireland',
                 'detail' => [
-                    ['k' => __('Partners'),   'v' => __('12+ colleges'),     's' => __('Nationwide coverage')],
-                    ['k' => __('Programmes'), 'v' => __('BA · MSc · MBA'),   's' => __('Across 15 sectors')],
-                    ['k' => __('Support'),    'v' => __('Concierge'),        's' => __('End-to-end application')],
+                    ['k' => __('Partners'),   'v' => __('12+ colleges'),     's' => __('Dublin · Galway · Cork · Limerick')],
+                    ['k' => __('Programmes'), 'v' => __('Level 6 to 9'),     's' => __('Across 15 sectors')],
+                    ['k' => __('Support'),    'v' => __('Support team'),     's' => __('End-to-end follow-up')],
                 ],
             ],
             [
                 'num'   => '03',
                 'title' => __('Career'),
                 'sub'   => __('Employability layer'),
-                'desc'  => __('CV, LinkedIn, interview coaching and matched introductions to employers in our 500+ partner network.'),
+                'desc'  => __('CV, LinkedIn, interview coaching and matched introductions to employers in our partner network.'),
                 'cta'   => 'career-bridge',
                 'detail' => [
-                    ['k' => __('Coaching'), 'v' => __('1-to-1'),     's' => __('Sector specialists')],
-                    ['k' => __('Network'),  'v' => __('500+ firms'), 's' => __('B2B partnerships')],
-                    ['k' => __('Fit rate'), 'v' => __('4 in 5'),     's' => __('Matched within 90 days')],
+                    ['k' => __('Development'), 'v' => __('International career'),        's' => __('Irish CV • LinkedIn • Interviews')],
+                    ['k' => __('Networking'),  'v' => __('Connections that open doors'), 's' => __('Events • Mentorships • Recruiters')],
+                    ['k' => __('Growth'),      'v' => __('International growth'),        's' => __('Global market • Soft skills')],
                 ],
             ],
             [
                 'num'   => '04',
                 'title' => __('Work'),
                 'sub'   => __('Long-term residency'),
-                'desc'  => __('Work permits, Stamp transitions and long-stay strategy — so studying here becomes building a life here.'),
+                'desc'  => __('Work permits, Stamp transitions and long-stay strategy — so what began as a study becomes a life-changing move.'),
                 'cta'   => 'career-bridge',
                 'detail' => [
                     ['k' => __('Permits'),   'v' => __('Critical Skills'),     's' => __('Legal handling included')],
                     ['k' => __('Pathway'),   'v' => __('Stamp 2 → 1G → 4'),    's' => __('Guided transitions')],
-                    ['k' => __('Retention'), 'v' => __('78%'),                 's' => __('Remain in Ireland post-study')],
+                    ['k' => __('Retention'), 'v' => __('62–66%'),              's' => __('Employed graduates working in Ireland (HEA)')],
                 ],
             ],
         ];
@@ -249,7 +253,7 @@
                     <span class="pathway-eyebrow">{{ __('The Pathway') }}</span>
                     <h2 class="pathway-title">{!! __('A four-stage journey to <em>life</em> in Ireland.') !!}</h2>
                 </div>
-                <p class="pathway-lead">{{ __("We don't place you in a course. We engineer a trajectory — sequencing language, study, experience and residency so each step compounds into the next.") }}</p>
+                <p class="pathway-lead">{{ __('Far more than a university application. Together, we build a path that spans language, higher education, professional experience and permanent residency — with specialists and processes that prepare you so each stage powers the next.') }}</p>
             </div>
 
             <div class="pathway-stage" data-stages='@json($pathwayStages)'>
@@ -259,7 +263,7 @@
                     @foreach ($pathwayStages as $i => $s)
                         <button class="p-step{{ $i === 0 ? ' active' : '' }}" type="button" role="tab" data-stage="{{ $i }}" aria-selected="{{ $i === 0 ? 'true' : 'false' }}">
                             <span class="p-dot" aria-hidden="true"></span>
-                            <span class="p-num">{{ __('Stage') }} {{ $s['num'] }} · {{ $s['sub'] }}</span>
+                            <span class="p-num">{{ __('Stage') }} {{ $s['num'] }}</span>
                             <span class="p-ttl">{{ $s['title'] }}</span>
                             <span class="p-desc">{{ $s['desc'] }}</span>
                         </button>
@@ -287,36 +291,36 @@
 
     @php
         $quizData = [
-            'lead' => __('Before we talk about programmes, we map where you actually stand. The assessment takes two minutes and returns a personalised recommendation.'),
+            'lead' => __('We map exactly where you stand. The assessment takes two minutes and shows you a personalised path.'),
             'cta'  => __('Begin Assessment'),
             'teaser' => [
                 'meta' => __('Question 01 of 04'),
                 'time' => __('~2 min'),
                 'q'    => __('What best describes where you are today?'),
                 'opts' => [
-                    __('I need to improve my English before anything academic'),
-                    __('I have English but need an academic route to a university'),
-                    __("I'm ready for a Bachelor's or Master's programme"),
-                    __("I'm a qualified professional looking for work in Ireland"),
+                    __('I need to improve my English before my next academic step'),
+                    __('I have English but need support to apply to a university'),
+                    __('I feel ready and already know which field or course to choose'),
+                    __('I am looking for a job opportunity in my field'),
                 ],
             ],
             'questions' => [
                 [
                     'q'    => __('What best describes where you are today?'),
                     'opts' => [
-                        ['t' => __('I need to improve my English first'),                        'lean' => 'he',  'w' => 1],
-                        ['t' => __('I have English but need an academic route to a university'), 'lean' => 'he',  'w' => 1],
-                        ['t' => __("I'm ready for a Bachelor's or Master's programme"),          'lean' => 'he',  'w' => 1],
-                        ['t' => __("I'm a qualified professional looking for work in Ireland"),  'lean' => 'pro', 'w' => 2],
+                        ['t' => __('I need to improve my English before my next academic step'),    'lean' => 'he',  'w' => 1],
+                        ['t' => __('I have English but need support to apply to a university'),      'lean' => 'he',  'w' => 1],
+                        ['t' => __('I feel ready and already know which field or course to choose'), 'lean' => 'he',  'w' => 1],
+                        ['t' => __('I am looking for a job opportunity in my field'),                'lean' => 'pro', 'w' => 2],
                     ],
                 ],
                 [
                     'q'    => __("What's your primary goal for Ireland?"),
                     'opts' => [
-                        ['t' => __('A degree, then return home'),            'lean' => 'he',  'w' => 1],
-                        ['t' => __('A degree and career here'),              'lean' => 'he',  'w' => 1],
-                        ['t' => __('Work immediately, long-term residency'), 'lean' => 'pro', 'w' => 2],
-                        ['t' => __('Not yet decided'),                       'lean' => null,  'w' => 0],
+                        ['t' => __('An overseas experience and return home'),  'lean' => 'he',  'w' => 1],
+                        ['t' => __('A degree and an international career'),    'lean' => 'he',  'w' => 1],
+                        ['t' => __('Work in my field and earn a work permit'), 'lean' => 'pro', 'w' => 2],
+                        ['t' => __('Not yet decided'),                         'lean' => null,  'w' => 0],
                     ],
                 ],
                 [
@@ -404,7 +408,7 @@
         </div>
     </section>
 
-    <!-- Social Proof / Testimonials -->
+    <!-- Social Proof / Success Stories Slideshow -->
     <section class="testimonials" id="testimonials">
         <div class="container">
 
@@ -414,165 +418,109 @@
                 <p class="testimonials-subtitle">{{ __('See how our advisors helped hundreds of students achieve their dream of studying in Ireland.') }}</p>
             </div>
 
-            <div class="testimonials-grid">
+            @php
+                $stories = [
+                    [
+                        'student_photo'  => 'students/alinystudent.webp',
+                        'photo_position' => 'center 60%',
+                        'student_name'   => 'Yago & Tiago Gontijo',
+                        'course'         => __('BA in Business — Independent College'),
+                        'quote'          => __('So much gratitude for clearing up all our doubts and for all the support throughout our entire process! Highly recommended!'),
+                        'consultant'     => ['name' => 'Aliny', 'photo' => 'consultant/aliny.webp'],
+                    ],
+                    [
+                        'student_photo'  => 'students/albertstudent.webp',
+                        'photo_position' => 'center center',
+                        'student_name'   => 'Juan Fernando',
+                        'course'         => __('Higher Diploma in Science in Data Analytics - City colleges'),
+                        'quote'          => __('Incredible support and dedication throughout every step of my application process. Moving to Ireland was a dream — Albert made it real!'),
+                        'consultant'     => ['name' => 'Albert', 'photo' => 'consultant/albert.webp'],
+                    ],
+                    [
+                        'student_photo'  => 'students/gabrielstudent.webp',
+                        'photo_position' => 'center center',
+                        'student_name'   => 'Bruno Silva',
+                        'course'         => __('Cybersecurity — City Colleges'),
+                        'quote'          => __("Professional, caring and always available. My dream of studying in Ireland became a reality thanks to Gabriel's guidance!"),
+                        'consultant'     => ['name' => 'Gabriel', 'photo' => 'consultant/gabriel.webp'],
+                    ],
+                    [
+                        'student_photo'  => 'students/romariostudent.webp',
+                        'photo_position' => 'center center',
+                        'student_name'   => 'Elis',
+                        'course'         => __('Higher Certificate in Sound Engineering and Music Production — DBS'),
+                        'quote'          => __('Every detail of my application was handled with precision and warmth. Outstanding service — I could not have done it without Romario!'),
+                        'consultant'     => ['name' => 'Romario', 'photo' => 'consultant/romario.webp'],
+                    ],
+                    [
+                        'student_photo'  => 'students/talitastudent.webp',
+                        'photo_position' => 'center center',
+                        'student_name'   => 'Yari Yolibet',
+                        'course'         => __('BA in Business — Holmes Institute'),
+                        'quote'          => __('From my very first question to my arrival in Dublin, I felt fully supported every step of the way. Talita is simply the best!'),
+                        'consultant'     => ['name' => 'Talita', 'photo' => 'consultant/talita.webp'],
+                    ],
+                    [
+                        'student_photo'  => 'students/wagnerstudent.webp',
+                        'photo_position' => 'center center',
+                        'student_name'   => 'Pedro Costa',
+                        'course'         => __('BSc in Computing — TU Dublin'),
+                        'quote'          => __("Wagner's knowledge of Irish education is truly unmatched. He made the whole process smooth and stress-free. Best decision I ever made!"),
+                        'consultant'     => ['name' => 'Wagner', 'photo' => 'consultant/wagner.webp'],
+                    ],
+                ];
+                $whatsappHref = 'https://wa.me/353868179430';
+            @endphp
 
-                <!-- Card 1 - Aliny -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/alinystudent.webp') }}" alt="Yago & Tiago Gontijo with Aliny" style="object-position: center 60%;" loading="lazy">
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">{{ __('So much gratitude for clearing up all our doubts and for all the support throughout our entire process! Highly recommended!') }}</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Yago &amp; Tiago Gontijo</div>
-                            <div class="student-course">{{ __('BA in Business — Independent College') }}</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/aliny.webp') }}" alt="Aliny" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Aliny</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
+            <div class="stories-slider" data-stories-slider>
+                <div class="stories-viewport">
+                    <div class="stories-track" data-stories-track>
+                        @foreach ($stories as $i => $story)
+                            <article class="story-slide" role="group" aria-roledescription="slide" aria-label="{{ ($i + 1) . ' / ' . count($stories) }}">
+                                <figure class="story-photo">
+                                    <img src="{{ asset($story['student_photo']) }}" alt="{{ $story['student_name'] }}" style="object-position: {{ $story['photo_position'] }};" loading="lazy">
+                                    <figcaption class="story-student">
+                                        <span class="story-student-name">{{ $story['student_name'] }}</span>
+                                        <span class="story-student-course">{{ $story['course'] }}</span>
+                                    </figcaption>
+                                </figure>
+                                <div class="story-body">
+                                    <div class="story-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <blockquote class="story-quote">{{ $story['quote'] }}</blockquote>
+                                    <div class="story-consultant">
+                                        <img src="{{ asset($story['consultant']['photo']) }}" alt="{{ $story['consultant']['name'] }}" class="story-consultant-photo" loading="lazy">
+                                        <div class="story-consultant-info">
+                                            <div class="story-consultant-name">{{ $story['consultant']['name'] }}</div>
+                                            <div class="story-consultant-badge">
+                                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                                                {{ __('Verified Advisor') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="story-cta" href="{{ $whatsappHref }}" target="_blank" rel="noopener">
+                                        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.643.85 5.087 2.297 7.073L4 29l7.094-2.265A11.957 11.957 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.6c-1.86 0-3.6-.515-5.085-1.41l-.365-.215-4.21 1.345 1.345-4.12-.235-.38A9.553 9.553 0 016.4 15c0-5.296 4.305-9.6 9.6-9.6 5.295 0 9.6 4.305 9.6 9.6 0 5.296-4.305 9.6-9.6 9.6zm5.27-7.18c-.29-.146-1.71-.844-1.975-.94-.265-.097-.458-.146-.65.146-.193.29-.748.94-.917 1.133-.17.193-.34.218-.63.072-.29-.145-1.22-.45-2.325-1.434-.86-.766-1.44-1.713-1.61-2.003-.17-.29-.018-.448.128-.593.132-.13.29-.34.435-.51.146-.17.193-.29.29-.484.097-.193.048-.363-.024-.51-.072-.145-.65-1.567-.892-2.144-.234-.563-.473-.486-.65-.495l-.555-.01c-.193 0-.508.072-.775.363-.265.29-1.012.99-1.012 2.412 0 1.423 1.036 2.798 1.18 2.991.145.193 2.038 3.11 4.937 4.36.69.297 1.228.474 1.648.607.692.22 1.322.19 1.82.115.555-.083 1.71-.7 1.953-1.374.242-.674.242-1.252.17-1.374-.072-.122-.265-.193-.555-.34z"/></svg>
+                                        {{ __('Talk to :name on WhatsApp', ['name' => $story['consultant']['name']]) }}
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
+                            </article>
+                        @endforeach
                     </div>
                 </div>
 
-                <!-- Card 2 - Albert -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/albertstudent.webp') }}" alt="Albert's student" style="object-position: center center;" loading="lazy">
+                <div class="stories-nav">
+                    <button type="button" class="stories-arrow stories-prev" aria-label="{{ __('Previous story') }}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="stories-dots">
+                        @foreach ($stories as $i => $story)
+                            <button type="button" class="stories-dot @if ($i === 0) is-active @endif" data-stories-index="{{ $i }}" aria-label="{{ ($i + 1) . ' / ' . count($stories) }}"></button>
+                        @endforeach
                     </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">{{ __('Incredible support and dedication throughout every step of my application process. Moving to Ireland was a dream — Albert made it real!') }}</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Juan Fernando</div>
-                            <div class="student-course">{{ __('Higher Diploma in Science in Data Analytics - City colleges') }}</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/albert.webp') }}" alt="Albert" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Albert</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" class="stories-arrow stories-next" aria-label="{{ __('Next story') }}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
                 </div>
-
-                <!-- Card 3 - Gabriel -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/gabrielstudent.webp') }}" alt="Gabriel's student" style="object-position: center center;" loading="lazy">
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">{{ __("Professional, caring and always available. My dream of studying in Ireland became a reality thanks to Gabriel's guidance!") }}</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Bruno Silva</div>
-                            <div class="student-course">{{ __('Cybersecurity — City Colleges') }}</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/gabriel.webp') }}" alt="Gabriel" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Gabriel</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 - Romario -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/romariostudent.webp') }}" alt="Romario's student" style="object-position: center center;" loading="lazy">
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">Every detail of my application was handled with precision and warmth. Outstanding service &mdash; I could not have done it without Romario!</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Elis</div>
-                            <div class="student-course">Higher Certificate in Sound Engineering and Music Prodution - DBS</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/romario.webp') }}" alt="Romario" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Romario</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 - Talita -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/talitastudent.webp') }}" alt="Talita's student" style="object-position: center center;" loading="lazy">
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">From my very first question to my arrival in Dublin, I felt fully supported every step of the way. Talita is simply the best!</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Yari Yolibet</div>
-                            <div class="student-course">BA in Business - Holmes Institute</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/talita.webp') }}" alt="Talita" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Talita</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 - Wagner -->
-                <div class="testimonial-card">
-                    <div class="testimonial-photo-wrap">
-                        <img src="{{ asset('students/wagnerstudent.webp') }}" alt="Wagner's student" style="object-position: center center;" loading="lazy">
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">Wagner's knowledge of Irish education is truly unmatched. He made the whole process smooth and stress-free. Best decision I ever made!</p>
-                        <div class="testimonial-student">
-                            <div class="student-name">Pedro Costa</div>
-                            <div class="student-course">BSc in Computing &mdash; TU Dublin</div>
-                        </div>
-                        <div class="testimonial-divider"></div>
-                        <div class="testimonial-consultant">
-                            <img src="{{ asset('consultant/wagner.webp') }}" alt="Wagner" class="consultant-photo" loading="lazy">
-                            <div class="consultant-info">
-                                <div class="consultant-name">Wagner</div>
-                                <div class="consultant-badge">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                                    {{ __('Verified Advisor') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /testimonials-grid -->
+            </div>
         </div>
     </section>
 
