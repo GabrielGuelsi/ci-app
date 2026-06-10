@@ -3,6 +3,7 @@
 
 @php
     $sourceLabel = match ($lead->lead_source) {
+        'higher-education' => 'Higher Education',
         'already-in-ireland' => 'Already in Ireland',
         'study-in-ireland' => 'Study in Ireland',
         default => 'CI Ireland',

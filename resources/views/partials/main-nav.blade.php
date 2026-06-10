@@ -1,8 +1,7 @@
 @php
     $navActive = $active ?? null;
     $navItems = [
-        ['key' => 'study-in-ireland', 'label' => __('Study in Ireland')],
-        ['key' => 'already-in-ireland', 'label' => __('Already in Ireland')],
+        ['key' => 'higher-education', 'label' => __('Higher Education')],
         ['key' => 'career-bridge', 'label' => __('Career Bridge')],
         ['key' => 'for-employers', 'label' => __('For Employers')],
         ['key' => 'why-ci-ireland', 'label' => __('About Us')],

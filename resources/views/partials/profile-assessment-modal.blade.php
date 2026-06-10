@@ -4,7 +4,7 @@
     $modalTitle = $modalTitle ?? __('Start Your Study Plan');
     $modalSubtitle = $modalSubtitle ?? __("Tell us a bit about you and we'll get in touch with personalized guidance.");
     $secondQuestion = $secondQuestion ?? 'country';
-    $leadSource = $leadSource ?? 'study-in-ireland';
+    $leadSource = $leadSource ?? 'higher-education';
     $modalCtaLabel = $modalCtaLabel ?? __('Request Free Assessment');
 @endphp
 <div class="modal-overlay" id="profileAssessmentModal" data-submit-url="{{ $lr('assessment-lead.store') }}" aria-hidden="true">

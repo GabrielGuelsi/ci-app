@@ -23,7 +23,7 @@ class AssessmentLeadRequest extends FormRequest
             'phone' => ['required', 'string', 'max:40'],
             'country_of_residence' => ['nullable', 'required_without:visa_type', 'string', 'max:100'],
             'visa_type' => ['nullable', 'required_without:country_of_residence', 'string', 'max:60'],
-            'lead_source' => ['nullable', 'string', 'in:study-in-ireland,already-in-ireland'],
+            'lead_source' => ['nullable', 'string', 'in:higher-education,study-in-ireland,already-in-ireland'],
         ];
     }
 

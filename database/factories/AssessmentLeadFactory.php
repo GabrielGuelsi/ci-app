@@ -23,7 +23,7 @@ class AssessmentLeadFactory extends Factory
             'phone' => '+55 11 9 1234 5678',
             'country_of_residence' => $this->faker->randomElement(['Brazil', 'Portugal', 'India', 'Spain', 'Mexico']),
             'visa_type' => null,
-            'lead_source' => 'study-in-ireland',
+            'lead_source' => 'higher-education',
             'locale' => 'en',
         ];
     }

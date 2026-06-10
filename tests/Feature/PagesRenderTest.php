@@ -14,16 +14,14 @@ class PagesRenderTest extends TestCase
         return [
             'home' => ['/'],
             'welcome' => ['/home'],
-            'study-in-ireland' => ['/study-in-ireland'],
-            'already-in-ireland' => ['/already-in-ireland'],
+            'higher-education' => ['/higher-education'],
             'career-bridge' => ['/career-bridge'],
             'for-employers' => ['/for-employers'],
             'why-ci-ireland' => ['/why-ci-ireland'],
             'start-your-plan' => ['/start-your-plan'],
             'pt.home' => ['/pt'],
             'pt.welcome' => ['/pt/home'],
-            'pt.study-in-ireland' => ['/pt/study-in-ireland'],
-            'pt.already-in-ireland' => ['/pt/already-in-ireland'],
+            'pt.higher-education' => ['/pt/higher-education'],
             'pt.career-bridge' => ['/pt/career-bridge'],
             'pt.for-employers' => ['/pt/for-employers'],
             'pt.why-ci-ireland' => ['/pt/why-ci-ireland'],
@@ -46,11 +44,12 @@ class PagesRenderTest extends TestCase
     {
         return [
             'about' => ['/about', '/why-ci-ireland'],
-            'higher-education' => ['/higher-education', '/study-in-ireland'],
+            'study-in-ireland' => ['/study-in-ireland', '/higher-education'],
+            'already-in-ireland' => ['/already-in-ireland', '/higher-education'],
             'professional' => ['/professional', '/career-bridge'],
             'corporate' => ['/corporate', '/for-employers'],
-            'erasmus' => ['/erasmus', '/study-in-ireland'],
-            'teens' => ['/teens', '/study-in-ireland'],
+            'erasmus' => ['/erasmus', '/higher-education'],
+            'teens' => ['/teens', '/higher-education'],
         ];
     }
 

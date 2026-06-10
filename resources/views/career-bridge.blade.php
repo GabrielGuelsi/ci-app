@@ -197,7 +197,7 @@
                     <h3>{{ __('Career Bridge for CI Students') }}</h3>
                     <p>{{ __('If you are already planning your academic journey with CI Ireland, Career Bridge can become part of your long-term strategy. Your course choice, English preparation and career direction should work together.') }}</p>
                     <p>{{ __('That is why CI Ireland connects academic planning with career preparation, helping students think beyond enrolment and start building a more complete plan in Ireland.') }}</p>
-                    <a class="btn btn-outline" href="{{ $lr('study-in-ireland') }}">{{ __('Connect My Studies with Career Planning') }}</a>
+                    <a class="btn btn-outline" href="{{ $lr('higher-education') }}">{{ __('Connect My Studies with Career Planning') }}</a>
                 </article>
                 <article class="cb-track">
                     <span class="cb-track-tag">{{ __('For Professionals') }}</span>

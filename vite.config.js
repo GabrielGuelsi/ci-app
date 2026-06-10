@@ -11,7 +11,7 @@ export default defineConfig({
                 'resources/css/welcome.css',
                 'resources/css/new-shared.css',
                 'resources/css/study-in-ireland.css',
-                'resources/css/already-in-ireland.css',
+                'resources/css/higher-education.css',
                 'resources/css/career-bridge.css',
                 'resources/css/for-employers.css',
                 'resources/css/why-ci-ireland.css',

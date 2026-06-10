@@ -280,7 +280,7 @@
                 </div>
 
                 <div class="pathway-cta-row">
-                    <a href="{{ $lr('study-in-ireland') }}" class="pathway-cta" data-cta>
+                    <a href="{{ $lr('higher-education') }}" class="pathway-cta" data-cta>
                         <span data-cta-label>{{ __('Explore Study Routes') }}</span>
                         <span class="arrow" aria-hidden="true">→</span>
                     </a>
@@ -567,7 +567,7 @@
         }
     ];
     window.ROUTES = window.ROUTES || {};
-    window.ROUTES.studyInIreland = @json(route(app()->getLocale() === 'pt' ? 'pt.study-in-ireland' : 'study-in-ireland'));
+    window.ROUTES.studyInIreland = @json(route(app()->getLocale() === 'pt' ? 'pt.higher-education' : 'higher-education'));
     window.ROUTES.careerBridge = @json(route(app()->getLocale() === 'pt' ? 'pt.career-bridge' : 'career-bridge'));
     window.LOCALE = @json(app()->getLocale());
     @php

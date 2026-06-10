@@ -14,13 +14,9 @@ $pageRoutes = function () {
         return view('welcome');
     })->name('welcome');
 
-    Route::get('/study-in-ireland', function () {
-        return view('study-in-ireland');
-    })->name('study-in-ireland');
-
-    Route::get('/already-in-ireland', function () {
-        return view('already-in-ireland');
-    })->name('already-in-ireland');
+    Route::get('/higher-education', function () {
+        return view('higher-education');
+    })->name('higher-education');
 
     Route::get('/career-bridge', function () {
         return view('career-bridge');
@@ -45,11 +41,12 @@ $pageRoutes = function () {
         ->name('assessment-lead.store');
 
     Route::redirect('/about', '/why-ci-ireland', 301);
-    Route::redirect('/higher-education', '/study-in-ireland', 301);
+    Route::redirect('/study-in-ireland', '/higher-education', 301);
+    Route::redirect('/already-in-ireland', '/higher-education', 301);
     Route::redirect('/professional', '/career-bridge', 301);
     Route::redirect('/corporate', '/for-employers', 301);
-    Route::redirect('/erasmus', '/study-in-ireland', 301);
-    Route::redirect('/teens', '/study-in-ireland', 301);
+    Route::redirect('/erasmus', '/higher-education', 301);
+    Route::redirect('/teens', '/higher-education', 301);
 };
 
 Route::middleware(SetLocale::class)->group($pageRoutes);
