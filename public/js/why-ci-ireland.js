@@ -1,18 +1,96 @@
-document.querySelectorAll('.consultant-card').forEach(card => {
-    const reset = () => {
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
-    };
+(function () {
+    const orbit = document.getElementById('teamOrbit');
+    if (!orbit) {
+        return;
+    }
 
-    card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const rx = (-y * 8).toFixed(2);
-        const ry = (x * 10).toFixed(2);
-        card.style.setProperty('--rx', `${rx}deg`);
-        card.style.setProperty('--ry', `${ry}deg`);
+    const thumbs = Array.from(orbit.querySelectorAll('.orbit-thumb'));
+    if (!thumbs.length) {
+        return;
+    }
+
+    const centerPhoto = orbit.querySelector('.orbit-center-photo');
+    const nameEl = orbit.querySelector('.orbit-center-name');
+    const roleEl = orbit.querySelector('.orbit-center-role');
+    const bioEl = orbit.querySelector('.orbit-center-bio');
+    const indexEl = orbit.querySelector('.orbit-index');
+    const totalEl = orbit.querySelector('.orbit-total');
+
+    const total = thumbs.length;
+    let active = parseInt(orbit.dataset.active || '0', 10) || 0;
+
+    const pad = (n) => String(n).padStart(2, '0');
+
+    if (totalEl) {
+        totalEl.textContent = pad(total);
+    }
+
+    // Ellipse geometry expressed as a percentage of the stage.
+    const CX = 50;
+    const CY = 50;
+    const RX = 42;
+    const RY = 37;
+
+    function render() {
+        const current = thumbs[active];
+
+        if (centerPhoto) {
+            centerPhoto.style.setProperty('--photo', current.style.getPropertyValue('--photo'));
+        }
+        if (nameEl) {
+            nameEl.textContent = current.dataset.name || '';
+        }
+        if (roleEl) {
+            roleEl.textContent = current.dataset.role || '';
+        }
+        if (bioEl) {
+            bioEl.textContent = current.dataset.bio || '';
+        }
+        if (indexEl) {
+            indexEl.textContent = pad(active + 1);
+        }
+
+        const others = thumbs.filter((_, i) => i !== active);
+        const count = others.length;
+
+        others.forEach((thumb, k) => {
+            const angle = (-Math.PI / 2) + (k / count) * Math.PI * 2;
+            thumb.style.left = (CX + RX * Math.cos(angle)) + '%';
+            thumb.style.top = (CY + RY * Math.sin(angle)) + '%';
+            thumb.style.transitionDelay = (k * 0.02) + 's';
+            thumb.classList.remove('is-active');
+            thumb.setAttribute('aria-pressed', 'false');
+        });
+
+        current.classList.add('is-active');
+        current.setAttribute('aria-pressed', 'true');
+    }
+
+    function go(index) {
+        active = ((index % total) + total) % total;
+        render();
+    }
+
+    thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => go(i));
     });
 
-    card.addEventListener('pointerleave', reset);
-});
+    const prev = orbit.querySelector('.orbit-prev');
+    const next = orbit.querySelector('.orbit-next');
+    if (prev) {
+        prev.addEventListener('click', () => go(active - 1));
+    }
+    if (next) {
+        next.addEventListener('click', () => go(active + 1));
+    }
+
+    orbit.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            go(active - 1);
+        } else if (e.key === 'ArrowRight') {
+            go(active + 1);
+        }
+    });
+
+    render();
+})();

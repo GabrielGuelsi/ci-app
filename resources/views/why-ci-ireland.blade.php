@@ -1,10 +1,82 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
-@php $pageActive = 'why-ci-ireland'; @endphp
+@php
+    $pageActive = 'why-ci-ireland';
+
+    $team = [
+        [
+            'name' => 'Marilu Rosado',
+            'role' => __('Director & Co-founder'),
+            'photo' => 'consultant/malu.webp',
+            'bio' => __('Our fearless co-founder and the heart of CI Ireland. Mother of Sophie, she calls everyone "beautiful" (but she is the beautiful one). She inspires us daily with her resilience and high spirits. The team mom and the foundation of our company.'),
+        ],
+        [
+            'name' => 'Amanda Avila',
+            'role' => __('Marketing & Sales Manager'),
+            'photo' => 'consultant/amandaa.avif',
+            'bio' => __('Known as "the creative." Pet mom and content creator. She came to Ireland as a #viajanteCI 7 years ago and has been part of the #dreamteam ever since. A true pillar who brings possibilities, support, and strength to our operation.'),
+        ],
+        [
+            'name' => 'Wagner Marinho',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/wagner.webp',
+            'bio' => __('Helpful and deeply committed. He has a cleaning obsession and is the best conflict mediator you will ever meet. He has been part of our team for 7 years.'),
+        ],
+        [
+            'name' => 'Aliny Assis',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/aliny.webp',
+            'bio' => __("Known as the team's big sister. From Amazonas, she wins everyone with her warmth and humanity. Brave and strong in the best way."),
+        ],
+        [
+            'name' => 'Talita',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/talita.webp',
+            'bio' => __('Pure friendliness and a creator of catchphrases. Talita knows Ireland deeply, has lived every stage of the journey, studied English, went to college, and has been with our team for over a year.'),
+        ],
+        [
+            'name' => 'Karine',
+            'role' => __('Enrollment Operations'),
+            'photo' => 'consultant/karine.webp',
+            'bio' => __('She processes our enrollments and manages a massive workload with mastery. Our "Kaka" is a star: straightforward, confident, and secretly very sweet.'),
+        ],
+        [
+            'name' => 'Albert Zavala',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/albert.webp',
+            'bio' => __('Our Mexican consultant who supports Spanish-speaking clients. He also speaks Portuguese and is the best Google Maps operator you will ever meet. An excellent advisor.'),
+        ],
+        [
+            'name' => 'Thamiris Bastos',
+            'role' => __('Customer Experience'),
+            'photo' => 'consultant/thamiris.avif',
+            'bio' => __('Customer Experience at CI Ireland. She is responsible for guiding our students with care, attention, and dedication. Pet mom, based in the Netherlands, and working remotely. We miss her every day.'),
+        ],
+        [
+            'name' => 'Romario Jales',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/romario.webp',
+            'bio' => __('Known as the restless one in the office. His education background elevates every consultation. From the farm to Ireland, and 3 years with our team.'),
+        ],
+        [
+            'name' => 'Amanda Zangarini',
+            'role' => __('Customer Experience'),
+            'photo' => 'consultant/amandazanga.webp',
+            'bio' => __('Customer Experience at CI Ireland. Sweet, caring, and always ready with kind words. She supports our students throughout their journey.'),
+        ],
+        [
+            'name' => 'Gabriel',
+            'role' => __('Educational Consultant'),
+            'photo' => 'consultant/gabriel.webp',
+            'bio' => __('Our newest consultant and a real prodigy at just 20. Fluent in Portuguese, English, and Spanish, and an IT student living the day-to-day student life in Ireland.'),
+        ],
+    ];
+@endphp
 
 @section('title', __('Why CI Ireland') . ' - CI Exchange Ireland')
 
 @section('head')
+    <link rel="preload" as="image" href="{{ asset('images/about/ci-ireland.webp') }}">
     @if (file_exists(public_path('build/manifest.json')))
         @vite('resources/css/why-ci-ireland.css')
     @else
@@ -15,61 +87,29 @@
 @include('partials.page-shell')
 
 @section('content')
+    {{-- Cinematic hero: background image + side text, matching the other pages. --}}
     <section class="about-hero">
+        <div class="about-hero-bg" style="background-image: url('{{ asset('images/about/ci-ireland.webp') }}');" aria-hidden="true"></div>
+        <div class="about-hero-overlay" aria-hidden="true"></div>
         <div class="container">
             <div class="about-hero-content">
-                <div class="about-hero-text">
-                    <div class="about-hero-kicker"><i class="fas fa-star"></i> {{ __('About CI Ireland') }}</div>
-                    <h1 class="about-hero-title">{!! __('An <span>European Education Mobility Hub</span>') !!}</h1>
-                    <p class="about-hero-subtitle">{{ __('From Dublin, CI Ireland connects students, educators, universities, schools and institutions through academic programs, professional mobility and international educational experiences that promote professional development, educational innovation and global cooperation.') }}</p>
-
-                    <div class="hero-mini-stats">
-                        <div class="mini-stat"><span>11,000+</span> {{ __('students in Ireland') }}</div>
-                        <div class="mini-stat-dot"></div>
-                        <div class="mini-stat"><span>{{ __('Since') }}</span> 2016</div>
-                        <div class="mini-stat-dot"></div>
-                        <div class="mini-stat"><i class="fas fa-map-pin"></i> {{ __('Dublin HQ') }}</div>
-                    </div>
-                </div>
-                {{-- Bento mosaic — to swap photos, drop new files into public/images/about/ireland/
-                     as mosaic-1.webp ... mosaic-4.webp and update the four src paths below. --}}
-                <div class="about-hero-media">
-                    <div class="hero-mosaic">
-                        <figure class="hero-mosaic-tile large">
-                            <img src="{{ asset('images/about/ci-ireland.webp') }}"
-                                 alt="{{ __('CI Ireland Dublin office') }}"
-                                 fetchpriority="high">
-                            <figcaption class="hero-mosaic-caption"><i class="fas fa-map-pin"></i> {{ __('Dublin Office') }}</figcaption>
-                        </figure>
-                        <figure class="hero-mosaic-tile">
-                            <img src="{{ asset('images/corporate/co-dublin.webp') }}"
-                                 alt="{{ __('CI Ireland reception') }}"
-                                 loading="lazy">
-                            <figcaption class="hero-mosaic-caption">{{ __('Reception') }}</figcaption>
-                        </figure>
-                        <figure class="hero-mosaic-tile">
-                            <img src="{{ asset('images/student-arriving-griffith.jpg') }}"
-                                 alt="{{ __('Students arriving on campus in Ireland') }}"
-                                 loading="lazy">
-                            <figcaption class="hero-mosaic-caption">{{ __('Classroom') }}</figcaption>
-                        </figure>
-                        <figure class="hero-mosaic-tile">
-                            <img src="{{ asset('images/hero-ireland-cliff.webp') }}"
-                                 alt="{{ __('Around Dublin and Ireland') }}"
-                                 loading="lazy">
-                            <figcaption class="hero-mosaic-caption">{{ __('Around Dublin') }}</figcaption>
-                        </figure>
-                    </div>
+                <span class="about-hero-kicker animate-in" style="animation-delay:.05s"><i class="fas fa-star"></i> {{ __('About CI Ireland') }}</span>
+                <h1 class="about-hero-title animate-in" style="animation-delay:.15s">{!! __('Specialists in <span>higher education</span> in Ireland') !!}</h1>
+                <p class="about-hero-subtitle animate-in" style="animation-delay:.3s">{{ __('Since 2016, CI Ireland has connected international students with universities and educational institutions across Ireland, through higher education programmes at every level. Our consultancy identifies your life and career goals and presents an exclusive plan that makes sense — considering your budget, background and opportunities.') }}</p>
+                <div class="about-hero-actions animate-in" style="animation-delay:.45s">
+                    <button type="button" class="btn-primary about-hero-cta" data-open-assessment-modal>{{ __('Start Your Plan') }} <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
+        <div class="about-hero-scroll" aria-hidden="true"><span></span></div>
     </section>
 
     <section class="about-gallery">
         <div class="container">
             <div class="about-gallery-header">
                 <h2 class="about-gallery-title">{{ __('Real stories, real people') }}</h2>
-                <p class="about-gallery-copy">{{ __('We live the journey with our students. This section is designed for real-life photos: team moments, campus visits, and celebrations.') }}</p>
+                <p class="about-gallery-copy">{{ __('A company built by people who have lived the exchange and immigration process firsthand — and who chose to work with a product that builds bridges and changes realities: education. Meet our family away from home: our team.') }}</p>
+                <span class="about-gallery-tag">#familiaCIIrlanda</span>
             </div>
             <div class="about-gallery-marquee" aria-label="CI Ireland moments">
                 <div class="about-gallery-track">
@@ -124,15 +164,29 @@
         </div>
     </section>
 
-    <section class="heritage-strip" aria-label="CI heritage">
+    {{-- Key indicators band (replaces the old BR → IE heritage strip). --}}
+    <section class="about-stats" aria-label="CI Ireland by the numbers">
         <div class="container">
-            <div class="heritage-strip-inner">
-                <div class="heritage-flags" aria-hidden="true">
-                    <span class="flag-badge flag-br">BR</span>
-                    <i class="fas fa-arrow-right heritage-arrow"></i>
-                    <span class="flag-badge flag-ie">IE</span>
+            <div class="about-stats-head">
+                <span class="about-stats-kicker">{{ __('CI by the numbers') }}</span>
+            </div>
+            <div class="about-stats-grid">
+                <div class="about-stat">
+                    <span class="about-stat-num">+35</span>
+                    <span class="about-stat-label">{{ __('years of history') }}</span>
                 </div>
-                <p class="heritage-copy">{{ __('Founded in Brazil in 1988, CI established its European hub in Dublin in 2016 — connecting 11,000+ students across Ireland and beyond.') }}</p>
+                <div class="about-stat">
+                    <span class="about-stat-num">+100</span>
+                    <span class="about-stat-label">{{ __('stores in Brazil') }}</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">{{ __('+11,000') }}</span>
+                    <span class="about-stat-label">{{ __('students in Ireland') }}</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">2016</span>
+                    <span class="about-stat-label">{{ __('in Dublin') }}</span>
+                </div>
             </div>
         </div>
     </section>
@@ -141,141 +195,36 @@
         <div class="container">
             <div class="team-header">
                 <h2 class="section-title">{{ __('Meet the team') }}</h2>
-                <p class="section-subtitle">{{ __('Hover each card to meet the people behind the guidance. Warm, experienced, and always on your side.') }}</p>
+                <p class="section-subtitle">{{ __('Marilu at the center, the whole CI Ireland family around her. Use the arrows or tap a face to meet each one.') }}</p>
             </div>
 
-            <div class="team-grid">
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/malu.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Marilu Rosado</div>
-                        <div class="consultant-role">{{ __('Director & Co-founder') }}</div>
+            <div class="team-orbit" id="teamOrbit" data-active="0">
+                <div class="orbit-stage">
+                    <div class="orbit-center-photo"></div>
+                    <div class="orbit-ring">
+                        @foreach ($team as $member)
+                            <button type="button" class="orbit-thumb"
+                                    style="--photo: url('{{ asset($member['photo']) }}');"
+                                    data-name="{{ $member['name'] }}"
+                                    data-role="{{ $member['role'] }}"
+                                    data-bio="{{ $member['bio'] }}"
+                                    aria-label="{{ $member['name'] }} — {{ $member['role'] }}">
+                                <span class="orbit-thumb-photo"></span>
+                            </button>
+                        @endforeach
                     </div>
-                    <div class="consultant-overlay">
-                        <h4>Marilu Rosado</h4>
-                        <p>{{ __('Our fearless co-founder and the heart of CI Ireland. Mother of Sophie, she calls everyone "beautiful" (but she is the beautiful one). She inspires us daily with her resilience and high spirits. The team mom and the foundation of our company.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/amandaa.avif') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Amanda Avila</div>
-                        <div class="consultant-role">{{ __('Marketing & Sales Manager') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Amanda Avila</h4>
-                        <p>{{ __('Known as "the creative." Pet mom and content creator. She came to Ireland as a #viajanteCI 7 years ago and has been part of the #dreamteam ever since. A true pillar who brings possibilities, support, and strength to our operation.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/wagner.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Wagner Marinho</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Wagner Marinho</h4>
-                        <p>{{ __('Helpful and deeply committed. He has a cleaning obsession and is the best conflict mediator you will ever meet. He has been part of our team for 7 years.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/aliny.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Aliny Assis</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Aliny Assis</h4>
-                        <p>{{ __("Known as the team's big sister. From Amazonas, she wins everyone with her warmth and humanity. Brave and strong in the best way.") }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/talita.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Talita</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Talita</h4>
-                        <p>{{ __('Pure friendliness and a creator of catchphrases. Talita knows Ireland deeply, has lived every stage of the journey, studied English, went to college, and has been with our team for over a year.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/karine.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Karine</div>
-                        <div class="consultant-role">{{ __('Enrollment Operations') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Karine</h4>
-                        <p>{{ __('She processes our enrollments and manages a massive workload with mastery. Our "Kaka" is a star: straightforward, confident, and secretly very sweet.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/albert.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Albert Zavala</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Albert Zavala</h4>
-                        <p>{{ __('Our Mexican consultant who supports Spanish-speaking clients. He also speaks Portuguese and is the best Google Maps operator you will ever meet. An excellent advisor.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/thamiris.avif') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Thamiris Bastos</div>
-                        <div class="consultant-role">{{ __('Customer Experience') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Thamiris Bastos</h4>
-                        <p>{{ __('Customer Experience at CI Ireland. She is responsible for guiding our students with care, attention, and dedication. Pet mom, based in the Netherlands, and working remotely. We miss her every day.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/romario.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Romario Jales</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Romario Jales</h4>
-                        <p>{{ __('Known as the restless one in the office. His education background elevates every consultation. From the farm to Ireland, and 3 years with our team.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/amandazanga.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Amanda Zangarini</div>
-                        <div class="consultant-role">{{ __('Customer Experience') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Amanda Zangarini</h4>
-                        <p>{{ __('Customer Experience at CI Ireland. Sweet, caring, and always ready with kind words. She supports our students throughout their journey.') }}</p>
-                    </div>
-                </article>
-
-                <article class="consultant-card" style="--photo: url('{{ asset('consultant/gabriel.webp') }}');">
-                    <div class="consultant-photo"></div>
-                    <div class="consultant-body">
-                        <div class="consultant-name">Gabriel</div>
-                        <div class="consultant-role">{{ __('Educational Consultant') }}</div>
-                    </div>
-                    <div class="consultant-overlay">
-                        <h4>Gabriel</h4>
-                        <p>{{ __('Our newest consultant and a real prodigy at just 20. Fluent in Portuguese, English, and Spanish, and an IT student living the day-to-day student life in Ireland.') }}</p>
-                    </div>
-                </article>
+                </div>
+                <div class="orbit-info" aria-live="polite">
+                    <span class="orbit-accent-dot" aria-hidden="true"></span>
+                    <div class="orbit-center-name"></div>
+                    <div class="orbit-center-role"></div>
+                    <p class="orbit-center-bio"></p>
+                </div>
+                <div class="orbit-controls">
+                    <button type="button" class="orbit-nav orbit-prev" aria-label="{{ __('Previous') }}"><i class="fas fa-arrow-left"></i></button>
+                    <div class="orbit-counter"><span class="orbit-index">01</span> <span class="orbit-sep">/</span> <span class="orbit-total">{{ count($team) }}</span></div>
+                    <button type="button" class="orbit-nav orbit-next" aria-label="{{ __('Next') }}"><i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
@@ -284,4 +233,3 @@
 @push('scripts')
 <script src="{{ asset('js/why-ci-ireland.js') }}" defer></script>
 @endpush
-
