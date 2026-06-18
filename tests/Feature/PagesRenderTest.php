@@ -18,14 +18,12 @@ class PagesRenderTest extends TestCase
             'career-bridge' => ['/career-bridge'],
             'for-employers' => ['/for-employers'],
             'why-ci-ireland' => ['/why-ci-ireland'],
-            'start-your-plan' => ['/start-your-plan'],
             'pt.home' => ['/pt'],
             'pt.welcome' => ['/pt/home'],
             'pt.higher-education' => ['/pt/higher-education'],
             'pt.career-bridge' => ['/pt/career-bridge'],
             'pt.for-employers' => ['/pt/for-employers'],
             'pt.why-ci-ireland' => ['/pt/why-ci-ireland'],
-            'pt.start-your-plan' => ['/pt/start-your-plan'],
         ];
     }
 
@@ -50,6 +48,8 @@ class PagesRenderTest extends TestCase
             'corporate' => ['/corporate', '/for-employers'],
             'erasmus' => ['/erasmus', '/higher-education'],
             'teens' => ['/teens', '/higher-education'],
+            'start-your-plan' => ['/start-your-plan', '/higher-education'],
+            'pt.start-your-plan' => ['/pt/start-your-plan', '/higher-education'],
         ];
     }
 

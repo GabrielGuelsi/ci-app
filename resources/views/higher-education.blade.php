@@ -159,7 +159,7 @@
                 </div>
                 <div class="si-hero-meta animate-in" style="animation-delay:.6s">
                     <div class="si-hero-stat"><strong>12+</strong><span>{{ __('Partner Colleges') }}</span></div>
-                    <div class="si-hero-stat"><strong>5K+</strong><span>{{ __('Students Placed') }}</span></div>
+                    <div class="si-hero-stat"><strong>10K+</strong><span>{{ __('Students Placed') }}</span></div>
                     <div class="si-hero-stat"><strong>{{ __('Free') }}</strong><span>{{ __('1-to-1 Consultation') }}</span></div>
                 </div>
             </div>
