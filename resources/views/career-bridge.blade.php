@@ -20,7 +20,7 @@
         'kicker' => __('Career Bridge'),
         'title' => __('Career Bridge by CI Ireland'),
         'subtitle' => __('Career preparation and employer connection for international students, graduates and professionals building their future in Ireland.') . '<br><br>' . __('Career Bridge helps you understand the Irish job market, strengthen your professional profile and prepare for opportunities that match your background, studies and goals.'),
-        'primaryCta' => ['label' => __('Start My Career Plan'), 'href' => $lr('start-your-plan')],
+        'primaryCta' => ['label' => __('Start My Career Plan'), 'modal' => true],
         'secondaryCta' => ['label' => __('Speak to a Career Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 
@@ -60,7 +60,7 @@
                 <h3 class="callout-card-title">{{ __('Career Bridge can start before you graduate') }}</h3>
                 <p>{{ __('You do not need to wait until the end of your course to start thinking about your career. In fact, the earlier you understand the Irish job market, employer expectations and your own professional profile, the more prepared you can become.') }}</p>
                 <p>{{ __('Career Bridge helps students connect their academic choices with career preparation from an earlier stage. This means looking at your studies, skills, English level, previous experience and future goals together, not separately.') }}</p>
-                <a class="btn btn-primary" href="{{ $lr('start-your-plan') }}">{{ __('Start My Career Plan') }} <i class="fas fa-arrow-right"></i></a>
+                <a class="btn btn-primary" href="{{ $lr('start-your-plan') }}" data-open-assessment-modal>{{ __('Start My Career Plan') }} <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -204,7 +204,7 @@
                     <h3>{{ __('Career Bridge for Professionals') }}</h3>
                     <p>{{ __('If you already have professional experience, Career Bridge can help you understand how to reposition your profile for the Irish job market. Many international professionals struggle not because they lack experience, but because they do not know how to communicate their value in the local market.') }}</p>
                     <p>{{ __('We help you refine your CV, LinkedIn, interview answers and career direction so your background becomes easier for employers to understand.') }}</p>
-                    <a class="btn btn-outline" href="{{ $lr('start-your-plan') }}">{{ __('Prepare My Professional Profile') }}</a>
+                    <a class="btn btn-outline" href="{{ $lr('start-your-plan') }}" data-open-assessment-modal>{{ __('Prepare My Professional Profile') }}</a>
                 </article>
                 <article class="cb-track">
                     <span class="cb-track-tag">{{ __('For Employers') }}</span>
@@ -352,7 +352,7 @@
     @include('partials.final-cta', [
         'title' => __('Build your career in Ireland with more clarity and preparation'),
         'text' => __('Whether you are studying, graduating or already working towards a professional future in Ireland, Career Bridge can help you understand the market, strengthen your profile and prepare for opportunities with more strategy.'),
-        'primaryCta' => ['label' => __('Start My Career Plan'), 'href' => $lr('start-your-plan')],
+        'primaryCta' => ['label' => __('Start My Career Plan'), 'modal' => true],
         'secondaryCta' => ['label' => __('Talk to a Career Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 @endsection

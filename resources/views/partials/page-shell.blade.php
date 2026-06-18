@@ -5,7 +5,7 @@
 @section('banner')
     <div class="top-banner">
         {{ __('Free profile assessment with our Dublin team. Plan study and career with clarity.') }}
-        <a href="{{ $lr('start-your-plan') }}">{{ __('Start now') }} <i class="fas fa-arrow-right"></i></a>
+        <a href="{{ $lr('start-your-plan') }}" data-open-assessment-modal>{{ __('Start now') }} <i class="fas fa-arrow-right"></i></a>
     </div>
 @endsection
 
@@ -20,6 +20,6 @@
 @section('mobile-nav-footer')
     <div class="mobile-drawer-footer">
         @include('partials.lang-toggle')
-        <a class="mobile-cta-btn" href="{{ $lr('start-your-plan') }}">{{ __('Start Your Plan') }}</a>
+        <a class="mobile-cta-btn" href="{{ $lr('start-your-plan') }}" data-open-assessment-modal>{{ __('Start Your Plan') }}</a>
     </div>
 @endsection

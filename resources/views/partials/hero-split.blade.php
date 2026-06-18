@@ -23,7 +23,8 @@
                 @if ($heroPrimaryCta || $heroSecondaryCta)
                     <div class="hero-split-actions">
                         @if ($heroPrimaryCta)
-                            <a class="btn btn-primary" href="{{ $heroPrimaryCta['href'] }}"
+                            <a class="btn btn-primary" href="{{ $heroPrimaryCta['href'] ?? '#' }}"
+                                @if (!empty($heroPrimaryCta['modal'])) data-open-assessment-modal @endif
                                 @if (!empty($heroPrimaryCta['newTab'])) target="_blank" rel="noopener" @endif>
                                 {{ $heroPrimaryCta['label'] }}
                                 <i class="fas fa-arrow-right"></i>

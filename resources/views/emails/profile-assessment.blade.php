@@ -1,7 +1,7 @@
 <x-mail::message>
 # New profile assessment
 
-A new profile assessment has been submitted from the **Start Your Plan** page on CI Ireland.
+A new profile assessment has been submitted through the **profile assessment** on CI Ireland.
 
 ## Contact
 - **Name:** {{ $assessment->full_name }}
@@ -17,11 +17,9 @@ A new profile assessment has been submitted from the **Start Your Plan** page on
 | Where are you now? | {{ $assessment->location }} |
 | Current situation | {{ $assessment->current_situation }} |
 | Main goal | {{ $assessment->main_goal }} |
-| Long-term goal | {{ $assessment->long_term_goal }} |
 | English level | {{ $assessment->english_level }} |
 | Visa status | {{ $assessment->visa_status }} |
 | Highest education | {{ $assessment->education_level }} |
-| Professional experience | {{ $assessment->experience_years }} |
 | Area of interest | {{ $assessment->area_of_interest }} |
 | Course aligned with career? | {{ $assessment->career_aligned }} |
 | Start timing | {{ $assessment->start_timing }} |

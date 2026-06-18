@@ -120,11 +120,12 @@
 @section('head')
     <link rel="preload" as="image" href="{{ asset('images/hero-higher-education.webp') }}">
     @if (file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/new-shared.css', 'resources/css/study-in-ireland.css', 'resources/css/higher-education.css'])
+        @vite(['resources/css/new-shared.css', 'resources/css/study-in-ireland.css', 'resources/css/higher-education.css', 'resources/css/testimonials.css'])
     @else
         <link rel="stylesheet" href="/css/new-shared.css">
         <link rel="stylesheet" href="/css/study-in-ireland.css">
         <link rel="stylesheet" href="/css/higher-education.css">
+        <link rel="stylesheet" href="/css/testimonials.css">
     @endif
 @endsection
 
@@ -146,7 +147,7 @@
                     <span class="si-hero-title-accent">{{ __('Guided Every Step of the Way') }}</span>
                 </h1>
                 <p class="si-hero-subtitle animate-in" style="animation-delay:.3s">
-                    {{ __('Complete support for international students looking to study at universities and colleges in Ireland — with free, one-to-one consultancy at every stage.') }}
+                    {{ __('Free consultancy for international students seeking a higher education course in Ireland — our team of specialists guides you through every stage.') }}
                 </p>
                 <div class="si-hero-actions animate-in" style="animation-delay:.45s">
                     <button type="button" class="btn btn-primary btn-lg" data-open-assessment-modal>
@@ -174,7 +175,7 @@
             <div class="he-section-header">
                 <div class="he-section-kicker" style="color: var(--ci-orange);">{{ __('Academic Programmes') }}</div>
                 <h2 class="he-section-title" style="color: var(--ci-purple);">{!! __('Find Your <span style="color: var(--ci-orange);">Starting Point</span>') !!}</h2>
-                <p class="he-section-sub" style="color: var(--text-light);">{{ __('Your entry point depends on your existing qualifications. CI Ireland assesses your profile and places you in the right programme from day one.') }}</p>
+                <p class="he-section-sub" style="color: var(--text-light);">{{ __('Your starting point depends on your current qualifications. Our team assesses your profile and points you to the right path by selecting the course that makes the most sense for your life and career.') }}</p>
             </div>
 
             <div class="pathway-flow">
@@ -184,9 +185,9 @@
                         <div class="pathway-connector"></div>
                     </div>
                     <div class="pathway-card">
-                        <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> {{ __('Entry point if you need to develop your English') }}</div>
-                        <h3 class="pathway-name">{{ __('English with Academic Purpose') }}</h3>
-                        <p class="pathway-desc">{{ __('An intensive English course for students looking to enter universities in Ireland. The programme develops the linguistic skills required for international academic environments and prepares students for proficiency exams.') }}</p>
+                        <div class="pathway-entry-tag"><i class="fas fa-layer-group"></i> {{ __('Level 6 · Intermediate English B1+') }}</div>
+                        <h3 class="pathway-name">{{ __('Pathway') }}</h3>
+                        <p class="pathway-desc">{{ __('An intermediate programme that works as a preparatory course, helping students develop the academic skills needed before starting a degree at an Irish university or college.') }}</p>
                     </div>
                 </div>
 
@@ -196,32 +197,20 @@
                         <div class="pathway-connector"></div>
                     </div>
                     <div class="pathway-card">
-                        <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> {{ __('Entry point if you need to build your academic foundation') }}</div>
-                        <h3 class="pathway-name">{{ __('Pathway Programs') }}</h3>
-                        <p class="pathway-desc">{{ __('Preparatory programmes that help students develop the academic skills and knowledge needed before entering an undergraduate degree at an Irish university or college.') }}</p>
-                    </div>
-                </div>
-
-                <div class="pathway-item">
-                    <div class="pathway-timeline">
-                        <div class="pathway-num">03</div>
-                        <div class="pathway-connector"></div>
-                    </div>
-                    <div class="pathway-card">
-                        <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> {{ __('Entry point if you are ready for university-level study') }}</div>
-                        <h3 class="pathway-name">{{ __('Undergraduate Programs') }}</h3>
-                        <p class="pathway-desc">{{ __('Full degree programmes offered by internationally recognised universities and colleges across Ireland — from 3 to 4-year bachelor degrees across a wide range of disciplines.') }}</p>
+                        <div class="pathway-entry-tag"><i class="fas fa-layer-group"></i> {{ __('Level 7 & 8 · English B2+') }}</div>
+                        <h3 class="pathway-name">{{ __('Undergraduate') }}</h3>
+                        <p class="pathway-desc">{{ __('One to three-year degree programmes offered by internationally recognised universities and colleges across Ireland — bachelor degrees with and without honours, across more than 100 available fields.') }}</p>
                     </div>
                 </div>
 
                 <div class="pathway-item pathway-item--last">
                     <div class="pathway-timeline">
-                        <div class="pathway-num">04</div>
+                        <div class="pathway-num">03</div>
                     </div>
                     <div class="pathway-card">
-                        <div class="pathway-entry-tag"><i class="fas fa-user-circle"></i> {{ __('Entry point if you already hold an undergraduate degree') }}</div>
+                        <div class="pathway-entry-tag"><i class="fas fa-layer-group"></i> {{ __('Level 9 · Advanced English') }}</div>
                         <h3 class="pathway-name">{{ __('Postgraduate & Masters') }}</h3>
-                        <p class="pathway-desc">{{ __('Specialisation programmes (Postgraduate Diploma) and Masters degrees offered by internationally recognised higher education institutions — the natural next step for graduates looking to advance their careers.') }}</p>
+                        <p class="pathway-desc">{{ __('Specialisation programmes (Postgraduate Diplomas and Masters) offered by internationally recognised higher education institutions — the natural next step for graduates who want to advance their careers.') }}</p>
                     </div>
                 </div>
             </div>
@@ -275,7 +264,7 @@
                 <div class="stack-inner-header">
                     <div class="he-section-kicker">{{ __('How It Works') }}</div>
                     <h2 class="he-section-title">{!! __('Your Journey to an <span>Irish College</span>') !!}</h2>
-                    <p class="he-section-sub">{{ __('A simple, guided process — we handle the complexity so you can focus on your future.') }}</p>
+                    <p class="he-section-sub">{{ __('A simplified, guided process — we handle the complexity so you can focus on what truly matters: your future.') }}</p>
                 </div>
 
                 <div class="stack-cards-wrap">
@@ -287,7 +276,7 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">{{ __('Get in Touch') }}</h3>
-                            <p class="step-desc">{{ __('Complete our simple form and a specialist advisor will reach out to schedule your free one-to-one consultation.') }}</p>
+                            <p class="step-desc">{{ __('Fill in our form and a specialist advisor will get in touch to schedule your free 1-to-1 consultation.') }}</p>
                             <ul class="step-bullets"></ul>
                         </div>
                     </div>
@@ -300,11 +289,12 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">{{ __('Understanding Your Profile') }}</h3>
-                            <p class="step-desc">{{ __('Our team asks the right questions to understand your background and goals — so we can place you in the perfect programme.') }}</p>
+                            <p class="step-desc">{{ __('Our team asks the right questions to understand your background and goals — so we can place you in the ideal programme.') }}</p>
                             <ul class="step-bullets">
                                 <li>{{ __('Academic background review') }}</li>
                                 <li>{{ __('Goals, budget and visa requirements') }}</li>
                             </ul>
+                            <p class="step-note">{{ __('Our personalised service saves you time and money.') }}</p>
                         </div>
                     </div>
 
@@ -316,10 +306,10 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">{{ __('We Handle Everything') }}</h3>
-                            <p class="step-desc">{{ __('We submit the full application on your behalf and keep you updated at every stage — no stress, no confusion.') }}</p>
+                            <p class="step-desc">{{ __('Once your contract is signed and your first payment is made, we gather your documents, validate them, translate them and submit your application.') }}</p>
                             <ul class="step-bullets">
-                                <li>{{ __('Full application submitted by our team') }}</li>
-                                <li>{{ __('Real-time updates throughout') }}</li>
+                                <li>{{ __('After submission, we keep you updated at every stage — no stress, no confusion.') }}</li>
+                                <li>{{ __('Our advisors and customer experience team are by your side at all times.') }}</li>
                             </ul>
                         </div>
                     </div>
@@ -332,7 +322,7 @@
                         </div>
                         <div class="step-right">
                             <h3 class="step-title">{{ __('College Acceptance!') }}</h3>
-                            <p class="step-desc">{{ __('Your Irish journey begins, and our team remains by your side with visa guidance, academic follow-ups, and ongoing support whenever you need it.') }}</p>
+                            <p class="step-desc">{{ __('Your university journey begins, and our team stays by your side with visa guidance, academic follow-up and ongoing support whenever you need it.') }}</p>
                             <ul class="step-bullets">
                                 <li>{{ __('Course enrolment completed') }}</li>
                                 <li>{{ __('Dedicated support whenever you need it') }}</li>
@@ -391,7 +381,7 @@
         $ccJourney = [
             ['icon' => 'fa-book-open',      'label' => __('Your study')],
             ['icon' => 'fa-graduation-cap', 'label' => __('Graduate')],
-            ['icon' => 'fa-people-arrows',  'label' => __('Career Bridge')],
+            ['icon' => 'fa-people-arrows',  'label' => __('Level Up')],
             ['icon' => 'fa-briefcase',      'label' => __('Your career')],
         ];
         $ccStudyAttrs = [__('Course'), __('English level'), __('Visa & budget'), __('Intake')];
@@ -436,13 +426,13 @@
                 </div>
             </div>
 
-            <blockquote class="cc-manifesto">
-                <p>{{ __('We do not promise a job. We help you make study decisions with a clearer view of where they could lead.') }}</p>
-            </blockquote>
+            <div class="cc-manifesto">
+                <p>{{ __('We created a continuity product designed around the biggest need of international students: a place in the job market. We help you make study decisions with a clearer view of where they can lead, and prepare you for the next steps through Level Up Careers.') }}</p>
+            </div>
 
             <div class="cc-cta-row">
                 <a class="btn btn-primary" href="{{ $lr('career-bridge') }}">
-                    {{ __('Explore Career Bridge') }} <i class="fas fa-arrow-right"></i>
+                    {{ __('Discover Level Up') }} <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -461,26 +451,20 @@
         ],
     ])
 
-    {{-- 8. Final CTA + assessment modal --}}
-    @include('partials.final-cta', [
-        'title' => __('Plan your Higher Education in Ireland with clarity'),
-        'text' => __('The right course choice can impact your academic life, visa planning, budget and future opportunities. With CI Ireland, you have a Dublin-based team ready to help you understand your options and plan a clearer path.'),
-        'primaryCta' => ['label' => __('Start My Profile Assessment'), 'href' => $lr('start-your-plan')],
-        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
-    ])
+    {{-- 7b. Testimonials (reused from home) --}}
+    @include('partials.testimonials')
 
-    @include('partials.profile-assessment-modal', [
-        'modalKicker' => __('Free Consultation'),
-        'modalTitle' => __('Start Your Academic Planning'),
-        'modalSubtitle' => __('Fill in your details and one of our advisors will get in touch.'),
-        'secondQuestion' => 'visa',
-        'modalCtaLabel' => __('Request Free Consultation'),
-        'leadSource' => 'higher-education',
+    {{-- 8. Final CTA --}}
+    @include('partials.final-cta', [
+        'title' => __('Quero ser um #universitárioCI'),
+        'text' => __('The right course choice can impact your academic life, visa planning, budget and future opportunities. Shall we talk about your future in a 360° way, thinking about life and career?'),
+        'primaryCta' => ['label' => __('Start My Profile Assessment'), 'modal' => true],
+        'secondaryCta' => ['label' => __('Talk to an Advisor'), 'href' => 'https://wa.me/353868179430', 'newTab' => true],
     ])
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/assessment-modal.js') }}" defer></script>
     <script src="{{ asset('js/study-in-ireland.js') }}" defer></script>
     <script src="{{ asset('js/higher-education.js') }}" defer></script>
+    <script src="{{ asset('js/testimonials-slider.js') }}" defer></script>
 @endpush

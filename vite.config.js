@@ -16,6 +16,8 @@ export default defineConfig({
                 'resources/css/for-employers.css',
                 'resources/css/why-ci-ireland.css',
                 'resources/css/start-your-plan.css',
+                'resources/css/testimonials.css',
+                'resources/css/assessment-wizard.css',
                 'resources/js/app.js',
             ],
             refresh: true,

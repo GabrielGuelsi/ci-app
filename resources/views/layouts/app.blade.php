@@ -24,9 +24,10 @@
     @yield('head')
 
     @if (file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/app.css', 'resources/css/base.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/base.css', 'resources/css/assessment-wizard.css', 'resources/js/app.js'])
     @else
         <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/assessment-wizard.css">
     @endif
     <style>
         @yield('styles')
@@ -128,7 +129,7 @@
 
                     <div class="footer-col footer-col-cta">
                         <h4 class="footer-col-title">{{ __('Get started') }}</h4>
-                        <a href="{{ $lr('start-your-plan') }}" class="footer-cta-primary">{{ __('Start Your Plan') }}</a>
+                        <a href="{{ $lr('start-your-plan') }}" class="footer-cta-primary" data-open-assessment-modal>{{ __('Start Your Plan') }}</a>
                         <a href="https://wa.me/353868179430" target="_blank" rel="noopener" class="footer-cta-secondary">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ __('Chat on WhatsApp') }}
                         </a>
@@ -220,7 +221,12 @@
         })();
     </script>
 
+    {{-- Global reusable profile assessment wizard modal --}}
+    @include('partials.assessment-wizard-modal')
+
     @stack('scripts')
+
+    <script src="{{ asset('js/assessment-wizard.js') }}" defer></script>
 
 </body>
 </html>

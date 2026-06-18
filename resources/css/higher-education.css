@@ -571,6 +571,14 @@
         }
         .step-card[data-step="4"] .step-bullets li::before { background: #fff; }
 
+        .step-note {
+            margin: 16px 0 0;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--ci-orange);
+            font-weight: 600;
+        }
+
         /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ PARTNERS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         .he-partners {
             background: #f7f5f4;

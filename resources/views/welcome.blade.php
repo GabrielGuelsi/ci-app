@@ -48,7 +48,7 @@
 @section('mobile-nav-footer')
     <div class="mobile-drawer-footer">
         @include('partials.lang-toggle')
-        <a class="mobile-cta-btn" href="{{ $lr('start-your-plan') }}">{{ __('Start Your Plan') }}</a>
+        <a class="mobile-cta-btn" href="{{ $lr('start-your-plan') }}" data-open-assessment-modal>{{ __('Start Your Plan') }}</a>
     </div>
 @endsection
 

@@ -11,7 +11,7 @@
 <ul class="mobile-nav-links">
     @foreach ($mobileNavItems as $item)
         <li>
-            <a href="{{ $lr($item['key']) }}" @class(['active' => $navActive === $item['key']])>
+            <a href="{{ $lr($item['key']) }}" @class(['active' => $navActive === $item['key']]) @if ($item['key'] === 'start-your-plan') data-open-assessment-modal @endif>
                 {{ $item['label'] }} <i class="fas fa-chevron-right"></i>
             </a>
         </li>

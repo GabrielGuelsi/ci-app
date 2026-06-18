@@ -25,7 +25,7 @@
             </ul>
 
             <div class="nav-actions">
-                <a href="{{ $lr('start-your-plan') }}" class="nav-cta @if($navActive === 'start-your-plan') active @endif">
+                <a href="{{ $lr('start-your-plan') }}" class="nav-cta @if($navActive === 'start-your-plan') active @endif" data-open-assessment-modal>
                     {{ __('Start Your Plan') }}
                 </a>
                 @include('partials.lang-toggle')

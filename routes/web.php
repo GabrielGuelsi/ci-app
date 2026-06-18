@@ -30,9 +30,10 @@ $pageRoutes = function () {
         return view('why-ci-ireland');
     })->name('why-ci-ireland');
 
-    Route::get('/start-your-plan', function () {
-        return view('start-your-plan');
-    })->name('start-your-plan');
+    // The standalone assessment page is now a reusable modal opened from any
+    // [data-open-assessment-modal] trigger. This redirect keeps the named route
+    // resolvable as a no-JS fallback for direct visits and old links.
+    Route::redirect('/start-your-plan', '/higher-education')->name('start-your-plan');
 
     Route::post('/start-your-plan', [ProfileAssessmentController::class, 'store'])
         ->name('start-your-plan.store');
