@@ -3,7 +3,6 @@
     $navItems = [
         ['key' => 'higher-education', 'label' => __('Higher Education')],
         ['key' => 'career-bridge', 'label' => __('Level Up')],
-        ['key' => 'for-employers', 'label' => __('For Employers')],
         ['key' => 'why-ci-ireland', 'label' => __('About Us')],
     ];
 @endphp

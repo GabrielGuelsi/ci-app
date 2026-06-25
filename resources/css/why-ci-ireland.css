@@ -503,19 +503,6 @@ body {
             margin-top: 6px;
         }
 
-        .orbit-center-bio {
-            font-size: 13.5px;
-            line-height: 1.65;
-            color: rgba(255,255,255,0.78);
-            margin: 16px auto 0;
-            max-width: 400px;
-            min-height: 66px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
         .orbit-ring {
             position: absolute;
             inset: 0;
