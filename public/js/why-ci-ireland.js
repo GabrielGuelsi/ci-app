@@ -12,7 +12,6 @@
     const centerPhoto = orbit.querySelector('.orbit-center-photo');
     const nameEl = orbit.querySelector('.orbit-center-name');
     const roleEl = orbit.querySelector('.orbit-center-role');
-    const bioEl = orbit.querySelector('.orbit-center-bio');
     const indexEl = orbit.querySelector('.orbit-index');
     const totalEl = orbit.querySelector('.orbit-total');
 
@@ -43,9 +42,6 @@
         if (roleEl) {
             roleEl.textContent = current.dataset.role || '';
         }
-        if (bioEl) {
-            bioEl.textContent = current.dataset.bio || '';
-        }
         if (indexEl) {
             indexEl.textContent = pad(active + 1);
         }
@@ -53,8 +49,15 @@
         const others = thumbs.filter((_, i) => i !== active);
         const count = others.length;
 
+        // Spread the orbiting thumbnails across the top and sides only, leaving an
+        // open wedge at the bottom-centre so no face sits on top of the name below.
+        const gap = Math.PI * 0.55;
+        const sweep = (Math.PI * 2) - gap;
+        const start = (Math.PI / 2) + (gap / 2);
+
         others.forEach((thumb, k) => {
-            const angle = (-Math.PI / 2) + (k / count) * Math.PI * 2;
+            const t = count > 1 ? k / (count - 1) : 0.5;
+            const angle = start + t * sweep;
             thumb.style.left = (CX + RX * Math.cos(angle)) + '%';
             thumb.style.top = (CY + RY * Math.sin(angle)) + '%';
             thumb.style.transitionDelay = (k * 0.02) + 's';

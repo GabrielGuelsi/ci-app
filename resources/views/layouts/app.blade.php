@@ -99,7 +99,7 @@
                         <h4 class="footer-col-title">{{ __('Pages') }}</h4>
                         <ul class="footer-nav-list">
                             <li><a href="{{ $lr('higher-education') }}">{{ __('Higher Education') }}</a></li>
-                            <li><a href="{{ $lr('career-bridge') }}">{{ __('Career Bridge') }}</a></li>
+                            <li><a href="{{ $lr('career-bridge') }}">{{ __('Level Up') }}</a></li>
                             <li><a href="{{ $lr('for-employers') }}">{{ __('For Employers') }}</a></li>
                             <li><a href="{{ $lr('why-ci-ireland') }}">{{ __('About Us') }}</a></li>
                         </ul>

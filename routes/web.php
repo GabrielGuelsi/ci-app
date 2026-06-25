@@ -7,23 +7,26 @@ use Illuminate\Support\Facades\Route;
 
 $pageRoutes = function () {
     Route::get('/', function () {
-        return view('coming-soon');
+        return view('welcome');
     })->name('home');
 
-    Route::get('/home', function () {
-        return view('welcome');
-    })->name('welcome');
+    Route::redirect('/home', '/')->name('welcome');
 
     Route::get('/higher-education', function () {
         return view('higher-education');
     })->name('higher-education');
 
-    Route::get('/career-bridge', function () {
-        return view('career-bridge');
+    // Level Up (formerly Career Bridge) — coming soon. The route name is kept as
+    // 'career-bridge' so existing links/CTAs ($lr/route('career-bridge')) keep
+    // resolving to the new /level-up URL with no other changes needed.
+    Route::get('/level-up', function () {
+        return view('coming-soon');
     })->name('career-bridge');
 
+    Route::redirect('/career-bridge', '/level-up');
+
     Route::get('/for-employers', function () {
-        return view('for-employers');
+        return view('coming-soon');
     })->name('for-employers');
 
     Route::get('/why-ci-ireland', function () {
@@ -44,7 +47,7 @@ $pageRoutes = function () {
     Route::redirect('/about', '/why-ci-ireland', 301);
     Route::redirect('/study-in-ireland', '/higher-education', 301);
     Route::redirect('/already-in-ireland', '/higher-education', 301);
-    Route::redirect('/professional', '/career-bridge', 301);
+    Route::redirect('/professional', '/level-up', 301);
     Route::redirect('/corporate', '/for-employers', 301);
     Route::redirect('/erasmus', '/higher-education', 301);
     Route::redirect('/teens', '/higher-education', 301);

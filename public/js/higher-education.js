@@ -14,15 +14,7 @@ function initScrollStack() {
         function showCard(idx) {
             current = idx;
             cards.forEach((card, i) => {
-                if (i === idx) {
-                    card.style.transform = 'translateY(0) scale(1)';
-                    card.style.opacity = '1';
-                    card.style.zIndex = '20';
-                } else {
-                    card.style.transform = 'translateY(0) scale(1)';
-                    card.style.opacity = '0';
-                    card.style.zIndex = '5';
-                }
+                card.style.display = i === idx ? 'grid' : 'none';
             });
             dots.forEach((d, i) => d.classList.toggle('active', i === idx));
         }

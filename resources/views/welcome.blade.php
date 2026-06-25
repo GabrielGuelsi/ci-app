@@ -153,7 +153,7 @@
                         ['name' => 'City Colleges',                'logo' => 'citycolleges.png'],
                         ['name' => 'Dublin Business School',       'logo' => 'DBS.png'],
                         ['name' => 'Dorset College',               'logo' => 'dorset.png'],
-                        ['name' => 'Griffith College',             'logo' => 'Griffith.png'],
+                        ['name' => 'Griffith College',             'logo' => 'griffith.webp'],
                         ['name' => 'Holmes Institute Dublin',      'logo' => 'holmes.png'],
                         ['name' => 'IBAT College',                 'logo' => 'ibat.png'],
                         ['name' => 'TU Dublin',                    'logo' => 'Tudublin.png'],

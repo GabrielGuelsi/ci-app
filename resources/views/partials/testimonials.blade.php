@@ -22,14 +22,6 @@
             'consultant' => ['name' => 'Albert', 'photo' => 'consultant/albert.webp'],
         ],
         [
-            'student_photo' => 'students/gabrielstudent.webp',
-            'photo_position' => 'center center',
-            'student_name' => 'Bruno Silva',
-            'course' => __('Cybersecurity — City Colleges'),
-            'quote' => __("Professional, caring and always available. My dream of studying in Ireland became a reality thanks to Gabriel's guidance!"),
-            'consultant' => ['name' => 'Gabriel', 'photo' => 'consultant/gabriel.webp'],
-        ],
-        [
             'student_photo' => 'students/romariostudent.webp',
             'photo_position' => 'center center',
             'student_name' => 'Elis',

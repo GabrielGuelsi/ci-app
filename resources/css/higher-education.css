@@ -932,18 +932,25 @@
                 transform: none;
                 width: 100%;
                 max-width: 100%;
-                height: 320px;
+                height: auto;
             }
-            /* Pre-position cards before JS loads: show first, hide others */
-            .step-card { opacity: 0; transform: translateY(0) scale(1); }
-            .step-card[data-step=”1”] { opacity: 1; }
             .stack-cards-wrap::before,
             .stack-cards-wrap::after  { display: none; }
+            /* Mobile: only the active card sits in normal flow, so the wrap
+               sizes to its content and the dots always stay inside the section. */
             .step-card {
-                left: 16px !important; right: 16px !important;
-                height: 320px !important;
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                margin: 0 16px;
+                height: auto !important;
                 padding: 28px 22px;
+                display: none;
+                opacity: 1 !important;
+                transform: none !important;
             }
+            .step-card[data-step="1"] { display: grid; }
             .step-title  { font-size: 20px; margin-bottom: 8px; }
             .step-desc   { font-size: 13px; line-height: 1.65; margin-bottom: 12px; }
             .stack-progress {

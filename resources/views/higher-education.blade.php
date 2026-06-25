@@ -36,7 +36,7 @@
             'location' => __('Dublin, Ireland'),
             'gradient' => '#6a1a0a, #9a2a10',
             'campus' => 'images/campus/griffith.webp',
-            'logo' => 'images/partners/Griffith.jpg',
+            'logo' => 'images/partners/griffith.webp',
             'desc' => "One of Ireland's largest independent third-level colleges, offering a broad range of degrees, postgraduate and professional programmes.",
             'tags' => [__('Business'), __('Law'), __('Computing')],
         ],

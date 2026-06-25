@@ -4,72 +4,17 @@
     $pageActive = 'why-ci-ireland';
 
     $team = [
-        [
-            'name' => 'Marilu Rosado',
-            'role' => __('Director & Co-founder'),
-            'photo' => 'consultant/malu.webp',
-            'bio' => __('Our fearless co-founder and the heart of CI Ireland. Mother of Sophie, she calls everyone "beautiful" (but she is the beautiful one). She inspires us daily with her resilience and high spirits. The team mom and the foundation of our company.'),
-        ],
-        [
-            'name' => 'Amanda Avila',
-            'role' => __('Marketing & Sales Manager'),
-            'photo' => 'consultant/amandaa.avif',
-            'bio' => __('Known as "the creative." Pet mom and content creator. She came to Ireland as a #viajanteCI 7 years ago and has been part of the #dreamteam ever since. A true pillar who brings possibilities, support, and strength to our operation.'),
-        ],
-        [
-            'name' => 'Wagner Marinho',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/wagner.webp',
-            'bio' => __('Helpful and deeply committed. He has a cleaning obsession and is the best conflict mediator you will ever meet. He has been part of our team for 7 years.'),
-        ],
-        [
-            'name' => 'Aliny Assis',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/aliny.webp',
-            'bio' => __("Known as the team's big sister. From Amazonas, she wins everyone with her warmth and humanity. Brave and strong in the best way."),
-        ],
-        [
-            'name' => 'Talita',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/talita.webp',
-            'bio' => __('Pure friendliness and a creator of catchphrases. Talita knows Ireland deeply, has lived every stage of the journey, studied English, went to college, and has been with our team for over a year.'),
-        ],
-        [
-            'name' => 'Karine',
-            'role' => __('Enrollment Operations'),
-            'photo' => 'consultant/karine.webp',
-            'bio' => __('She processes our enrollments and manages a massive workload with mastery. Our "Kaka" is a star: straightforward, confident, and secretly very sweet.'),
-        ],
-        [
-            'name' => 'Albert Zavala',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/albert.webp',
-            'bio' => __('Our Mexican consultant who supports Spanish-speaking clients. He also speaks Portuguese and is the best Google Maps operator you will ever meet. An excellent advisor.'),
-        ],
-        [
-            'name' => 'Thamiris Bastos',
-            'role' => __('Customer Experience'),
-            'photo' => 'consultant/thamiris.avif',
-            'bio' => __('Customer Experience at CI Ireland. She is responsible for guiding our students with care, attention, and dedication. Pet mom, based in the Netherlands, and working remotely. We miss her every day.'),
-        ],
-        [
-            'name' => 'Romario Jales',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/romario.webp',
-            'bio' => __('Known as the restless one in the office. His education background elevates every consultation. From the farm to Ireland, and 3 years with our team.'),
-        ],
-        [
-            'name' => 'Amanda Zangarini',
-            'role' => __('Customer Experience'),
-            'photo' => 'consultant/amandazanga.webp',
-            'bio' => __('Customer Experience at CI Ireland. Sweet, caring, and always ready with kind words. She supports our students throughout their journey.'),
-        ],
-        [
-            'name' => 'Gabriel',
-            'role' => __('Educational Consultant'),
-            'photo' => 'consultant/gabriel.webp',
-            'bio' => __('Our newest consultant and a real prodigy at just 20. Fluent in Portuguese, English, and Spanish, and an IT student living the day-to-day student life in Ireland.'),
-        ],
+        ['name' => 'Marilu Rosado', 'role' => __('Director & Co-founder'), 'photo' => 'consultant/malu.webp'],
+        ['name' => 'Amanda Avila', 'role' => __('Business Development Head'), 'photo' => 'consultant/amandaa.avif'],
+        ['name' => 'Wagner Marinho', 'role' => __('Educational Consultant'), 'photo' => 'consultant/wagner.webp'],
+        ['name' => 'Aliny Assis', 'role' => __('Educational Consultant'), 'photo' => 'consultant/aliny.webp'],
+        ['name' => 'Talita', 'role' => __('Educational Consultant'), 'photo' => 'consultant/talita.webp'],
+        ['name' => 'Karine', 'role' => __('Enrollment Operations'), 'photo' => 'consultant/karine.webp'],
+        ['name' => 'Albert Zavala', 'role' => __('Educational Consultant'), 'photo' => 'consultant/albert.webp'],
+        ['name' => 'Thamiris Bastos', 'role' => __('Customer Experience'), 'photo' => 'consultant/thamiris.avif'],
+        ['name' => 'Romario Jales', 'role' => __('Sales Manager'), 'photo' => 'consultant/romario.webp'],
+        ['name' => 'Amanda Zangarini', 'role' => __('Customer Experience'), 'photo' => 'consultant/amandazanga.webp'],
+        ['name' => 'Gabriel', 'role' => __('Digital Transformation Lead'), 'photo' => 'consultant/gabriel.webp'],
     ];
 @endphp
 
@@ -195,7 +140,7 @@
         <div class="container">
             <div class="team-header">
                 <h2 class="section-title">{{ __('Meet the team') }}</h2>
-                <p class="section-subtitle">{{ __('Marilu at the center, the whole CI Ireland family around her. Use the arrows or tap a face to meet each one.') }}</p>
+                <p class="section-subtitle">{{ __('Use the arrows or tap a face to meet our dream team.') }}</p>
             </div>
 
             <div class="team-orbit" id="teamOrbit" data-active="0">
@@ -207,7 +152,6 @@
                                     style="--photo: url('{{ asset($member['photo']) }}');"
                                     data-name="{{ $member['name'] }}"
                                     data-role="{{ $member['role'] }}"
-                                    data-bio="{{ $member['bio'] }}"
                                     aria-label="{{ $member['name'] }} — {{ $member['role'] }}">
                                 <span class="orbit-thumb-photo"></span>
                             </button>
@@ -218,7 +162,6 @@
                     <span class="orbit-accent-dot" aria-hidden="true"></span>
                     <div class="orbit-center-name"></div>
                     <div class="orbit-center-role"></div>
-                    <p class="orbit-center-bio"></p>
                 </div>
                 <div class="orbit-controls">
                     <button type="button" class="orbit-nav orbit-prev" aria-label="{{ __('Previous') }}"><i class="fas fa-arrow-left"></i></button>

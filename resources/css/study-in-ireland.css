@@ -202,7 +202,7 @@
     }
     .si-hero-title {
         position: absolute;
-        top: calc(var(--banner-h) - 170px);
+        top: calc(var(--banner-h) - 95px);
         left: 20px;
         right: 20px;
         margin: 0;
@@ -218,7 +218,7 @@
 
     /* Content panel below the banner, all on solid dark bg */
     .si-hero-subtitle {
-        margin: 22px 0 0;
+        margin: 14px 0 0;
         max-width: none;
         font-size: 14.5px;
         line-height: 1.55;
