@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileAssessmentRequest;
+use App\Jobs\SyncLeadToFlowin;
 use App\Mail\ProfileAssessmentSubmitted;
 use App\Models\ProfileAssessment;
 use Illuminate\Http\JsonResponse;
@@ -21,6 +22,8 @@ class ProfileAssessmentController extends Controller
 
         Mail::to(config('mail.to.address'), config('mail.to.name'))
             ->send(new ProfileAssessmentSubmitted($assessment));
+
+        SyncLeadToFlowin::dispatch($assessment);
 
         return response()->json([
             'ok' => true,

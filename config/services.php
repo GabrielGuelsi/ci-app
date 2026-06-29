@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'flowin' => [
+        'url' => env('FLOWIN_WEBHOOK_URL'),
+        'token' => env('FLOWIN_WEBHOOK_SECRET'),
+    ],
+
 ];
