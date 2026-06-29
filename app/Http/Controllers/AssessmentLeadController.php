@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AssessmentLeadRequest;
+use App\Jobs\SyncLeadToFlowin;
 use App\Mail\AssessmentLeadSubmitted;
 use App\Models\AssessmentLead;
 use Illuminate\Http\JsonResponse;
@@ -21,6 +22,8 @@ class AssessmentLeadController extends Controller
 
         Mail::to(config('mail.to.address'), config('mail.to.name'))
             ->send(new AssessmentLeadSubmitted($lead));
+
+        SyncLeadToFlowin::dispatch($lead);
 
         return response()->json([
             'ok' => true,
