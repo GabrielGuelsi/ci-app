@@ -3,6 +3,7 @@
 use App\Http\Controllers\AssessmentLeadController;
 use App\Http\Controllers\ProfileAssessmentController;
 use App\Http\Middleware\SetLocale;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 $pageRoutes = function () {
@@ -59,3 +60,26 @@ Route::middleware(SetLocale::class)
     ->prefix('pt')
     ->name('pt.')
     ->group($pageRoutes);
+
+// Public confirmation page ZapSign redirects students to after they finish
+// signing the Higher Education Agreement. The copy ships in pt-BR, es and en:
+// the canonical URL auto-detects the visitor's browser language, and the
+// explicit /pt, /es, /en variants let ZapSign (or the on-page switcher) lock a
+// language. The page is fully static and carries no signer/agreement data.
+Route::middleware(SetLocale::class)->group(function () {
+    $renderAgreementSigned = function (string $locale) {
+        app()->setLocale($locale);
+
+        return view('agreement-signed');
+    };
+
+    Route::get('/agreement-signed', function (Request $request) use ($renderAgreementSigned) {
+        return $renderAgreementSigned($request->getPreferredLanguage(['pt', 'es', 'en']));
+    })->name('agreement-signed');
+
+    foreach (['pt', 'es', 'en'] as $agreementLocale) {
+        Route::get("/agreement-signed/{$agreementLocale}", function () use ($renderAgreementSigned, $agreementLocale) {
+            return $renderAgreementSigned($agreementLocale);
+        })->name("agreement-signed.{$agreementLocale}");
+    }
+});
